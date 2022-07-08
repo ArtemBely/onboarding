@@ -4,18 +4,26 @@ var nodeExternals = require('webpack-node-externals');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 var browserConfig = {
-      entry: ['babel-regenerator-runtime', './src/browser/index.js'],
+      entry: ['babel-regenerator-runtime', './dist/browser/index.js'],
       output: {
         path: path.resolve(__dirname, 'public'),
-        filename: 'bundle.js',
+        filename: 'bundles/bundle.js',
         publicPath: '/'
       },
       mode: 'production',
       module: {
         rules: [
           {
-            test: /\.(js)$/,
-            use: 'babel-loader'
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader'
+            }
+          },
+          {
+            test: /\.tsx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/
           },
           {
             test: /\.css$/,
@@ -44,6 +52,9 @@ var browserConfig = {
          }
         ]
       },
+      resolve: {
+          extensions: ['.tsx', '.ts', '.js'],
+      },
       plugins: [
         new webpack.DefinePlugin({
           __isBrowser__: "true"
@@ -55,20 +66,28 @@ var browserConfig = {
 }
 
 var serverConfig = {
-  entry: ['babel-regenerator-runtime', './src/server/index.js'],
+  entry: ['babel-regenerator-runtime', './dist/server/index.js'],
   target: 'node',
   externals: [nodeExternals()],
   output: {
     path: __dirname,
-    filename: 'server.js',
+    filename: 'serverDirection/server.js',
     publicPath: '/'
   },
   mode: 'production',
   module: {
     rules: [
       {
-         test: /\.(js)$/,
-         use: 'babel-loader'
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+             loader: 'babel-loader',
+           }
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       },
       {
          test: /\.css$/,
@@ -96,6 +115,9 @@ var serverConfig = {
         }
       }
     ]
+  },
+  resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new webpack.DefinePlugin({

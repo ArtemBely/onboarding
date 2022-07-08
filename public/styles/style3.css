@@ -1,0 +1,224 @@
+.grey_shape_border {
+  border: 2px solid #B9C5CB;
+}
+.wrap_first_part {
+  widows: 100%;
+  display: flex;
+  justify-content: center;
+}
+.first_part {
+  width: 1290px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 68px 85px;
+}
+.first_part_inside, .second_part_inside {
+  display: grid;
+  width: 440px;
+  height: 120px;
+}
+.five_part_inside {
+  position: relative;
+  top: -10px;
+}
+.wrap_title_yours, .wrap_title_salut, .wrap_title_nation {
+  width: 424px;
+  height: 64px;
+  background: #FFFFFF;
+  display: grid;
+  padding: 8px;
+}
+.wrap_title_yours {
+  grid-template-columns: repeat(4, 1fr);
+  grid-column: 1 / 3;
+}
+.wrap_title_salut {
+  grid-template-columns: repeat(3, 1fr);
+}
+.wrap_title_nation {
+  grid-template-columns: repeat(6, 1fr);
+}
+.each_title_yours, .each_title_salut, .each_title_nation, .each_title_yours_currency {
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 160%;
+  color: #627078;
+  margin: 0;
+}
+.each_title_salut {
+    width: 141px;
+}
+.each_title_yours {
+    width: 105px;
+}
+.each_title_nation {
+    width: 71px;
+}
+.choosen_type_blue {
+  background: #4FA0FF !important;
+  color: white !important;
+}
+.title_yours, .title_salut {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 160%;
+  font-family: 'Inter-Bold';
+  margin-top: 0;
+}
+.allCheckBoxes, .allCheckBoxes2, .allCheckBoxes7 {
+  position: absolute;
+  width: 105px;
+  height: 64px;
+  opacity: 0;
+  cursor: pointer;
+}
+.allCheckBoxes, {
+  width: 105px;
+}
+.allCheckBoxes2, {
+  width: 141px;
+}
+.com_input {
+  background: #FFFFFF;
+  padding: 20px;
+  width: 400px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 160%;
+  color: #627078;
+  border: none;
+  cursor: pointer;
+}
+.com_input::placeholder {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 160%;
+  color: #627078;
+  font-family: 'Inter-Regular';
+}
+.name_part_inside, .surname_part_inside {
+  margin-top: 10px;
+}
+#selectCountry {
+    background: #FFFFFF;
+    padding: 17px;
+    height: 64px;
+    width: 440px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    color: #627078;
+    border: none;
+    cursor: pointer;
+}
+.wrap_us {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -142px;
+}
+.us {
+  width: 1290px;
+  border: 2px 0px;
+  border-bottom: 2px solid #4FA0FF;
+  border-top: 2px solid #4FA0FF;
+  padding: 40px 0px;
+}
+.us_title {
+  font-family: 'Inter-Bold';
+  color: #15162D;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 140%;
+  grid-column: 1 / 3;
+}
+.choose_us {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 1290px;
+  height: 80px;
+  background: #ffffff;
+}
+.each_us {
+  width: 413px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #627078;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 160%;
+  margin: 8px;
+  cursor: pointer;
+}
+.allCheckBoxes3 {
+  position: absolute;
+  width: 413px;
+  height: 64px;
+  opacity: 0;
+  cursor: pointer;
+}
+.wrap_usPerson, .wrap_usPerson2 {
+  width: 1290px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.wrap_usPerson {
+    margin-top: 5px;
+}
+.wrap_usPerson2 {
+    margin-top: 25px;
+}
+.each_under_us {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      color: #15162D;
+      width: 616px;
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      grid-gap: 14px;
+      margin-top: 0px;
+}
+.wrap_main_checkbox2, .wrap_main_checkbox3 {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #4FA0FF;
+  backdrop-filter: blur(30px);
+}
+#case11 {
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+.dispNone {
+  display: none !important;
+}
+.digital1 {
+  grid-column: 1 / 3;
+  margin: 0;
+}
+.digital2 {
+  width: 1047px;
+  margin-top: 0;
+  position: relative;
+  top: -15px;
+  grid-column: 1 / 3;
+}
+.greenCard {
+  font-weight: 400;
+  font-size: 20px;
+  color: #15162D;
+  width: 417px;
+}
+#digital1 {
+  margin-bottom: 26px;
+}

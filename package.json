@@ -2,35 +2,49 @@
   "name": "collab",
   "version": "1.0.0",
   "description": "project for official job with documents",
-  "main": "server.js",
+  "main": "serverDirection/server.js",
   "privat": true,
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      "@babel/preset-typescript",
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
     ],
     "plugins": [
       "@babel/plugin-proposal-object-rest-spread",
       "@babel/plugin-proposal-class-properties",
       [
-        "@babel/plugin-transform-runtime"
+        "@babel/plugin-transform-runtime",
+        {
+          "regenerator": true
+        }
       ]
     ]
   },
   "scripts": {
-    "start": "webpack && node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack && node serverDirection/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "author": "Artem Belyshev",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.13.10",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
     "@babel/plugin-transform-runtime": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "@babel/runtime": "^7.13.10",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.25",
+    "@types/react-router-dom": "^5.3.3",
     "axios": "^0.21.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -60,7 +74,6 @@
     "flash": "^1.1.0",
     "mini-css-extract-plugin": "^1.3.9",
     "mongoose": "^5.12.0",
-    "multer": "^1.4.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react": "^17.0.1",
@@ -70,9 +83,9 @@
     "react-spring": "^8.0.27",
     "serialize-javascript": "^5.0.1",
     "style-loader": "^2.0.0",
-    "twilio": "^3.59.0",
+    "ts-loader": "^9.2.8",
+    "ts-node": "^10.7.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.26.2",
     "webpack-node-externals": "^2.5.2"
   },
   "repository": {
@@ -84,6 +97,16 @@
   },
   "homepage": "https://github.com/ArtemBely/collab#readme",
   "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/connect-flash": "0.0.37",
+    "@types/express-session": "^1.17.4",
+    "@types/passport": "^1.0.7",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.2",
+    "@types/serialize-javascript": "^5.0.2",
+    "typescript": "^4.6.3",
+    "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
   }
 }
