@@ -1,5 +1,15 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 class YourAccount extends Component {
     constructor(props, state) {
         super(props, state);
@@ -30,12 +40,23 @@ class YourAccount extends Component {
         }
         this.state = {
             check1: false,
-            check2: false
+            check2: false,
+            allCountries: []
         };
         this.checkBlue1 = React.createRef();
         this.checkBlue2 = React.createRef();
         this.chekBoxInside1 = React.createRef();
         this.chekBoxInside2 = React.createRef();
+    }
+    componentDidMount() {
+        const start = () => __awaiter(this, void 0, void 0, function* () {
+            yield axios.get('countries.json')
+                .then((res) => {
+                this.setState({ allCountries: res.data });
+            })
+                .catch(err => console.log(err));
+        });
+        start();
     }
     render() {
         return (React.createElement("div", { className: 'wrap_first_acc_checkbox' },
@@ -52,9 +73,7 @@ class YourAccount extends Component {
                     React.createElement("div", { className: 'company_type' },
                         React.createElement("p", { className: 'title_salut' }, "Country of registration"),
                         React.createElement("p", { className: 'title_salut' }, "Entity type (beneficial ownership)"),
-                        React.createElement("select", { id: 'selectLegalCountry', className: 'com_input' },
-                            React.createElement("option", { value: "", disabled: true, selected: true }, "Country"),
-                            React.createElement("option", { value: "hurr" }, "Durr")),
+                        React.createElement("select", { id: 'selectLegalCountry', className: 'com_input' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name)))),
                         React.createElement("select", { id: 'selectLegalType', className: 'com_input' },
                             React.createElement("option", { value: "", disabled: true, selected: true }, "Type"),
                             React.createElement("option", { value: "Operative company" }, "Operative company"),

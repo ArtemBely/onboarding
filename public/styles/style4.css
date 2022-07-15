@@ -72,7 +72,7 @@
 .extra_name_input:placeholder {
   color: #627078;
 }
-.alternative_inputs {
+.alternative_inputs, .alternative_inputs2 {
   width: 420px;
   height: 64px;
   padding-left: 20px;
@@ -82,6 +82,8 @@
   line-height: 160%;
   border: none;
   margin-top: 2px;
+}
+.alternative_inputs {
   margin-bottom: 51px;
 }
 .alternative_inputs:placeholder {
@@ -136,7 +138,7 @@
 .wrap_titles_empl {
 
 }
-.each_empl, .each_empl2 {
+.each_empl, .each_empl2, .each_empl22 {
   font-weight: 400;
   font-size: 20px;
   line-height: 160%;

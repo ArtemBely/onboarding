@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 class Assets extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props, state) {
+        super(props, state);
         let user;
         if (typeof window != "undefined") {
             user = window.__INITIAL_DATA__;
@@ -13,7 +13,7 @@ class Assets extends Component {
     render() {
         return (React.createElement("div", { className: 'wrap_assets' },
             React.createElement("div", { className: 'assets' },
-                React.createElement("p", { className: 'us_title', id: 'orig_asset_title' }, "Origin of assets"),
+                React.createElement("p", { className: 'us_title', style: { display: this.props.show && this.props.show == 'hide' ? "none" : "block" }, id: 'orig_asset_title' }, "Origin of assets"),
                 React.createElement("div", { className: 'each_asset' },
                     React.createElement("p", { className: 'wrap_main_checkbox3' },
                         React.createElement("input", { type: 'checkbox', className: 'main_checkbox', onChange: () => {

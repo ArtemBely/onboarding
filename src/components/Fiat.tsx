@@ -153,7 +153,7 @@ render() {
                 <p className='us_title pi_title'>Declaration of beneficial ownership</p>
                 <div className='wrap_transfer2'>
                     <p className='corr_text2'>I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.</p>
-                    <p className='wrap_main_checkbox2' ref={this.thirdBlue}>
+                    <p className='wrap_main_checkbox2' ref={this.thirdBlue} id='tablet_cb'>
                         <input type='checkbox' onChange={this.changeInputColor23} className='main_checkbox'/>
                     </p>
                 </div>

@@ -8,7 +8,7 @@ function Financial() {
     return (React.createElement("p", { className: 'wrap_components' },
         React.createElement(Header, null),
         React.createElement(ShapeSlide, null),
-        React.createElement(Assets, null),
+        React.createElement(Assets, { show: 'show' }),
         React.createElement(IncomeSlider, null),
         React.createElement(Fiat, null)));
 }

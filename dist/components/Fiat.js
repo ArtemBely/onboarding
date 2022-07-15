@@ -117,7 +117,7 @@ class Fiat extends Component {
                 React.createElement("p", { className: 'us_title pi_title' }, "Declaration of beneficial ownership"),
                 React.createElement("div", { className: 'wrap_transfer2' },
                     React.createElement("p", { className: 'corr_text2' }, "I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship."),
-                    React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.thirdBlue },
+                    React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.thirdBlue, id: 'tablet_cb' },
                         React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor23, className: 'main_checkbox' }))),
                 React.createElement("p", { className: 'case2' }, "If you intend to transfer Bitcoin (BTC) or Ether (ETH) to your PI Digital wallet from a private wallet, you will be asked to confirm your beneficial ownership by demonstrating access and control of your digital assets"),
                 React.createElement("p", { className: 'us_title pi_title' }, "Declarations / Disclaimers"),

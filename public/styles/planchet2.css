@@ -1,0 +1,14 @@
+@media (min-width: 730px) and (max-width: 1020px) {
+  body {
+      -moz-transform: scale(0.52, 0.52); /* Moz-browsers */
+      zoom: 0.52; /* Other non-webkit browsers */
+      zoom: 52%; /* Webkit browsers */
+  }
+}
+@media (min-width: 576px) and (max-width: 730px) {
+  body {
+      -moz-transform: scale(0.41, 0.41); /* Moz-browsers */
+      zoom: 0.41; /* Other non-webkit browsers */
+      zoom: 41%; /* Webkit browsers */
+  }
+}

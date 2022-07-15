@@ -1,0 +1,173 @@
+@media (min-width: 1020px) and (max-width: 1290px) {
+  .header {
+    width: 992px;
+    grid-template-columns: 200px 454px 1fr;
+  }
+  .first_acc_checkbox, .company_type {
+    width: 981px;
+  }
+  .each_us {
+    width: auto;
+  }
+  .each_white_per {
+    width: auto;
+    height: auto;
+  }
+  .long_input {
+        width: 970px !important;
+  }
+  .each_under_us {
+        width: 471px;
+  }
+  .wrap_empl_status {
+        width: 970px;
+        height: 64px;
+        grid-template-columns: 150px 158px 222px 165px 119px 154px
+}
+.title_yours, .title_salut {
+  width: 424px;
+}
+.allCheckBoxes4 {
+      width: 162px;
+}
+.allCheckBoxes3 {
+  width: 300px;
+}
+.wrap_prof_status {
+  width: 979px;
+  height: 64px;
+  grid-template-columns: 75px 208px 221px 218px 79px 177px;
+}
+.main_slider_company {
+    width: 992px;
+    height: 100%;
+    display: grid;
+    grid-gap: 21px;
+    align-items: center;
+    grid-template-columns: 65px 47px 65px 47px 65px 47px 65px 47px 65px 47px 65px 47px 65px;
+}
+.wrap_turn_status {
+      width: 968px;
+      grid-template-columns: 180px 255px 314px 221px;
+}
+  .your_account, .first_part, .us, .choose_us, .wrap_each_per,
+  .alternative, .correspondence, .employment, #selectCode, #selectCode2,
+  .wrap_usPerson, .wrap_usPerson2, .digital2, .slider, .fiat, .contract,
+  .contract, .verification, .complete, #contract_txt, .first_part_company,
+  .companyEmployers, #company_reg_txt, #company_fiat_txt, .pi_title,
+  .wrap_case2_id, .case2_id, .white_agree_block, .wrap_white_agree_block,
+  .companyInfo, .wrap_transfer3, .wrap_company_disclaimer, .parties, .each_blue_bottom,
+  .mainSettings, .menuBarCompany,.wrap_setts, .accCompDet, .each_personalEdit4,
+  .personalEdit, .each_personalEdit, .each_personalEdit2, .each_personalEdit3, .partiesAll,
+  .menuBar, .wrap_edit_email, .wrap_edit_pass, .filtrBar {
+    width: 992px;
+  }
+  .filtrSlide {
+    grid-template-columns: 379px 1px 1fr 1fr 560px;
+  }
+  .forgot_pass {
+        top: 87px;
+        left: 4px;
+  }
+  #editSpec1 {
+    left: 0px !important;
+  }
+  .forgot_pass2 {
+    top: -125px !important;
+  }
+  .each_personalEdit, .each_personalEdit2, .each_personalEdit3 {
+    overflow: hidden;
+  }
+  .wrap_main_checkbox32 {
+        left: 21px;
+  }
+  .companyEmployers {
+    grid-template-columns: repeat(2, 496px);
+  }
+  .each_personalEdit4 {
+    overflow: hidden;
+  }
+  #spec4 {
+        left: 902px;
+  }
+  #edit2 {
+    left: 380px;
+  }
+  .slider {
+        width: 955px;
+  }
+  .dashed_block {
+    width: 871px;
+  }
+  .dashed_block2 {
+    width: 890px;
+  }
+  .each_asset {
+    position: relative;
+    overflow: hidden;
+  }
+  .corr_text2, .corr_text4 {
+        width: 941px;
+  }
+  #tablet_cb {
+    position: relative;
+    top: -30px;
+  }
+  #tablet_cb2 {
+    position: relative;
+    top: -62px;
+  }
+  .extra_name_input {
+    width: 970px;
+  }
+  .green_line, .green_line_company {
+    width: 30px;
+  }
+  .wrap_text_bellowCompanySlider {
+    grid-template-columns: 56px 179px 186px 128px 152px 129px 100px;
+    left: 0px;
+    width: 992px;
+}
+  .wrap_slider {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    height: 165px;
+    position: relative;
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 50px;
+}
+.main_slider {
+    width: 981px;
+    height: 100%;
+    display: grid;
+    grid-gap: 53px;
+    align-items: center;
+    grid-template-columns: 50px 30px 50px 30px 50px 30px 50px 30px 50px 30px 50px;
+}
+.wrap_text_bellowSlider {
+    display: grid;
+    grid-template-columns: 56px 209px 192px 184px 167px 166px;
+    grid-row: 2 / 3;
+    position: relative;
+    top: -5px;
+    left: 0px;
+}
+.title_account {
+  font-size: 30px;
+  line-height: 140%;
+}
+.each_acc_text {
+    width: 975px;
+}
+.assets {
+  width: 990px;
+  display: grid;
+  grid-template-columns: 342px 400px 246px;
+}
+.corr2 {
+    top: -40px !important;
+    left: 35px;
+    font-size: 16px;
+}
+}

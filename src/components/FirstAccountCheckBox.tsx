@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 declare global {
     interface Window {
@@ -9,7 +10,8 @@ declare global {
 
 interface iState {
   check1: boolean,
-  check2: boolean
+  check2: boolean,
+  allCountries: Array<object>
 }
 
 class YourAccount extends Component<{}, iState>{
@@ -32,7 +34,8 @@ class YourAccount extends Component<{}, iState>{
 
     this.state = {
         check1: false,
-        check2: false
+        check2: false,
+        allCountries: []
     }
 
     this.checkBlue1 = React.createRef();
@@ -40,6 +43,18 @@ class YourAccount extends Component<{}, iState>{
     this.chekBoxInside1 = React.createRef();
     this.chekBoxInside2 = React.createRef();
 
+  }
+
+  componentDidMount () {
+   const start = async () => {
+      await axios.get('countries.json')
+      .then((res) => {
+          this.setState({ allCountries: res.data });
+        }
+      )
+      .catch(err => console.log(err));
+    }
+    start();
   }
 
   changeInputColor = () => {
@@ -80,8 +95,12 @@ render() {
                   <p className='title_salut'>Country of registration</p>
                   <p className='title_salut'>Entity type (beneficial ownership)</p>
                   <select id='selectLegalCountry' className='com_input'>
-                     <option value="" disabled selected>Country</option>
-                     <option value="hurr">Durr</option>
+                      {this.state.allCountries.map((item:any, key) => (
+                            <option value={key==0 ? '' : item.name}
+                              disabled={key==0 ? true : false}
+                              selected={key==0 ? true : false}>
+                            {item.name}</option>
+                      ))}
                   </select>
                   <select id='selectLegalType' className='com_input'>
                      <option value="" disabled selected>Type</option>

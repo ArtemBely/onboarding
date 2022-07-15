@@ -8,6 +8,8 @@ import Finish from './Finish';
 import Company from './CompanyComponents/Company';
 import CompanyPersonal from './CompanyComponents/CompanyPersonal';
 import Parties from './CompanyComponents/Parties';
+import Profile from './ProfileComponents/Profile';
+import Admin from './AdminComponents/Admin';
 const routes = [
     {
         path: '/registration',
@@ -59,5 +61,16 @@ const routes = [
         exact: true,
         component: Parties
     },
+    {
+        path: '/admin',
+        exact: true,
+        component: Admin
+    },
+    {
+        path: ['/profile', '/account_details', '/account_finances',
+            '/account_documents', '/connected_parties', '/account_company_details'],
+        exact: true,
+        component: Profile
+    }
 ];
 export default routes;

@@ -71,6 +71,18 @@ centralTitle = () => {
         <p className='centralTitle'>Connected parties</p>
       )
     }
+    if(typeof window != "undefined" && (window.location.pathname == '/profile' || window.location.pathname == '/account_details' ||
+        window.location.pathname == '/account_finances' || window.location.pathname == '/account_documents' || window.location.pathname == '/connected_parties' ||
+        window.location.pathname == '/account_company_details')) {
+      return (
+        <p className='centralTitle'>Settings</p>
+      )
+    }
+    if(typeof window != "undefined" && window.location.pathname == '/admin') {
+      return (
+        <p className='centralTitle'>Operator's account</p>
+      )
+    }
 
     return
 }

@@ -6,12 +6,16 @@ declare global {
     }
 }
 
-class Assets extends Component{
+interface iProps {
+  show: string
+}
+
+class Assets extends Component<iProps, {}>{
 
 
-  constructor(props: any) {
+  constructor(props: iProps, state: any) {
 
-    super(props)
+    super(props, state)
 
     let user;
 
@@ -31,7 +35,8 @@ render() {
 			return (
 				<div className='wrap_assets'>
               <div className='assets'>
-                  <p className='us_title' id='orig_asset_title'>Origin of assets</p>
+                  <p className='us_title' style={{ display: this.props.show && this.props.show == 'hide' ? "none" : "block" }}
+                   id='orig_asset_title'>Origin of assets</p>
 
                   <div className='each_asset'>
                       <p className='wrap_main_checkbox3'>

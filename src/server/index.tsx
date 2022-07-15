@@ -25,9 +25,12 @@ import verifRouter from './routers/verification';
 import compVerifRouter from './routers/company_verification';
 import finishRouter from './routers/finish';
 import compFinishRouter from './routers/company_finish';
+import partiesRouter from './routers/connected_parties';
 import companyRouter from './routers/company_details';
 import perCompRouter from './routers/company_personal';
-import partiesRouter from './routers/parties';
+import accCompRouter from './routers/account_company_details';
+import profileRouter from './routers/profile';
+import adminRouter from './routers/admin';
 
 const app: Application = express();
 const CONNECTION_URI: any = process.env.MONGODB_URI;
@@ -98,7 +101,10 @@ app.use('/finish', finishRouter);
 app.use('/company_finish', finishRouter);
 app.use('/company_details', companyRouter);
 app.use('/company_personal', perCompRouter);
-app.use('/parties', partiesRouter);
+app.use('/connected_parties', partiesRouter);
+app.use('/account_company_details', accCompRouter);
+app.use('/admin', adminRouter);
+app.use(['/profile', '/account_details', '/account_finances', '/account_documents'], profileRouter);
 
 app.get('*', (req: Request, res: Response, next: NextFunction) => {
   const activeRouter: any = Routes.find((route: any) => matchPath(req.url, route)) || {};
@@ -121,7 +127,7 @@ app.get('*', (req: Request, res: Response, next: NextFunction) => {
                   <title>collab</title>
                   <link rel="stylesheet" type="text/css" href="../main.css">
                     <meta name="viewport" content="width=device-width, initial-scale=1">
-                      <script src='bundles//bundle.js' defer></script>
+                      <script src='bundles/bundle.js' defer></script>
                         <script>window.__INITIAL_DATA__= ${serialize(user)}</script>
                             <title>COLLAB</title>
                           </head>

@@ -1,0 +1,90 @@
+.wrap_black_filtr {
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.dispFlex {
+  display: flex !important;
+}
+.window_filtr {
+  width: 440px;
+  height: 284px;
+  padding: 30px;
+  background: #F4F7F9;
+  border: 1px solid #B9C5CB;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  grid-gap: 10px;
+}
+.saveFilter, .resetFilter {
+  width: 160px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter-Bold';
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 160%;
+  border: none;
+}
+.resetFilter {
+  background: #B9C5CB;
+  margin: 0;
+}
+.saveFilter {
+  background: #4FA0FF;
+  grid-column: 1 / 2;
+}
+#selectFilter {
+      grid-column: 1 / 3;
+}
+#txtFilter, #txtColumns {
+      margin: 0;
+}
+.window_parametrs {
+  width: 286px;
+  height: 442px;
+  padding: 30px;
+  background: #F4F7F9;
+  border: 1px solid #B9C5CB;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+.wrap_each_filter_inside {
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+  line-height: 160%;
+      margin: 0;
+}
+.wrap_inside_parametrs {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  grid-gap: 0px 10px;
+  position: relative;
+  top: 13px;
+  margin-bottom: 10px;
+}
+.wrap_main_checkboxFilter {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #4FA0FF;
+  backdrop-filter: blur(30px);
+  position: relative;
+  top: 0px;
+  margin: 6px 0px;
+}
+#saveBtn1 {
+  position: relative;
+  top: 13px;
+}

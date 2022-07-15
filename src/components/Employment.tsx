@@ -304,7 +304,7 @@ render() {
 
                        <p className='title_salut'>Faculty/course</p>
                        <input type='text' placeholder='Faculty/course'  className='alternative_inputs long_input'/>
-                   </div>
+                   </div> 
 
                    <div className='main_info'>
                           <p className='title_salut'>Company name</p>

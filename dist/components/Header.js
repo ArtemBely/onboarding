@@ -33,6 +33,14 @@ class Header extends Component {
             if (typeof window != "undefined" && window.location.pathname == '/parties') {
                 return (React.createElement("p", { className: 'centralTitle' }, "Connected parties"));
             }
+            if (typeof window != "undefined" && (window.location.pathname == '/profile' || window.location.pathname == '/account_details' ||
+                window.location.pathname == '/account_finances' || window.location.pathname == '/account_documents' || window.location.pathname == '/connected_parties' ||
+                window.location.pathname == '/account_company_details')) {
+                return (React.createElement("p", { className: 'centralTitle' }, "Settings"));
+            }
+            if (typeof window != "undefined" && window.location.pathname == '/admin') {
+                return (React.createElement("p", { className: 'centralTitle' }, "Operator's account"));
+            }
             return;
         };
         let user;

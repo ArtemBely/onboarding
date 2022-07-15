@@ -94,6 +94,16 @@ class CompanyEmployers extends Component {
                 (_d = (_c = this.secondBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.remove('blueCheckBox') :
                 (_f = (_e = this.secondBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox');
         };
+        this.changeWhite1 = () => {
+            this.setState({ check12: true, check13: false });
+            document.querySelectorAll('.each_agree_block')[0].classList.add('blue_each_white_per');
+            document.querySelectorAll('.each_agree_block')[1].classList.remove('blue_each_white_per');
+        };
+        this.changeWhite2 = () => {
+            this.setState({ check12: false, check13: true });
+            document.querySelectorAll('.each_agree_block')[1].classList.add('blue_each_white_per');
+            document.querySelectorAll('.each_agree_block')[0].classList.remove('blue_each_white_per');
+        };
         let user;
         if (typeof window != "undefined") {
             user = window.__INITIAL_DATA__;
@@ -109,7 +119,9 @@ class CompanyEmployers extends Component {
             check8: false,
             check9: false,
             check10: true,
-            check11: false
+            check11: false,
+            check12: true,
+            check13: false
         };
     }
     render() {
@@ -155,7 +167,7 @@ class CompanyEmployers extends Component {
                         " and therefore not derived from any illicit activity ",
                         React.createElement("span", { className: 'width_font' }, "and (ii) fully tax compliant"),
                         " according to the laws and regulations applicable in the country of incorporation/existence of the company."),
-                    React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.thirdBlue },
+                    React.createElement("p", { className: 'wrap_main_checkbox2', id: 'tablet_cb2', ref: this.thirdBlue },
                         React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor8, className: 'main_checkbox' }))),
                 React.createElement("p", { className: 'us_title', id: 'company_reg_txt' }, "Registered office address at the place of incorporation"),
                 React.createElement("p", { className: 'title_salut' }, "Street, No."),
@@ -209,6 +221,22 @@ class CompanyEmployers extends Component {
                     React.createElement("p", { className: 'corr_text2' }, "No transfer"),
                     React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.secondBlue },
                         React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor22, className: 'main_checkbox' }))),
+                React.createElement("p", { className: 'us_title pi_title' }, "Declarations / Disclaimers"),
+                React.createElement("div", { className: 'wrap_company_disclaimer' },
+                    React.createElement("p", { className: 'case2 case2_id margin0' }, "PI Digital would like to send you updates and news regarding its services and PI Digital itself by email. By signing up, you agree to PI Digital using your personal data in accordance with our Privacy Policy. You can unsubscribe at any time by clicking on the \u00ABUnsubscribe\u00BB link at the bottom of your email. For further information please see our Privacy Policy."),
+                    React.createElement("div", { className: 'wrap_white_agree_block' },
+                        React.createElement("div", { className: 'white_agree_block' },
+                            React.createElement("p", { className: 'each_agree_block blue_each_white_per' },
+                                React.createElement("input", { type: 'checkbox', checked: this.state.check12, onChange: this.changeWhite1, className: 'allCheckBoxes8' }),
+                                "I agree to receive updates and news from PI Digital via email"),
+                            React.createElement("p", { className: 'each_agree_block' },
+                                React.createElement("input", { type: 'checkbox', checked: this.state.check13, onChange: this.changeWhite2, className: 'allCheckBoxes8' }),
+                                "I do not agree to receive updates and news from PI Digital via email"))),
+                    React.createElement("div", { className: 'wrap_case2_id' },
+                        React.createElement("p", { className: 'case2 case2_id' }, "Through the completion of this questionnaire no contract or legal binding relationship between you and PI Digital will be concluded. Furthermore, the completion of the questionnaire is no contract request and is no guarantee that a contractual relationship between you and PI Digital will ever be concluded."),
+                        React.createElement("p", { className: 'case2 case2_id' }, "Any dispute, controversy or claim arising out of or relating to the completion, interpretation, performance or invalidity of this questionnaire shall be decided by the competent courts in the Canton of Zug, Switzerland."),
+                        React.createElement("p", { className: 'case2 case2_id' }, "This questionnaire shall be governed by and construed in accordance with the laws of Switzerland, without giving effect to any choice or conflict of law provision or rule."),
+                        React.createElement("p", { className: 'case2 case2_id' }, "Please note that it is not possible to completely opt out of receiving email from PI Digital, as performing certain transactions would require email approval from the client. The above option only applies to receiving news and promotional updates via email."))),
                 React.createElement("div", { className: 'wrap_next_buttons5' },
                     React.createElement("div", { className: 'first_next_buttons' },
                         React.createElement(NavLink, { to: '/', className: 'back_button' }, "Back"),

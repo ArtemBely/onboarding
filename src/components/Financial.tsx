@@ -10,7 +10,7 @@ function Financial(){
       <p className='wrap_components'>
           <Header />
           <ShapeSlide />
-          <Assets />
+          <Assets show={'show'} />
           <IncomeSlider />
           <Fiat />
       </p>

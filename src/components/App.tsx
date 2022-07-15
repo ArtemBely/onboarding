@@ -8,6 +8,11 @@ import '../../public/styles/style4.css';
 import '../../public/styles/style5.css';
 import '../../public/styles/style6.css';
 import '../../public/styles/style7.css';
+import '../../public/styles/style8.css';
+import '../../public/styles/style9.css';
+import '../../public/styles/style10.css';
+import '../../public/styles/planchet1.css';
+import '../../public/styles/planchet2.css';
 
 export class App extends Component<any> {
   render() {
