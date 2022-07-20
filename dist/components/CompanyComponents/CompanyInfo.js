@@ -53,15 +53,15 @@ class CompanyInfo extends Component {
                             React.createElement("p", { className: 'extract_inside' }, "If corporate documents older than 12 months: Certificate of Incumbency and if applicable Certificate of Good Standing"))),
                     React.createElement("p", { className: 'title_salut' }, "Entity name"),
                     React.createElement("p", { className: 'title_salut' }, "Tax identification number"),
-                    React.createElement("input", { type: 'text', placeholder: 'Entity name', className: 'alternative_inputs' }),
+                    React.createElement("input", { type: 'text', placeholder: 'Entity name', className: 'alternative_inputs', id: 'alter1' }),
                     React.createElement("input", { type: 'text', placeholder: 'Tax identification number', className: 'alternative_inputs' }),
                     React.createElement("p", { className: 'title_salut' }, "Country of registration"),
                     React.createElement("p", { className: 'title_salut' }, "Entity type (beneficial ownership)"),
-                    React.createElement("input", { type: 'text', placeholder: 'Germany', className: 'alternative_inputs' }),
+                    React.createElement("input", { type: 'text', placeholder: 'Germany', id: 'alter2', className: 'alternative_inputs' }),
                     React.createElement("input", { type: 'text', placeholder: 'Foundation', className: 'alternative_inputs' }),
                     React.createElement("p", { className: 'title_salut' }, "Date of incorporation"),
                     React.createElement("p", { className: 'title_salut' }, "Website"),
-                    React.createElement("input", { type: 'text', ref: this.dateInput, placeholder: 'DD/MM/YYYY', onFocus: () => {
+                    React.createElement("input", { type: 'text', ref: this.dateInput, placeholder: 'DD/MM/YYYY', id: 'alter3', onFocus: () => {
                             if (this.dateInput.current != null) {
                                 this.dateInput.current.type = "date";
                             }

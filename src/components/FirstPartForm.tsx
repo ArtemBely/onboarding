@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 declare global {
     interface Window {
@@ -8,6 +9,7 @@ declare global {
 
 interface iState {
   user: object | undefined,
+  allCountries: Array<object>,
   check1: boolean,
   check2: boolean,
   check3: boolean,
@@ -52,6 +54,7 @@ class FirstPartForm extends Component<{}, iState>{
 
     this.state = {
         user,
+        allCountries: [],
         check1: true,
         check2: false,
         check3: false,
@@ -81,6 +84,18 @@ class FirstPartForm extends Component<{}, iState>{
     this.twelveTitle = React.createRef();
     this.thirtheenTitle = React.createRef();
     this.dateInput = React.createRef();
+  }
+
+  componentDidMount () {
+   const start = async () => {
+      await axios.get('countries.json')
+      .then((res) => {
+          this.setState({ allCountries: res.data });
+        }
+      )
+      .catch(err => console.log(err));
+    }
+    start();
   }
 
 changeOneTitle = () => {
@@ -228,19 +243,23 @@ render() {
               <div className='country_part_inside'>
                   <p className='title_salut'>Country of origin (Nationality)</p>
                   <select id='selectCountry' className='com_input'>
-                     <option value="" disabled selected>Country</option>
-                     <option value="hurr">Durr</option>
+                      {this.state.allCountries.map((item:any, key) => (
+                            <option value={key==0 ? '' : item.name}
+                              disabled={key==0 ? true : false}
+                              selected={key==0 ? true : false}>
+                            {item.name}</option>
+                      ))}
                   </select>
               </div>
               <div className='five_part_inside'>
                   <p className='title_yours'>Please enter how many other nationalities you have</p>
                   <div className='wrap_title_nation'>
-                     <p className='each_title_nation choosen_type_blue' ref={this.eightTitle}>0 <input type='checkbox' checked={this.state.check31} value="0" onChange={this.changeEightTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.nineTitle}>1 <input type='checkbox' checked={this.state.check32} value="1" onChange={this.changeNineTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.tenTitle}>2 <input type='checkbox' checked={this.state.check33} value="2" onChange={this.changeTenTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.elevenTitle}>3 <input type='checkbox' checked={this.state.check34} value="3" onChange={this.changeElevenTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.twelveTitle}>4 <input type='checkbox' checked={this.state.check35} value="4" onChange={this.changeTwelveTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.thirtheenTitle}>5 <input type='checkbox' checked={this.state.check36} value="5" onChange={this.changeThirtheenTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation choosen_type_blue' ref={this.eightTitle}>0 <input type='checkbox' checked={this.state.check31} name={this.state.check31 ? 'nationalities' : ''} value="0" onChange={this.changeEightTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.nineTitle}>1 <input type='checkbox' checked={this.state.check32} name={this.state.check32 ? 'nationalities' : ''} value="1" onChange={this.changeNineTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.tenTitle}>2 <input type='checkbox' checked={this.state.check33} name={this.state.check33 ? 'nationalities' : ''} value="2" onChange={this.changeTenTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.elevenTitle}>3 <input type='checkbox' checked={this.state.check34} name={this.state.check34 ? 'nationalities' : ''} value="3" onChange={this.changeElevenTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.twelveTitle}>4 <input type='checkbox' checked={this.state.check35} name={this.state.check35 ? 'nationalities' : ''} value="4" onChange={this.changeTwelveTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.thirtheenTitle}>5 <input type='checkbox' checked={this.state.check36} name={this.state.check36 ? 'nationalities' : ''} value="5" onChange={this.changeThirtheenTitle} className='allCheckBoxes'/></p>
                   </div>
               </div>
 					</div>

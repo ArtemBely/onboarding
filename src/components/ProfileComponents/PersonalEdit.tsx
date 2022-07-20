@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 declare global {
     interface Window {
@@ -8,6 +9,7 @@ declare global {
 
 interface iState {
   user: object | undefined,
+  allCountries: Array<object>,
   count1: number,
   check1: boolean,
   check2: boolean,
@@ -100,6 +102,7 @@ class PersonalEdit extends Component<{}, iState>{
 
     this.state = {
       user,
+      allCountries: [],
       count1: 0,
       check1: true,
       check2: false,
@@ -145,6 +148,18 @@ class PersonalEdit extends Component<{}, iState>{
       profession: "Profession"
     }
 
+  }
+
+  componentDidMount () {
+   const start = async () => {
+      await axios.get('countries.json')
+      .then((res) => {
+          this.setState({ allCountries: res.data });
+        }
+      )
+      .catch(err => console.log(err));
+    }
+    start();
   }
 
   changeOneTitle = () => {
@@ -789,8 +804,12 @@ render() {
                         <p className='each_edit_person indicateChange' onClick={this.showHiddenEdit6} ref={this.dr6}>Dominicana</p>
                         <div className='hiddenEdit dispNone'>
                             <select id='selectCountry' className='com_input'>
-                               <option value="" disabled selected>Country</option>
-                               <option value="hurr">Durr</option>
+                                {this.state.allCountries.map((item:any, key) => (
+                                      <option value={key==0 ? '' : item.name}
+                                        disabled={key==0 ? true : false}
+                                        selected={key==0 ? true : false}>
+                                      {item.name}</option>
+                                ))}
                             </select>
                             <div className='wrap_action_buttons2'>
                                  <div className='action_btns2'>
@@ -826,7 +845,7 @@ render() {
                         <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 7 })}
                         onMouseUp={this.showHiddenEdit8}>No US person</p>
 
-                        <div className='hiddenEdit fullScreen dispNone'>
+                        <div className='hiddenEdit fullScreen specFullScreen dispNone'>
                           <div className='choose_us'>
                               <p className='each_us choosen_type_blue' ref={this.us1}>No US person <input type='checkbox' checked={this.state.check5} value="No US person" onChange={this.changeTitle1} className='allCheckBoxes3'/></p>
                               <p className='each_us' ref={this.us2}>Former US person<input type='checkbox' checked={this.state.check6} value="Former US person" onChange={this.changeTitle2} className='allCheckBoxes3'/></p>
@@ -846,7 +865,7 @@ render() {
                         <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 8 })}
                         onMouseUp={this.showHiddenEdit8}>I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP</p>
 
-                        <div className='hiddenEdit fullScreen dispNone'>
+                        <div className='hiddenEdit fullScreen specFullScreen dispNone'>
                         <div className='wrap_each_per'>
                             <div className='each_white_per blue_each_white_per' ref={this.firstWhite} onClick={this.changeSecondWhite}>
                                 I declare that I am not and I was never qualified as a politically
@@ -912,7 +931,7 @@ render() {
                         </div>
                   </div>
 
-                  <p className='us_title personal_det_title'>Domicile address</p>
+                  <p className='us_title personal_det_title garBellow'>Domicile address</p>
 
                   <div className='each_personalEdit whiteFone'>
                         <p className='each_edit_person'>Street, No.</p>
@@ -1006,7 +1025,7 @@ render() {
                         </div>
                   </div>
 
-                  <p className='us_title personal_det_title'>Сorrespondence address</p>
+                  <p className='us_title personal_det_title garBellow'>Сorrespondence address</p>
 
                   <div className='each_personalEdit whiteFone'>
                         <p className='each_edit_person'>Сorrespondence address</p>
@@ -1027,7 +1046,7 @@ render() {
                         </div>
                   </div>
 
-                <div style={{ display: this.state.user && Object.values(this.state.user)[0] == 'admin' ? 'none' : 'block' }}>
+                <div id='specFullScreen' style={{ display: this.state.user && Object.values(this.state.user)[0] == 'admin' ? 'none' : 'block' }}>
                   <p className='us_title personal_det_title'>Employment status</p>
 
                   <div className='each_personalEdit'>
@@ -1035,7 +1054,7 @@ render() {
                         <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 18 })}
                         onMouseUp={this.showHiddenEdit8}>Employed</p>
 
-                        <div className='hiddenEdit fullScreen dispNone'>
+                        <div className='hiddenEdit fullScreen specFullScreen dispNone'>
                             <div className='wrap_empl_status'>
                                 <p className='each_empl choosen_type_blue'>Employed <input type='checkbox' checked={this.state.check8} onChange={this.changeInputColor} value='Employed' className='allCheckBoxes4'/></p>
                                 <p className='each_empl'>Self-Employed <input type='checkbox' checked={this.state.check9} onChange={this.changeInputColor2} value='Self-Employed' className='allCheckBoxes4'/></p>
@@ -1055,25 +1074,33 @@ render() {
                             <div className='main_info personal_main_info' id='mainInfo'>
                                    <p className='title_salut'>Company name</p>
                                    <p className='title_salut'>Company address</p>
-                                   <input type='text' placeholder='Company name' className='alternative_inputs'/>
+                                   <input type='text' placeholder='Company name' id='alter14' className='alternative_inputs'/>
                                    <input type='text' placeholder='Company address' className='alternative_inputs'/>
                                    <p className='title_salut'>Since</p>
                                    <p className='title_salut'>Country of (main) business activity</p>
-                                   <input type='text' ref={this.dateInput2} placeholder='DD/MM/YYYY' onFocus={() => {
+                                   <input type='text' ref={this.dateInput2} id='alter15' placeholder='DD/MM/YYYY' onFocus={() => {
                                      if(this.dateInput2.current != null) {
                                        this.dateInput2.current.type = "date";
                                      }
                                    }} className='com_input'/>
-                                   <select id='selectCountry' className='com_input'>
-                                      <option value="" disabled selected>Country</option>
-                                      <option value="hurr">Durr</option>
+                                   <select id='selectCountry' className='com_input alter16'>
+                                       {this.state.allCountries.map((item:any, key) => (
+                                             <option value={key==0 ? '' : item.name}
+                                               disabled={key==0 ? true : false}
+                                               selected={key==0 ? true : false}>
+                                             {item.name}</option>
+                                       ))}
                                    </select>
                                    <p className='title_salut' id='tit_website'>Website</p>
                                    <input type='text' placeholder='Website' className='alternative_inputs' id='website'/>
                                    <p className='title_salut'>Line of business or industry (NOGA code)</p>
                                    <select id='selectCode' className='com_input'>
-                                      <option value="" disabled selected>Code</option>
-                                      <option value="hurr">Durr</option>
+                                       {this.state.allCountries.map((item:any, key) => (
+                                             <option value={key==0 ? '' : item.name}
+                                               disabled={key==0 ? true : false}
+                                               selected={key==0 ? true : false}>
+                                             {item.name}</option>
+                                       ))}
                                    </select>
 
                                    <p className='title_salut' id='profession_title' ref={this.prof1}>Profession</p>
@@ -1172,8 +1199,12 @@ render() {
 
                         <div className='hiddenEdit dispNone'>
                             <select id='selectCountry' className='com_input'>
-                               <option value="" disabled selected>Country</option>
-                               <option value="hurr">Durr</option>
+                                {this.state.allCountries.map((item:any, key) => (
+                                      <option value={key==0 ? '' : item.name}
+                                        disabled={key==0 ? true : false}
+                                        selected={key==0 ? true : false}>
+                                      {item.name}</option>
+                                ))}
                             </select>
                             <div className='wrap_action_buttons2'>
                                  <div className='action_btns2'>
@@ -1239,7 +1270,7 @@ render() {
                         <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 26 })}
                         onMouseUp={this.showHiddenEdit8}>Staff</p>
 
-                        <div className='hiddenEdit fullScreen dispNone'>
+                        <div className='hiddenEdit fullScreen specFullScreen dispNone'>
                             <div className='wrap_prof_status'>
                                 <p className='each_empl22 choosen_type_blue'>Staff <input type='checkbox' checked={this.state.check43} onChange={this.changeInputColor20} value='Staff' className='allCheckBoxes5'/></p>
                                 <p className='each_empl22'>Lower Management <input type='checkbox' checked={this.state.check44} onChange={this.changeInputColor21} value='Lower Management' className='allCheckBoxes5'/></p>

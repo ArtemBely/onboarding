@@ -105,7 +105,7 @@
 .name_part_inside, .surname_part_inside {
   margin-top: 10px;
 }
-#selectCountry, #selectCode3, #selectFilter {
+#selectCountry, #selectCode3, #selectFilter, #selectCountrLow {
     background: #FFFFFF;
     padding: 17px;
     height: 64px;

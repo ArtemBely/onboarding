@@ -1,0 +1,229 @@
+@media (min-width: 320px) and (max-width: 576px) {
+  .wrap_alternative {
+        top: -43px;
+  }
+  #alter {
+    width: 237px;
+}
+.alternative {
+  width: 320px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.alternative_inputs, .alternative_inputs2 {
+    width: 298px;
+    font-size: 10px;
+    height: 48px;
+        grid-column: 1 / 2;
+}
+#home_address_txt {
+  margin-top: 0px;
+}
+#spec_inp1 {
+      grid-row: 2 / 3;
+}
+#spec_inp2 {
+      grid-row: 7 / 8;
+}
+#spec_inp3 {
+  grid-row: 11 / 12;
+}
+#spec_inp4 {
+      grid-row: 15 / 16;
+}
+.alternative_inputs {
+    margin-bottom: 22px;
+}
+.correspondence, .employment {
+  width: 320px;
+}
+.corr_text {
+  font-size: 10px;
+  line-height: 160%;
+  top: 10px;
+}
+.wrap_correspondence {
+      top: -56px;
+}
+.each_empl, .each_empl2, .each_empl22 {
+      font-size: 16px;
+      height: 84px;
+}
+.long_input {
+      width: 298px !important;
+}
+.wrap_empl_status {
+      width: 304px;
+      height: 514px;
+      grid-template-columns: 1fr;
+}
+.main_info {
+  grid-template-columns: 1fr;
+  top: 36px;
+}
+.for_student {
+  position: relative;
+  top: -6px;
+}
+.each_doc {
+      width: 320px;
+      grid-template-columns: 31px 1fr 23px;
+}
+.down_img {
+    width: 17px;
+    position: relative;
+    top: 21px;
+    margin-left: 6px;
+}
+#contract_txt {
+    width: 320px;
+    margin-top: 10px;
+}
+.not_agree {
+  top: -10px;
+  left: 12px;
+}
+.title_of_doc {
+  left: 12px;
+  top: 1px;
+}
+.down_img {
+      width: 25px;
+}
+.wrap_border_file {
+    width: 30px;
+    height: 30px;
+}
+.wrap_border_file > img {
+  width: 15px;
+}
+.title_of_doc {
+  font-size: 10px
+}
+.not_agree {
+  font-size: 8px;
+}
+.first_part_inside, .second_part_inside, .contract, .verification, .complete {
+  width: 320px;
+}
+.complete_button {
+      font-size: 13px;
+      width: 320px;
+      height: 50px;
+      position: relative;
+      top: -38px;
+}
+#corr_txt2 {
+      margin-bottom: 11px;
+}
+#business_title {
+    margin-top: 32px;
+    margin-bottom: 17px;
+}
+.wrap_Employment {
+    top: -56px;
+}
+#spec_inp5 {
+      grid-row: 2 / 3;
+}
+.corr_text3 {
+  font-size: 10px;
+  line-height: 160%;
+  color: #15162D;
+  position: relative;
+  top: 29px;
+  left: 37px;
+  width: 277px;
+}
+.wrap_transfer3 {
+    position: relative;
+    top: -22px;
+    width: 320px;
+    grid-column: 1 / 3;
+    margin-bottom: 0px;
+}
+#company_fiat_txt {
+  margin-bottom: 33px;
+}
+#spec_inp6 {
+      grid-row: 6 / 7;
+}
+#spec_inp7 {
+  position: relative;
+  top: 19px;
+}
+.each_empl2 {
+  height: 91px;
+}
+.wrap_next_buttons2 {
+  margin: 111px 0px 0px;
+}
+#last_func {
+      margin-bottom: 16px;
+}
+.wrap_prof_status {
+  width: 304px;
+  height: 554px;
+  grid-template-columns: 1fr;
+}
+#profession_title, #profession_title2, #student_title,
+#func_title, #employ_title, #turnover, #turnover2 {
+      margin-top: 20px;
+}
+#selectCode, #selectCode2 {
+    height: 50px;
+    width: 320px;
+    font-size: 10px;
+    margin-top: 5px;
+}
+#selectCountrLow {
+      grid-row: 8 / 9;
+      position: relative;
+      top: 21px;
+  }
+  #tit_website {
+    margin-top: 40px;
+}
+.wrap_comp_status {
+  width: 304px;
+  height: 34px;
+}
+.switch_buttons_margin {
+    margin: 84px 0px 0px !important;
+}
+.switch_buttons_margin2 {
+    margin: 45px 0px 0px !important;
+}
+.each_empl3, .each_empl31 {
+  font-size: 10px;
+  width: 96px;
+  height: 34px;
+}
+.allCheckBoxes6 {
+  width: 93px;
+  height: 33px;
+}
+.each_empl4 {
+      font-size: 16px;
+      height: 60px;
+}
+.allCheckBoxes7 {
+  width: 74px;
+  height: 54px;
+}
+#student_title {
+      margin-top: 42px;
+}
+.wrap_next_buttons03 {
+      margin: 105px 0px 30px;
+}
+.wrap_turn_status {
+    width: 304px;
+    height: 239px;
+    grid-template-columns: 1fr;
+}
+.wrap_usPerson, .wrap_usPerson2 {
+      width: 320px;
+      grid-template-columns: 1fr;
+}
+}

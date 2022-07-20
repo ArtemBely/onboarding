@@ -59,7 +59,7 @@ render() {
             <div className='mainSettings'>
                   <p className='us_title'>Account</p>
                   <div className='wrap_setts'>
-                       <p className='title_of_doc each_title_set'>E-mail</p>
+                       <p className='title_of_doc each_title_set' id='email_txt'>E-mail</p>
                        <p className='title_of_doc each_set' onClick={this.showEmailEdit}>belyshevartem@mail.space</p>
                        <div className='wrap_edit_email dispNone'>
                              <p className='title_of_doc each_title_set'>New E-mail</p>

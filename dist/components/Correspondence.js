@@ -27,7 +27,7 @@ class Correspondence extends Component {
     render() {
         return (React.createElement("div", { className: 'wrap_correspondence' },
             React.createElement("div", { className: 'correspondence' },
-                React.createElement("p", { className: 'us_title' }, "Correspondence address"),
+                React.createElement("p", { className: 'us_title', id: 'corr_txt2' }, "Correspondence address"),
                 React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.firstBlue },
                     React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor11, className: 'main_checkbox' })),
                 React.createElement("p", { className: 'corr_text' }, "Same as domicile address"),

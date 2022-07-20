@@ -237,7 +237,7 @@ class AccountCompanyDetails extends Component<{}, iState>{
         <p className='wrap_accCompDet'>
             <div className='accCompDet'>
 
-                <p className='us_title'>Company details</p>
+                <p className='us_title' id='cd_1'>Company details</p>
 
                 <div className='each_personalEdit4 whiteFone' id='edit1'>
                       <p className='each_edit_person'>Is the company publicly listed on a stock exchange?</p>
@@ -595,7 +595,7 @@ class AccountCompanyDetails extends Component<{}, iState>{
                       <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 19 })}
                       onMouseUp={this.showHiddenEdit}>Amount</p>
                       <div className='hiddenEditSpec longSpec dispNone'>
-                          <input type='text' placeholder='Bank' id='' className='com_input long_input'/>
+                          <input type='text' placeholder='Bank' id='bank_spec' className='com_input long_input'/>
                           <div className='wrap_action_buttons2 longSpecBtns'>
                                <div className='action_btns2'>
                                    <button type='submit' id='sub_save'>Save</button>
@@ -636,7 +636,7 @@ class AccountCompanyDetails extends Component<{}, iState>{
                       <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 21 })}
                       onMouseUp={this.showHiddenEdit}>Indicative initial BTC transfer to PI Digital wallet</p>
                       <div className='hiddenEditSpec longSpec dispNone'>
-                          <input type='text' placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+                          <input type='text' placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input spec_inputs1'/>
                           <div className='wrap_action_buttons2 longSpecBtns'>
                                <div className='action_btns2'>
                                    <button type='submit' id='sub_save'>Save</button>
@@ -651,7 +651,7 @@ class AccountCompanyDetails extends Component<{}, iState>{
                       <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 22 })}
                       onMouseUp={this.showHiddenEdit}>BTC wallet address used for the transfer</p>
                       <div className='hiddenEditSpec longSpec dispNone'>
-                          <input type='text' placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+                          <input type='text' placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input spec_inputs1'/>
                           <div className='wrap_action_buttons2 longSpecBtns'>
                                <div className='action_btns2'>
                                    <button type='submit' id='sub_save'>Save</button>
@@ -666,7 +666,7 @@ class AccountCompanyDetails extends Component<{}, iState>{
                       <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 23 })}
                       onMouseUp={this.showHiddenEdit}>Indicative initial ETH transfer to PI Digital wallet</p>
                       <div className='hiddenEditSpec longSpec dispNone'>
-                          <input type='text' placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+                          <input type='text' placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input spec_inputs1'/>
                           <div className='wrap_action_buttons2 longSpecBtns'>
                                <div className='action_btns2'>
                                    <button type='submit' id='sub_save'>Save</button>
@@ -681,7 +681,7 @@ class AccountCompanyDetails extends Component<{}, iState>{
                       <p className='each_edit_person indicateChange' onMouseDown={() => this.setState({ count1: 24 })}
                       onMouseUp={this.showHiddenEdit}>ETH wallet address used for the transfer</p>
                       <div className='hiddenEditSpec longSpec dispNone'>
-                          <input type='text' placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+                          <input type='text' placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input spec_inputs1'/>
                           <div className='wrap_action_buttons2 longSpecBtns'>
                                <div className='action_btns2'>
                                    <button type='submit' id='sub_save'>Save</button>

@@ -135,7 +135,7 @@ render() {
         <div className='wrap_personalEdit'>
             <div className='personalEdit'>
 
-                  <p className='us_title personal_det_title'>Financial situation</p>
+                  <p className='us_title personal_det_title' id='alter18'>Financial situation</p>
 
                   <div className='each_personalEdit3 whiteFone'>
                         <p className='each_edit_person'>Origin of assets   </p>
@@ -161,12 +161,12 @@ render() {
                         <p className='each_edit_person indicateChange2' onMouseDown={() => this.setState({ count1: 1 })}
                         onMouseUp={this.showHiddenEdit}>100 000-1 000 000</p>
 
-                        <div className='hiddenEdit3 dispNone'>
+                        <div className='hiddenEdit3 hiddenEditSpec33 dispNone'>
                             <div className='each_wrap_slider'>
                                   <p className='title_salut income'>Yearly income (in CHF)</p>
                                   <div className='common_slider'></div>
                                   <input type='text' className='number_qty' />
-                                  <input type='text' className='number_qty2' />
+                                  <input type='text' className='number_qty2 number_qty22' />
                             </div>
                             <div className='wrap_action_buttons2'>
                                  <div className='action_btns2'>
@@ -183,12 +183,12 @@ render() {
                         <p className='each_edit_person indicateChange2' onMouseDown={() => this.setState({ count1: 2 })}
                         onMouseUp={this.showHiddenEdit}>500 000-25 000 000</p>
 
-                        <div className='hiddenEdit3 dispNone'>
+                        <div className='hiddenEdit3 hiddenEditSpec33 dispNone'>
                             <div className='each_wrap_slider'>
                                   <p className='title_salut income'>Net wealth (in CHF)</p>
                                   <div className='common_slider'></div>
                                   <input type='text' className='number_qty' />
-                                  <input type='text' className='number_qty2' />
+                                  <input type='text' className='number_qty2 number_qty22' />
                             </div>
                             <div className='wrap_action_buttons2'>
                                  <div className='action_btns2'>
@@ -200,14 +200,14 @@ render() {
                   </div>
 
 
-                  <p className='us_title personal_det_title'>Fiat accounts</p>
+                  <p className='us_title personal_det_title' id='alter17'>Fiat accounts</p>
 
                   <div className='each_personalEdit3 whiteFone'>
                         <p className='each_edit_person'>Reference currency</p>
                         <p className='each_edit_person indicateChange2' onMouseDown={() => this.setState({ count1: 3 })}
                         onMouseUp={this.showHiddenEdit}>USD</p>
 
-                        <div className='hiddenEdit3 dispNone'>
+                        <div className='hiddenEdit3 hiddenEditSpec33 dispNone'>
                             <div className='wrap_title_yours'>
                                <p className='each_title_yours_currency' ref={this.firstTitle}>CHF <input type='checkbox' checked={this.state.check1} value="CHF" onChange={this.changeOneTitle} className='allCheckBoxes7'/></p>
                                <p className='each_title_yours_currency' ref={this.secondTitle}>EUR <input type='checkbox' checked={this.state.check2} value="EUR" onChange={this.changeTwoTitle} className='allCheckBoxes7'/></p>
@@ -228,7 +228,7 @@ render() {
                         <p className='each_edit_person indicateChange2' onMouseDown={() => this.setState({ count1: 4 })}
                         onMouseUp={this.showHiddenEdit}>Amount</p>
 
-                        <div className='hiddenEdit3 dispNone'>
+                        <div className='hiddenEdit3 hiddenEditSpec33 dispNone'>
                             <input type='text' name='ammount' className='com_input' placeholder='Ammount'/>
                             <div className='wrap_action_buttons2'>
                                  <div className='action_btns2'>
@@ -243,8 +243,8 @@ render() {
                         <p className='each_edit_person indicateChange2' onMouseDown={() => this.setState({ count1: 5 })}
                         onMouseUp={this.showHiddenEdit}>Bank</p>
 
-                        <div className='hiddenEdit3 dispNone'>
-                            <input type='text' placeholder='Bank' id='' className='com_input'/>
+                        <div className='hiddenEdit3 hiddenEditSpec33 dispNone'>
+                            <input type='text' placeholder='Bank' id='alter19' className='com_input'/>
                             <div className='wrap_action_buttons2'>
                                  <div className='action_btns2'>
                                      <button type='submit' id='sub_save'>Save</button>
@@ -258,8 +258,8 @@ render() {
                         <p className='each_edit_person indicateChange2' onMouseDown={() => this.setState({ count1: 6 })}
                         onMouseUp={this.showHiddenEdit}>No</p>
 
-                        <div className='hiddenEdit3 dispNone'>
-                            <div className='wrap_transfer2'>
+                        <div className='hiddenEdit3 hiddenEditSpec33 dispNone'>
+                            <div className='wrap_transfer2' id='alter23'>
                                 <p className='corr_text2'>No transfer</p>
                                 <p className='wrap_main_checkbox2' ref={this.firstBlue}>
                                     <input type='checkbox' onChange={this.changeInputColor21} className='main_checkbox'/>
@@ -345,8 +345,8 @@ render() {
                         <p className='each_edit_person indicateChange2' onMouseDown={() => this.setState({ count1: 11 })}
                         onMouseUp={this.showHiddenEdit}>No</p>
 
-                        <div className='hiddenEdit3 dispNone'>
-                            <div className='wrap_transfer2'>
+                        <div className='hiddenEdit3 dispNone' id='alter25'>
+                            <div className='wrap_transfer2' id='alter26'>
                                 <p className='corr_text2'>No transfer</p>
                                 <p className='wrap_main_checkbox2' ref={this.secondBlue}>
                                     <input type='checkbox' onChange={this.changeInputColor22} className='main_checkbox'/>
@@ -365,15 +365,15 @@ render() {
                         <button type='submit' className='change_requestBtn'>Submit a request for data change</button>
                   </div>
 
-                  <p className='us_title personal_det_title'>Declaration of beneficial ownership</p>
+                  <p className='us_title personal_det_title alter20' id='alter24'>Declaration of beneficial ownership</p>
 
                   <div className='each_personalEdit3 whiteFone spec_declare'>
                         <p className='each_edit_person indicateChange2' id='declare_txt' onMouseDown={() => this.setState({ count1: 12 })}
                         onMouseUp={this.showHiddenEdit}>I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship</p>
                         <div className='hiddenEdit3 fullScreen dispNone'>
-                            <div className='wrap_transfer4'>
+                            <div className='wrap_transfer4 alter21'>
                                 <p className='corr_text2'>I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.</p>
-                                <p className='wrap_main_checkbox2' ref={this.thirdBlue}>
+                                <p className='wrap_main_checkbox2 alter21' ref={this.thirdBlue}>
                                     <input type='checkbox' onChange={this.changeInputColor23} className='main_checkbox'/>
                                 </p>
                             </div>
@@ -386,9 +386,9 @@ render() {
                         </div>
                   </div>
 
-                  <p className='us_title personal_det_title'>Declarations / Disclaimers</p>
+                  <p className='us_title personal_det_title alter20'>Declarations / Disclaimers</p>
 
-                  <div className='each_personalEdit3 whiteFone last_wrap_setts spec_declare'>
+                  <div className='each_personalEdit3 whiteFone last_wrap_setts spec_declare' id='alter22'>
                         <p className='each_edit_person declare_txt2'>Declarations / Disclaimers</p>
                         <p className='each_edit_person declare_txt2 indicateChange2' onMouseDown={() => this.setState({ count1: 13 })}
                         onMouseUp={this.showHiddenEdit}>I agree to receive updates and news from PI Digital via email</p>

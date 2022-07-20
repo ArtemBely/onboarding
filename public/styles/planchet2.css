@@ -4,11 +4,19 @@
       zoom: 0.52; /* Other non-webkit browsers */
       zoom: 52%; /* Webkit browsers */
   }
+  .wrap_registration {
+    height: 168vh;
+    padding-top: 69px;
+  }
 }
 @media (min-width: 576px) and (max-width: 730px) {
   body {
       -moz-transform: scale(0.41, 0.41); /* Moz-browsers */
       zoom: 0.41; /* Other non-webkit browsers */
       zoom: 41%; /* Webkit browsers */
+  }
+  .wrap_registration {
+    height: 182vh;
+    padding-top: 69px;
   }
 }

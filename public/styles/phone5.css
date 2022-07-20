@@ -1,0 +1,182 @@
+@media (min-width: 320px) and (max-width: 576px) {
+  .hiddenEdit {
+    display: grid;
+    margin-bottom: 156px;
+    position: relative;
+    left: -168px;
+    top: 74px;
+}
+.specFullScreen {
+  grid-column: auto;
+}
+.menuBar {
+    width: 320px;
+    grid-gap: 0px;
+    grid-template-columns: 58px 97px 95px 69px;
+}
+#specFullScreen {
+      margin-top: 62px;
+}
+#alter14 {
+      grid-row: 2 / 3;
+}
+#alter15 {
+      grid-row: 6 / 7;
+      margin-bottom: 22px;
+}
+.alter16 {
+      grid-row: 8 / 9;
+}
+#alter17 {
+      margin-top: 61px;
+      margin-bottom: 32px;
+}
+#alter18 {
+      margin-top: 0px;
+}
+#alter19 {
+      margin-top: 15px;
+}
+.alter21 {
+      top: -24px;
+      position: relative;
+      margin-bottom: -21px;
+}
+#alter22 {
+  top: 19px;
+  position: relative;
+}
+#alter23 {
+  height: 22px;
+}
+#alter24 {
+      margin-bottom: 21px;
+}
+#alter25 {
+  position: relative;
+  top: 81px;
+  left: -168px;
+  margin-bottom: 162px;
+}
+#alter26 {
+  margin-bottom: -60px;
+}
+#alter27 {
+  left: -300px;
+}
+.alter20 {
+      margin-top: 61px;
+}
+#ammount_finance_title, #bank_finance_title, #ind_edit_txt {
+    width: 143px;
+}
+.hiddenEdit3 {
+      margin-bottom: 86px;
+}
+
+.hiddenEditSpec33 {
+  margin-bottom: 162px;
+  position: relative;
+  left: -168px;
+  top: 81px;
+}
+.number_qty22 {
+  position: relative;
+  left: 44px;
+}
+.filtrBar {
+  width: 320px;
+  overflow: hidden;
+}
+.filtrSlide {
+      grid-template-columns: 1fr 1fr;
+}
+.txt_filtr, .each_filtered_person {
+  font-size: 10px;
+}
+.wrap_search_field {
+    position: relative;
+    left: -18px;
+}
+.each_arrow {
+    margin-right: 4px;
+    width: 10px;
+    position: relative;
+    top: 1px;
+}
+.filtrArrows {
+    display: grid;
+    grid-template-columns: 105px 198px 110px 102px 157px 133px 143px 63px;
+    overflow-x: scroll;
+    position: relative;
+    top: 4px;
+}
+.search_field_input {
+  width: 264px;
+  height: 48px;
+  padding-left: 54px;
+  font-size: 10px;
+  left: -10px;
+  margin-bottom: 31px;
+}
+.wrap_each_filtr > img {
+      width: 16px;
+      margin-right: 10px;
+}
+.window_parametrs {
+      width: 257px;
+}
+#saveBtn1 {
+    position: relative;
+    top: 33px;
+    height: 50px;
+    font-size: 13px;
+}
+.window_filtr {
+  width: 247px;
+  height: 299px;
+  grid-template-columns: 160px 1fr;
+  grid-gap: 10px;
+}
+#selectFilter {
+      width: 247px;
+}
+#searchFilter2 {
+      margin-bottom: 30px;
+      width: 207px;
+}
+#searchLoop {
+      width: 18px;
+      top: -16px;
+}
+#txtColumns {
+      font-size: 12px;
+}
+.saveFilter, .resetFilter {
+  width: 247px;
+  height: 50px;
+  font-size: 13px;
+}
+.resetFilter {
+      grid-column: 1 / 2;
+}
+#txtFilter {
+  font-size: 12px;
+}
+.wrap_each_filter_inside {
+  position: relative;
+  font-size: 13px;
+  top: 5px;
+}
+.wrap_each_filtr {
+      left: 0px;
+      margin-bottom: 0px;
+}
+.verif {
+  max-width: 73px;
+  text-align: center;
+  position: relative;
+  left: 61px;
+  padding: 4px;
+}
+}

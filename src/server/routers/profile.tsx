@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/', (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
-  let user: object = {status: "admin"};
+  let user: object = {status: "user"};
   const congrats = renderToString(
     <StaticRouter>
        <Profile />

@@ -132,7 +132,7 @@ render() {
                      <option value="hurr">Company name include</option>
                      <option value="hurr">Country include</option>
                   </select>
-                  <input type='text' name='name' className='com_input' placeholder='Search'/>
+                  <input type='text' name='name' className='com_input' id='searchFilter2' placeholder='Search'/>
                   <button type='submit' className='saveFilter'>Save</button>
                   <p className='resetFilter' onClick={this.hideBlackFiltrWindow}>Reset</p>
               </div>
@@ -198,7 +198,7 @@ render() {
                <div className='filtrSlide'>
                   <p className='us_title'>Clients</p>
                   <p className='wrap_each_filtr'><img src={circle} onClick={this.showBlackParametrsWindow}/></p>
-                  <p className='wrap_each_filtr'><img src={filtrImg} onClick={this.showBlackFiltrWindow}/></p>
+                  <p className='wrap_each_filtr' id='alter27'><img src={filtrImg} onClick={this.showBlackFiltrWindow}/></p>
                   <p className='wrap_search_field'>
                       <img src={searchLoop} id='searchLoop'/>
                       <input type='text' placeholder='Search' className='search_field_input'/>

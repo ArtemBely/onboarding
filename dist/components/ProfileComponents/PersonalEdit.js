@@ -1,4 +1,14 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import React, { Component } from 'react';
+import axios from 'axios';
 class PersonalEdit extends Component {
     constructor(props, state) {
         super(props, state);
@@ -469,6 +479,7 @@ class PersonalEdit extends Component {
         }
         this.state = {
             user,
+            allCountries: [],
             count1: 0,
             check1: true,
             check2: false,
@@ -513,6 +524,16 @@ class PersonalEdit extends Component {
             check48: false,
             profession: "Profession"
         };
+    }
+    componentDidMount() {
+        const start = () => __awaiter(this, void 0, void 0, function* () {
+            yield axios.get('countries.json')
+                .then((res) => {
+                this.setState({ allCountries: res.data });
+            })
+                .catch(err => console.log(err));
+        });
+        start();
     }
     render() {
         return (React.createElement("div", { className: 'wrap_personalEdit' },
@@ -592,9 +613,7 @@ class PersonalEdit extends Component {
                     React.createElement("p", { className: 'each_edit_person' }, "Country of origin (Nationality)"),
                     React.createElement("p", { className: 'each_edit_person indicateChange', onClick: this.showHiddenEdit6, ref: this.dr6 }, "Dominicana"),
                     React.createElement("div", { className: 'hiddenEdit dispNone' },
-                        React.createElement("select", { id: 'selectCountry', className: 'com_input' },
-                            React.createElement("option", { value: "", disabled: true, selected: true }, "Country"),
-                            React.createElement("option", { value: "hurr" }, "Durr")),
+                        React.createElement("select", { id: 'selectCountry', className: 'com_input' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name)))),
                         React.createElement("div", { className: 'wrap_action_buttons2' },
                             React.createElement("div", { className: 'action_btns2' },
                                 React.createElement("button", { type: 'submit', id: 'sub_save' }, "Save"),
@@ -629,7 +648,7 @@ class PersonalEdit extends Component {
                 React.createElement("div", { className: 'each_personalEdit whiteFone' },
                     React.createElement("p", { className: 'each_edit_person' }, "US person"),
                     React.createElement("p", { className: 'each_edit_person indicateChange', onMouseDown: () => this.setState({ count1: 7 }), onMouseUp: this.showHiddenEdit8 }, "No US person"),
-                    React.createElement("div", { className: 'hiddenEdit fullScreen dispNone' },
+                    React.createElement("div", { className: 'hiddenEdit fullScreen specFullScreen dispNone' },
                         React.createElement("div", { className: 'choose_us' },
                             React.createElement("p", { className: 'each_us choosen_type_blue', ref: this.us1 },
                                 "No US person ",
@@ -647,7 +666,7 @@ class PersonalEdit extends Component {
                 React.createElement("div", { className: 'each_personalEdit whiteFone' },
                     React.createElement("p", { className: 'each_edit_person' }, "PEP person"),
                     React.createElement("p", { className: 'each_edit_person indicateChange', onMouseDown: () => this.setState({ count1: 8 }), onMouseUp: this.showHiddenEdit8 }, "I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP"),
-                    React.createElement("div", { className: 'hiddenEdit fullScreen dispNone' },
+                    React.createElement("div", { className: 'hiddenEdit fullScreen specFullScreen dispNone' },
                         React.createElement("div", { className: 'wrap_each_per' },
                             React.createElement("div", { className: 'each_white_per blue_each_white_per', ref: this.firstWhite, onClick: this.changeSecondWhite }, "I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP"),
                             React.createElement("div", { className: 'each_white_per', ref: this.secondWhite, onClick: this.changeFirstWhite }, "I declare that I am a politically exposed person or a family member or close associate of a politically exposed person: indicate the executed function or the name/function of the affiliated person."),
@@ -678,7 +697,7 @@ class PersonalEdit extends Component {
                             React.createElement("div", { className: 'action_btns2' },
                                 React.createElement("button", { type: 'submit', id: 'sub_save' }, "Save"),
                                 React.createElement("p", { className: 'cancel_btn', onClick: this.hideEmailEdit8 }, "Cancel"))))),
-                React.createElement("p", { className: 'us_title personal_det_title' }, "Domicile address"),
+                React.createElement("p", { className: 'us_title personal_det_title garBellow' }, "Domicile address"),
                 React.createElement("div", { className: 'each_personalEdit whiteFone' },
                     React.createElement("p", { className: 'each_edit_person' }, "Street, No."),
                     React.createElement("p", { className: 'each_edit_person indicateChange', onMouseDown: () => this.setState({ count1: 11 }), onMouseUp: this.showHiddenEdit8 }, "Street, No."),
@@ -733,7 +752,7 @@ class PersonalEdit extends Component {
                             React.createElement("div", { className: 'action_btns2' },
                                 React.createElement("button", { type: 'submit', id: 'sub_save' }, "Save"),
                                 React.createElement("p", { className: 'cancel_btn', onClick: this.hideEmailEdit8 }, "Cancel"))))),
-                React.createElement("p", { className: 'us_title personal_det_title' }, "\u0421orrespondence address"),
+                React.createElement("p", { className: 'us_title personal_det_title garBellow' }, "\u0421orrespondence address"),
                 React.createElement("div", { className: 'each_personalEdit whiteFone' },
                     React.createElement("p", { className: 'each_edit_person' }, "\u0421orrespondence address"),
                     React.createElement("p", { className: 'each_edit_person indicateChange', onMouseDown: () => this.setState({ count1: 17 }), onMouseUp: this.showHiddenEdit8 }, "Same as domicile address"),
@@ -745,12 +764,12 @@ class PersonalEdit extends Component {
                             React.createElement("div", { className: 'action_btns2' },
                                 React.createElement("button", { type: 'submit', id: 'sub_save' }, "Save"),
                                 React.createElement("p", { className: 'cancel_btn', onClick: this.hideEmailEdit8 }, "Cancel"))))),
-                React.createElement("div", { style: { display: this.state.user && Object.values(this.state.user)[0] == 'admin' ? 'none' : 'block' } },
+                React.createElement("div", { id: 'specFullScreen', style: { display: this.state.user && Object.values(this.state.user)[0] == 'admin' ? 'none' : 'block' } },
                     React.createElement("p", { className: 'us_title personal_det_title' }, "Employment status"),
                     React.createElement("div", { className: 'each_personalEdit' },
                         React.createElement("p", { className: 'each_edit_person' }, "Business activity"),
                         React.createElement("p", { className: 'each_edit_person indicateChange', onMouseDown: () => this.setState({ count1: 18 }), onMouseUp: this.showHiddenEdit8 }, "Employed"),
-                        React.createElement("div", { className: 'hiddenEdit fullScreen dispNone' },
+                        React.createElement("div", { className: 'hiddenEdit fullScreen specFullScreen dispNone' },
                             React.createElement("div", { className: 'wrap_empl_status' },
                                 React.createElement("p", { className: 'each_empl choosen_type_blue' },
                                     "Employed ",
@@ -778,24 +797,20 @@ class PersonalEdit extends Component {
                             React.createElement("div", { className: 'main_info personal_main_info', id: 'mainInfo' },
                                 React.createElement("p", { className: 'title_salut' }, "Company name"),
                                 React.createElement("p", { className: 'title_salut' }, "Company address"),
-                                React.createElement("input", { type: 'text', placeholder: 'Company name', className: 'alternative_inputs' }),
+                                React.createElement("input", { type: 'text', placeholder: 'Company name', id: 'alter14', className: 'alternative_inputs' }),
                                 React.createElement("input", { type: 'text', placeholder: 'Company address', className: 'alternative_inputs' }),
                                 React.createElement("p", { className: 'title_salut' }, "Since"),
                                 React.createElement("p", { className: 'title_salut' }, "Country of (main) business activity"),
-                                React.createElement("input", { type: 'text', ref: this.dateInput2, placeholder: 'DD/MM/YYYY', onFocus: () => {
+                                React.createElement("input", { type: 'text', ref: this.dateInput2, id: 'alter15', placeholder: 'DD/MM/YYYY', onFocus: () => {
                                         if (this.dateInput2.current != null) {
                                             this.dateInput2.current.type = "date";
                                         }
                                     }, className: 'com_input' }),
-                                React.createElement("select", { id: 'selectCountry', className: 'com_input' },
-                                    React.createElement("option", { value: "", disabled: true, selected: true }, "Country"),
-                                    React.createElement("option", { value: "hurr" }, "Durr")),
+                                React.createElement("select", { id: 'selectCountry', className: 'com_input alter16' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name)))),
                                 React.createElement("p", { className: 'title_salut', id: 'tit_website' }, "Website"),
                                 React.createElement("input", { type: 'text', placeholder: 'Website', className: 'alternative_inputs', id: 'website' }),
                                 React.createElement("p", { className: 'title_salut' }, "Line of business or industry (NOGA code)"),
-                                React.createElement("select", { id: 'selectCode', className: 'com_input' },
-                                    React.createElement("option", { value: "", disabled: true, selected: true }, "Code"),
-                                    React.createElement("option", { value: "hurr" }, "Durr")),
+                                React.createElement("select", { id: 'selectCode', className: 'com_input' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name)))),
                                 React.createElement("p", { className: 'title_salut', id: 'profession_title', ref: this.prof1 }, "Profession"),
                                 React.createElement("input", { type: 'text', placeholder: this.state.profession, id: 'profession_title_input', className: 'alternative_inputs long_input' }),
                                 React.createElement("p", { className: 'title_salut', id: 'last_func', ref: this.prof2 }, "Function/position"),
@@ -887,9 +902,7 @@ class PersonalEdit extends Component {
                         React.createElement("p", { className: 'each_edit_person' }, "Country of (main) business activity"),
                         React.createElement("p", { className: 'each_edit_person indicateChange', onMouseDown: () => this.setState({ count1: 22 }), onMouseUp: this.showHiddenEdit8 }, "Country"),
                         React.createElement("div", { className: 'hiddenEdit dispNone' },
-                            React.createElement("select", { id: 'selectCountry', className: 'com_input' },
-                                React.createElement("option", { value: "", disabled: true, selected: true }, "Country"),
-                                React.createElement("option", { value: "hurr" }, "Durr")),
+                            React.createElement("select", { id: 'selectCountry', className: 'com_input' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name)))),
                             React.createElement("div", { className: 'wrap_action_buttons2' },
                                 React.createElement("div", { className: 'action_btns2' },
                                     React.createElement("button", { type: 'submit', id: 'sub_save' }, "Save"),
@@ -926,7 +939,7 @@ class PersonalEdit extends Component {
                     React.createElement("div", { className: 'each_personalEdit whiteFone last_wrap_setts' },
                         React.createElement("p", { className: 'each_edit_person' }, "Function/position"),
                         React.createElement("p", { className: 'each_edit_person indicateChange', onMouseDown: () => this.setState({ count1: 26 }), onMouseUp: this.showHiddenEdit8 }, "Staff"),
-                        React.createElement("div", { className: 'hiddenEdit fullScreen dispNone' },
+                        React.createElement("div", { className: 'hiddenEdit fullScreen specFullScreen dispNone' },
                             React.createElement("div", { className: 'wrap_prof_status' },
                                 React.createElement("p", { className: 'each_empl22 choosen_type_blue' },
                                     "Staff ",

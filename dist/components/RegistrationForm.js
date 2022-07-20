@@ -42,7 +42,7 @@ class RegistrationForm extends Component {
                         React.createElement("img", { src: eye, className: 'eyes' })),
                     React.createElement("p", { className: 'pass_condition' }, "Password must contain minimum 9 characters including at least 1 uppercase letter, 1 special character and 1 number"),
                     React.createElement("p", { className: 'agree_text' },
-                        React.createElement("span", { className: 'wrap_main_checkbox', ref: this.checkBlue, onClick: this.changeInputColor },
+                        React.createElement("span", { className: 'wrap_main_checkbox', id: 'wrap_main_c', ref: this.checkBlue, onClick: this.changeInputColor },
                             React.createElement("input", { type: 'checkbox', id: 'main_checkbox', ref: this.chekBoxInside, required: true })),
                         " I agree with ",
                         React.createElement(NavLink, { to: '#', id: 'terms' }, " Terms of Services")),

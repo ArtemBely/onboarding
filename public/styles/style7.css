@@ -135,7 +135,7 @@
   z-index: 1;
 }
 .menuBar_activeLinks {
-  border-bottom: 4px solid #4FA0FF;
+  border-bottom: 4px solid #4FA0FF !important;
   color: #15162D;
 }
 .wrap_mainSettings {

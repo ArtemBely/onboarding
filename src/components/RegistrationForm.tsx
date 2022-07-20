@@ -58,7 +58,7 @@ render() {
                         <p className='wrap_each_main_input'><input type='password' className='each_main_input' placeholder='Confirm Password' required/><img src={eye} className='eyes'/></p>
                         <p className='pass_condition'>Password must contain minimum 9 characters including at least 1 uppercase letter,
                          1 special character and 1 number</p>
-                        <p className='agree_text'><span className='wrap_main_checkbox' ref={this.checkBlue} onClick={this.changeInputColor}>
+                        <p className='agree_text'><span className='wrap_main_checkbox' id='wrap_main_c' ref={this.checkBlue} onClick={this.changeInputColor}>
                             <input type='checkbox' id='main_checkbox' ref={this.chekBoxInside} required/></span> I agree with <NavLink to='#' id='terms'> Terms of Services</NavLink></p>
                         <p className='wrap_sub_button'><button type='submit' id='sub_button'>Submit</button></p>
                     </form>

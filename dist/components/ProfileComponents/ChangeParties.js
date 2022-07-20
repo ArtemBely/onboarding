@@ -18,7 +18,7 @@ class ChangeParties extends Component {
                         React.createElement("img", { src: trash })),
                     React.createElement("p", { className: 'title_salut' }, "Full name"),
                     React.createElement("p", { className: 'title_salut' }, "E-mail"),
-                    React.createElement("input", { type: 'text', ref: this.inp, name: `partyName` + (key + 1), placeholder: 'Full name', className: 'alternative_inputs special_inputs' }),
+                    React.createElement("input", { type: 'text', ref: this.inp, name: `partyName` + (key + 1), placeholder: 'Full name', id: 'alter13', className: 'alternative_inputs special_inputs' }),
                     React.createElement("input", { type: 'text', ref: this.inp2, name: `partyEmail` + (key + 1), placeholder: 'E-mail', className: 'alternative_inputs special_inputs' }))))));
             }
             return;
@@ -57,12 +57,12 @@ class ChangeParties extends Component {
                             React.createElement("img", { src: trash })),
                         React.createElement("p", { className: 'title_salut' }, "Full name"),
                         React.createElement("p", { className: 'title_salut' }, "E-mail"),
-                        React.createElement("input", { type: 'text', placeholder: 'Full name', value: 'Full name', className: 'alternative_inputs3 special_inputs' }),
-                        React.createElement("input", { type: 'text', placeholder: 'E-mail', value: 'Email', className: 'alternative_inputs3 special_inputs' }))),
+                        React.createElement("input", { type: 'text', placeholder: 'Full name', value: 'Full name', id: 'alter11', className: 'alternative_inputs3 special_inputs' }),
+                        React.createElement("input", { type: 'text', placeholder: 'E-mail', value: 'Email', id: 'alter12', className: 'alternative_inputs3 special_inputs' }))),
                 React.createElement("div", { className: 'wrap_allNew' },
                     this.addParties(),
-                    React.createElement("p", { className: 'each_blue_bottom' })),
-                React.createElement("p", { className: 'blue_add', onClick: this.incrementParty }, "+ Add additional authorized signatory"))));
+                    React.createElement("p", { className: 'each_blue_bottom spec_blue_bottom' })),
+                React.createElement("p", { className: 'blue_add', id: 'spec_blue_add', onClick: this.incrementParty }, "+ Add additional authorized signatory"))));
     }
 }
 export default ChangeParties;

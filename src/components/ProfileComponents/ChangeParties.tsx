@@ -51,7 +51,7 @@ class ChangeParties extends Component<{}, iState>{
                             <p className='trash'><img src={trash} /></p>
                             <p className='title_salut'>Full name</p>
                             <p className='title_salut'>E-mail</p>
-                            <input type='text' ref={this.inp} name={`partyName` + (key + 1)} placeholder='Full name' className='alternative_inputs special_inputs'/>
+                            <input type='text' ref={this.inp} name={`partyName` + (key + 1)} placeholder='Full name' id='alter13' className='alternative_inputs special_inputs'/>
                             <input type='text' ref={this.inp2} name={`partyEmail` + (key + 1)} placeholder='E-mail' className='alternative_inputs special_inputs'/>
                         </div>
                       ))}
@@ -88,16 +88,16 @@ class ChangeParties extends Component<{}, iState>{
                           <p className='trash'><img src={trash} /></p>
                           <p className='title_salut'>Full name</p>
                           <p className='title_salut'>E-mail</p>
-                          <input type='text' placeholder='Full name' value='Full name' className='alternative_inputs3 special_inputs'/>
-                          <input type='text' placeholder='E-mail' value='Email' className='alternative_inputs3 special_inputs'/>
+                          <input type='text' placeholder='Full name' value='Full name' id='alter11' className='alternative_inputs3 special_inputs'/>
+                          <input type='text' placeholder='E-mail' value='Email' id='alter12' className='alternative_inputs3 special_inputs'/>
 
                       </div>
                   </div>
                   <div className='wrap_allNew'>
                         {this.addParties()}
-                        <p className='each_blue_bottom'></p>
+                        <p className='each_blue_bottom spec_blue_bottom'></p>
                   </div>
-                  <p className='blue_add' onClick={this.incrementParty}>+ Add additional authorized signatory</p>
+                  <p className='blue_add' id='spec_blue_add' onClick={this.incrementParty}>+ Add additional authorized signatory</p>
             </div>
         </p>
     )

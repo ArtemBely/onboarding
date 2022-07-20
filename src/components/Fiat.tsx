@@ -124,29 +124,29 @@ render() {
                 <p className='title_salut title_fiat'>Amount of first transfer to account at PI Digital in CHF</p>
                 <input type='text' name='ammount' className='com_input' placeholder='Ammount'/>
                 <p className='title_salut title_fiat'>Bank and country of origin of the assets to be transferred to PI Digital</p>
-                <input type='text' placeholder='Profession' id='' className='alternative_inputs long_input'/>
+                <input type='text' name='bankAndCountry' placeholder='Profession' id='' className='alternative_inputs long_input'/>
 
                 <div className='wrap_transfer'>
                     <p className='corr_text2'>No transfer</p>
                     <p className='wrap_main_checkbox2' ref={this.firstBlue}>
-                        <input type='checkbox' onChange={this.changeInputColor21} className='main_checkbox'/>
+                        <input type='checkbox' name='noTransfer' onChange={this.changeInputColor21} className='main_checkbox'/>
                     </p>
                 </div>
 
                 <p className='us_title pi_title'>PI Digital wallets</p>
                 <p className='title_salut ref_curr_title'>Indicative initial BTC transfer to PI Digital wallet</p>
-                <input type='text' placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+                <input type='text' name='btc1' placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
                 <p className='title_salut ref_curr_title'>BTC wallet address used for the transfer</p>
-                <input type='text' placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+                <input type='text' name='btc2' placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
                 <p className='title_salut ref_curr_title'>Indicative initial ETH transfer to PI Digital wallet</p>
-                <input type='text' placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+                <input type='text' name='eth1' placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
                 <p className='title_salut ref_curr_title'>ETH wallet address used for the transfer</p>
-                <input type='text' placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+                <input type='text' name='eth2' placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
 
                 <div className='wrap_transfer'>
                     <p className='corr_text2'>No transfer</p>
                     <p className='wrap_main_checkbox2' ref={this.secondBlue}>
-                        <input type='checkbox' onChange={this.changeInputColor22} className='main_checkbox'/>
+                        <input type='checkbox' name='noTransfer2' onChange={this.changeInputColor22} className='main_checkbox'/>
                     </p>
                 </div>
 
@@ -154,7 +154,7 @@ render() {
                 <div className='wrap_transfer2'>
                     <p className='corr_text2'>I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.</p>
                     <p className='wrap_main_checkbox2' ref={this.thirdBlue} id='tablet_cb'>
-                        <input type='checkbox' onChange={this.changeInputColor23} className='main_checkbox'/>
+                        <input type='checkbox' name='declareBeneficial' onChange={this.changeInputColor23} className='main_checkbox'/>
                     </p>
                 </div>
                 <p className='case2'>If you intend to transfer Bitcoin (BTC) or Ether (ETH) to your PI Digital wallet from a private wallet,
@@ -167,8 +167,8 @@ render() {
 
                  <div className='wrap_white_agree_block'>
                     <div className='white_agree_block'>
-                        <p className='each_agree_block blue_each_white_per'><input type='checkbox' checked={this.state.check5} onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email</p>
-                        <p className='each_agree_block'><input type='checkbox' checked={this.state.check6} onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email</p>
+                        <p className='each_agree_block blue_each_white_per'><input type='checkbox' checked={this.state.check5} name={this.state.check5 ? 'recieveUpdates' : ''} value='I agree to receive updates and news from PI Digital via email' onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email</p>
+                        <p className='each_agree_block'><input type='checkbox' checked={this.state.check6} name={this.state.check6 ? 'recieveUpdates' : ''} value='I do not agree to receive updates and news from PI Digital via email' onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email</p>
                     </div>
                  </div>
 

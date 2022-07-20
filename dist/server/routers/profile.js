@@ -7,7 +7,7 @@ import Profile from '../../components/ProfileComponents/Profile';
 const router = express.Router();
 router.get('/', (req, res) => {
     let cond = req.isAuthenticated();
-    let user = { status: "admin" };
+    let user = { status: "user" };
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(Profile, null)));
     res.send(`<!DOCTYPE html>

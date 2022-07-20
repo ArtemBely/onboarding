@@ -89,7 +89,7 @@ class USPerson extends Component {
                     React.createElement("p", { className: 'each_under_us' },
                         React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.firstBlue },
                             React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor1, className: 'main_checkbox' })),
-                        React.createElement("p", null, "I declare that I was born in the U.S. (or U.S. territory) and am in possession of a Certificate of Loss of Nationality of the United States (CLN)")),
+                        React.createElement("p", { className: 'us_born' }, "I declare that I was born in the U.S. (or U.S. territory) and am in possession of a Certificate of Loss of Nationality of the United States (CLN)")),
                     React.createElement("p", { className: 'each_under_us' },
                         React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.secondBlue },
                             React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor2, className: 'main_checkbox' })),

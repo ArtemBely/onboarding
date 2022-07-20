@@ -126,7 +126,7 @@ render() {
               <p className='text_bellowSlider'>Account</p>
               <p className='text_bellowSlider'>Company details</p>
               <p className='text_bellowSlider' id='pd_text'>Personal details</p>
-              <p className='text_bellowSlider'>Connected parties</p>
+              <p className='text_bellowSlider' id='conn_part'>Connected parties</p>
               <p className='text_bellowSlider'>Check Documents</p>
               <p className='text_bellowSlider'>Verification</p>
               <p className='text_bellowSlider' id='fn_text'>Finish</p>

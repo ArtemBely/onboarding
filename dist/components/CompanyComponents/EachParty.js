@@ -27,7 +27,7 @@ class EachParty extends Component {
                         React.createElement("img", { src: trash })),
                     React.createElement("p", { className: 'title_salut' }, "Full name"),
                     React.createElement("p", { className: 'title_salut' }, "E-mail"),
-                    React.createElement("input", { type: 'text', ref: this.inp, name: `partyName` + (key + 1), placeholder: 'Full name', className: 'alternative_inputs special_inputs' }),
+                    React.createElement("input", { type: 'text', ref: this.inp, name: `partyName` + (key + 1), placeholder: 'Full name', id: 'alter10', className: 'alternative_inputs special_inputs' }),
                     React.createElement("input", { type: 'text', ref: this.inp2, name: `partyEmail` + (key + 1), placeholder: 'E-mail', className: 'alternative_inputs special_inputs' }),
                     React.createElement("p", { className: 'each_blue_bottom' }))))));
             }

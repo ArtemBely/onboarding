@@ -76,15 +76,15 @@ render() {
                   </div>
                   <p className='title_salut'>Entity name</p>
                   <p className='title_salut'>Tax identification number</p>
-                  <input type='text' placeholder='Entity name' className='alternative_inputs'/>
+                  <input type='text' placeholder='Entity name' className='alternative_inputs' id='alter1'/>
                   <input type='text' placeholder='Tax identification number' className='alternative_inputs'/>
                   <p className='title_salut'>Country of registration</p>
                   <p className='title_salut'>Entity type (beneficial ownership)</p>
-                  <input type='text' placeholder='Germany' className='alternative_inputs'/>
+                  <input type='text' placeholder='Germany' id='alter2' className='alternative_inputs'/>
                   <input type='text' placeholder='Foundation' className='alternative_inputs'/>
                   <p className='title_salut'>Date of incorporation</p>
                   <p className='title_salut'>Website</p>
-                  <input type='text' ref={this.dateInput} placeholder='DD/MM/YYYY' onFocus={() => {
+                  <input type='text' ref={this.dateInput} placeholder='DD/MM/YYYY' id='alter3' onFocus={() => {
                     if(this.dateInput.current != null) {
                       this.dateInput.current.type = "date";
                     }

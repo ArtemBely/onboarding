@@ -40,7 +40,7 @@ class MainSettings extends Component {
             React.createElement("div", { className: 'mainSettings' },
                 React.createElement("p", { className: 'us_title' }, "Account"),
                 React.createElement("div", { className: 'wrap_setts' },
-                    React.createElement("p", { className: 'title_of_doc each_title_set' }, "E-mail"),
+                    React.createElement("p", { className: 'title_of_doc each_title_set', id: 'email_txt' }, "E-mail"),
                     React.createElement("p", { className: 'title_of_doc each_set', onClick: this.showEmailEdit }, "belyshevartem@mail.space"),
                     React.createElement("div", { className: 'wrap_edit_email dispNone' },
                         React.createElement("p", { className: 'title_of_doc each_title_set' }, "New E-mail"),

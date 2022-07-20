@@ -45,13 +45,13 @@ render() {
 			return (
 				<div className='wrap_correspondence'>
               <div className='correspondence'>
-                      <p className='us_title'>Correspondence address</p>
+                      <p className='us_title' id='corr_txt2'>Correspondence address</p>
                       <p className='wrap_main_checkbox2' ref={this.firstBlue}>
-                          <input type='checkbox' onChange={this.changeInputColor11} className='main_checkbox'/>
+                          <input type='checkbox' name='corrAddressAsDom' onChange={this.changeInputColor11} className='main_checkbox'/>
                       </p>
                       <p className='corr_text'>Same as domicile address</p>
                       <p className='wrap_main_checkbox2' ref={this.secondBlue}>
-                          <input type='checkbox' onChange={this.changeInputColor22} className='main_checkbox'/>
+                          <input type='checkbox' name='dataProcessed' onChange={this.changeInputColor22} className='main_checkbox'/>
                       </p>
                       <p className='corr_text'>I agree that my data will be processed</p>
               </div>

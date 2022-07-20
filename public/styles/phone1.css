@@ -1,0 +1,316 @@
+@media (min-width: 320px) and (max-width: 337px) {
+  body {
+      -moz-transform: scale(0.95, 0.95); /* Moz-browsers */
+      zoom: 0.95; /* Other non-webkit browsers */
+      zoom: 95%; /* Webkit browsers */
+  }
+}
+@media (min-width: 320px) and (max-width: 576px) {
+  .wrap_header {
+        height: 47px;
+  }
+  .header {
+    width: 320px;
+    height: 47px;
+    display: grid;
+    grid-template-columns: 77px 1fr 1fr;
+  }
+  .centralTitle, .userName {
+        font-size: 12px;
+  }
+  .userName {
+      display: none;
+  }
+  .wrap_darkLogo > img {
+        width: 37px;
+  }
+  #loginImg {
+    margin-left: 22px;
+}
+.wrap_login {
+      margin: 0;
+}
+.green_line {
+      width: 30px;
+}
+.number_inside {
+  font-size: 10px;
+  width: 30px;
+  height: 30px;
+}
+.text_bellowSlider {
+  font-size: 9px;
+}
+.wrap_slider {
+      overflow-x: scroll;
+      margin-top: 0px;
+          height: 130px;
+}
+.wrap_slider::-webkit-scrollbar {
+  width: 0;
+}
+.wrap_text_bellowSlider {
+  display: grid;
+  grid-template-columns: 39px 109px 97px 92px 77px 81px;
+  grid-row: 2 / 3;
+  position: relative;
+  top: -10px;
+  left: 0px;
+  width: 320px;
+}
+.main_slider {
+  width: 320px;
+  height: 100%;
+  display: grid;
+  grid-gap: 11px;
+  align-items: center;
+  grid-template-columns: 42px 31px 39px 31px 39px 31px 39px 31px 39px 31px 39px;
+}
+.slider_number {
+  width: 40px;
+  height: 40px;
+}
+.your_account, .first_acc_checkbox, .first_part, .us  {
+  width: 320px;
+}
+.first_part_inside, .second_part_inside {
+  height: 76px;
+}
+.third_part_inside {
+      width: 320px;
+}
+.name_part_inside, .surname_part_inside {
+    margin-top: 0px;
+}
+#selectCountry, #selectCode3, #selectFilter, #selectCountrLow {
+  height: 50px;
+  width: 320px;
+  font-weight: 400;
+  font-size: 10px;
+}
+.each_title_nation {
+    width: 50px;
+}
+.allCheckBoxes, .allCheckBoxes2, .allCheckBoxes7 {
+  width: 44px;
+  height: 36px;
+}
+.wrap_first_part {
+  position: relative;
+  top: -26px;
+}
+.wrap_us {
+  position: relative;
+  top: -11px;
+}
+.first_part {
+      grid-gap: 19px 85px;
+      grid-template-columns: 1fr;
+}
+.first_acc_checkbox {
+  position: relative;
+  top: -29px;
+}
+.title_account, .us_title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+}
+.allCheckBoxes3 {
+  width: 94px;
+  height: 33px;
+}
+.each_under_us {
+    font-size: 10px;
+    width: 320px;
+    grid-column: 1 / 2;
+        margin-bottom: 1px;
+}
+.each_us {
+    width: auto;
+    height: 34px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 160%;
+}
+.digital2 {
+    margin-top: 17px;
+    top: -7px;
+    grid-column: 1 / 2;
+}
+.choose_us {
+  grid-template-columns: 100px 120px 100px;
+  width: 320px;
+  height: 50px;
+}
+.us {
+  padding: 10px 0px;
+}
+.country_part_inside {
+  margin-bottom: 11px;
+}
+.back_button, .next_button {
+  width: 320px;
+  height: 50px;
+  font-size: 13px;
+}
+#selectLegalCountry, #selectLegalType {
+  height: 50px;
+  width: 320px;
+  font-size: 10px;
+}
+#selectLegalCountry {
+      grid-row: 2 / 3;
+          margin-bottom: 11px;
+}
+.wrap_company_type {
+  margin-top: 42px;
+  margin-bottom: 0px;
+}
+.company_type {
+    width: 320px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+.each_type {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+}
+.title_yours, .title_salut, .each_title_yours,
+.each_title_salut, .each_title_nation, .each_title_yours_currency {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 160%;
+}
+.title_yours, .title_salut {
+      grid-column: 1 / 2;
+}
+.each_title_salut, .each_title_nation, .each_title_yours_currency {
+  height: 34px;
+}
+.com_input {
+  width: 280px;
+  height: 10px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 160%;
+}
+.com_input::placeholder {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 160%;
+}
+.each_title_yours {
+  height: 34px;
+  width: 76px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 160%;
+}
+.each_title_salut {
+    width: 100px;
+}
+.case1 {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 140%;
+  width: 275px;
+}
+.wrap_title_yours, .wrap_title_salut, .wrap_title_nation {
+  width: 304px;
+  height: 34px;
+}
+.wrap_cases {
+    margin-top: 31px;
+        margin-bottom: 11px;
+}
+.first_next_buttons {
+    width: auto;
+    height: 64px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    margin-bottom: 27px;
+    position: relative;
+    top: -28px;
+}
+.wrap_your_account {
+  position: relative;
+  top: -24px;
+}
+.wrap_usPerson {
+    margin-top: 12px;
+}
+.perPerson {
+      padding: 56px 0px 23px;
+}
+.wrap_PerPerson {
+      top: -56px;
+}
+.green_text {
+  font-size: 8px;
+      margin: 11px 0px 0px;
+}
+.wrap_each_per {
+  width: 320px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 13px 1fr;
+}
+.each_white_per {
+  width: 210px;
+  height: 44px;
+  margin-top: 6px;
+  padding: 41px 53px;
+  font-weight: 400;
+  font-size: 10px;
+}
+.extra_name {
+  font-size: 16px;
+  position: relative;
+  top: 127px;
+  grid-column: 1 / 2;
+}
+.extra_name_input {
+  font-size: 10px;
+  line-height: 160%;
+  width: 298px;
+  height: 48px;
+  top: 110px;
+  grid-column: 1 / 2;
+  margin-bottom: 118px;
+}
+.wrap_usPerson2 {
+    margin-top: 19px;
+}
+#main_form {
+    position: relative;
+    display: grid;
+    grid-template-columns: 34px 100px 34px 1fr;
+    margin-top: 0px;
+}
+#digital1 {
+    margin-bottom: 13px;
+}
+.greenCard {
+  font-size: 10px;
+  width: 257px;
+  margin-top: 7px;
+}
+.welcome_to_acc, .each_acc_text {
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 160%;
+  width: 320px;
+}
+.welcome_to_acc {
+      margin-top: 25px;
+      margin-bottom: 8px;
+}
+.us_born {
+      margin-top: 6px;
+}
+}

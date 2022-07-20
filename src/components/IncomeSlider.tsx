@@ -39,14 +39,14 @@ render() {
                 <div className='each_wrap_slider'>
                       <p className='title_salut income'>Yearly income (in CHF)</p>
                       <div className='common_slider'></div>
-                      <input type='text' className='number_qty' />
-                      <input type='text' className='number_qty2' />
+                      <input type='text' name='yearlyIncome1' className='number_qty' />
+                      <input type='text' name='yearlyIncome2' className='number_qty2' />
                 </div>
                 <div className='each_wrap_slider'>
                       <p className='title_salut income'>Net wealth (in CHF)</p>
                       <div className='common_slider'></div>
-                      <input type='text' className='number_qty' />
-                      <input type='text' className='number_qty2' />
+                      <input type='text' name='netWealth1' className='number_qty' />
+                      <input type='text' name='netWealth2' className='number_qty2' />
                 </div>
   					</div>
 				</div>

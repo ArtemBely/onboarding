@@ -88,7 +88,7 @@ class CompanySlide extends Component {
                 React.createElement("p", { className: 'text_bellowSlider' }, "Account"),
                 React.createElement("p", { className: 'text_bellowSlider' }, "Company details"),
                 React.createElement("p", { className: 'text_bellowSlider', id: 'pd_text' }, "Personal details"),
-                React.createElement("p", { className: 'text_bellowSlider' }, "Connected parties"),
+                React.createElement("p", { className: 'text_bellowSlider', id: 'conn_part' }, "Connected parties"),
                 React.createElement("p", { className: 'text_bellowSlider' }, "Check Documents"),
                 React.createElement("p", { className: 'text_bellowSlider' }, "Verification"),
                 React.createElement("p", { className: 'text_bellowSlider', id: 'fn_text' }, "Finish"))));

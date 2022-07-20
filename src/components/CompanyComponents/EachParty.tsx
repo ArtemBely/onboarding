@@ -62,7 +62,7 @@ addParties = () => {
                           <p className='trash'><img src={trash} /></p>
                           <p className='title_salut'>Full name</p>
                           <p className='title_salut'>E-mail</p>
-                          <input type='text' ref={this.inp} name={`partyName` + (key + 1)} placeholder='Full name' className='alternative_inputs special_inputs'/>
+                          <input type='text' ref={this.inp} name={`partyName` + (key + 1)} placeholder='Full name' id='alter10' className='alternative_inputs special_inputs'/>
                           <input type='text' ref={this.inp2} name={`partyEmail` + (key + 1)} placeholder='E-mail' className='alternative_inputs special_inputs'/>
                           <p className='each_blue_bottom'></p>
                       </div>

@@ -1,5 +1,15 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 class Employment extends Component {
     constructor(props, state) {
         super(props, state);
@@ -163,6 +173,7 @@ class Employment extends Component {
             user = window.__INITIAL_DATA__;
         }
         this.state = {
+            allCountries: [],
             check1: true,
             check2: false,
             check3: false,
@@ -184,6 +195,16 @@ class Employment extends Component {
             check19: false,
             profession: "Profession"
         };
+    }
+    componentDidMount() {
+        const start = () => __awaiter(this, void 0, void 0, function* () {
+            yield axios.get('countries.json')
+                .then((res) => {
+                this.setState({ allCountries: res.data });
+            })
+                .catch(err => console.log(err));
+        });
+        start();
     }
     render() {
         return (React.createElement("div", { className: 'wrap_Employment' },
@@ -218,18 +239,16 @@ class Employment extends Component {
                 React.createElement("div", { className: 'main_info' },
                     React.createElement("p", { className: 'title_salut' }, "Company name"),
                     React.createElement("p", { className: 'title_salut' }, "Company address"),
-                    React.createElement("input", { type: 'text', placeholder: 'Company name', className: 'alternative_inputs' }),
+                    React.createElement("input", { type: 'text', placeholder: 'Company name', id: 'spec_inp5', className: 'alternative_inputs' }),
                     React.createElement("input", { type: 'text', placeholder: 'Company address', className: 'alternative_inputs' }),
                     React.createElement("p", { className: 'title_salut' }, "Since"),
-                    React.createElement("p", { className: 'title_salut' }, "Country of (main) business activity"),
-                    React.createElement("input", { type: 'text', ref: this.dateInput, placeholder: 'DD/MM/YYYY', onFocus: () => {
+                    React.createElement("p", { className: 'title_salut', id: 'spec_inp7' }, "Country of (main) business activity"),
+                    React.createElement("input", { type: 'text', ref: this.dateInput, placeholder: 'DD/MM/YYYY', id: 'spec_inp6', onFocus: () => {
                             if (this.dateInput.current != null) {
                                 this.dateInput.current.type = "date";
                             }
                         }, className: 'com_input' }),
-                    React.createElement("select", { id: 'selectCountry', className: 'com_input' },
-                        React.createElement("option", { value: "", disabled: true, selected: true }, "Country"),
-                        React.createElement("option", { value: "hurr" }, "Durr")),
+                    React.createElement("select", { id: 'selectCountrLow', className: 'com_input' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name)))),
                     React.createElement("p", { className: 'title_salut', id: 'tit_website' }, "Website"),
                     React.createElement("input", { type: 'text', placeholder: 'Website', className: 'alternative_inputs', id: 'website' }),
                     React.createElement("p", { className: 'title_salut' }, "Line of business or industry (NOGA code)"),

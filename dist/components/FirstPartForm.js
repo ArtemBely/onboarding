@@ -1,4 +1,14 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import React, { Component } from 'react';
+import axios from 'axios';
 class FirstPartForm extends Component {
     constructor(props, state) {
         super(props, state);
@@ -100,6 +110,7 @@ class FirstPartForm extends Component {
         }
         this.state = {
             user,
+            allCountries: [],
             check1: true,
             check2: false,
             check3: false,
@@ -128,6 +139,16 @@ class FirstPartForm extends Component {
         this.twelveTitle = React.createRef();
         this.thirtheenTitle = React.createRef();
         this.dateInput = React.createRef();
+    }
+    componentDidMount() {
+        const start = () => __awaiter(this, void 0, void 0, function* () {
+            yield axios.get('countries.json')
+                .then((res) => {
+                this.setState({ allCountries: res.data });
+            })
+                .catch(err => console.log(err));
+        });
+        start();
     }
     render() {
         return (React.createElement("div", { className: 'wrap_first_part' },
@@ -174,30 +195,28 @@ class FirstPartForm extends Component {
                         }, className: 'com_input' })),
                 React.createElement("div", { className: 'country_part_inside' },
                     React.createElement("p", { className: 'title_salut' }, "Country of origin (Nationality)"),
-                    React.createElement("select", { id: 'selectCountry', className: 'com_input' },
-                        React.createElement("option", { value: "", disabled: true, selected: true }, "Country"),
-                        React.createElement("option", { value: "hurr" }, "Durr"))),
+                    React.createElement("select", { id: 'selectCountry', className: 'com_input' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name))))),
                 React.createElement("div", { className: 'five_part_inside' },
                     React.createElement("p", { className: 'title_yours' }, "Please enter how many other nationalities you have"),
                     React.createElement("div", { className: 'wrap_title_nation' },
                         React.createElement("p", { className: 'each_title_nation choosen_type_blue', ref: this.eightTitle },
                             "0 ",
-                            React.createElement("input", { type: 'checkbox', checked: this.state.check31, value: "0", onChange: this.changeEightTitle, className: 'allCheckBoxes' })),
+                            React.createElement("input", { type: 'checkbox', checked: this.state.check31, name: this.state.check31 ? 'nationalities' : '', value: "0", onChange: this.changeEightTitle, className: 'allCheckBoxes' })),
                         React.createElement("p", { className: 'each_title_nation', ref: this.nineTitle },
                             "1 ",
-                            React.createElement("input", { type: 'checkbox', checked: this.state.check32, value: "1", onChange: this.changeNineTitle, className: 'allCheckBoxes' })),
+                            React.createElement("input", { type: 'checkbox', checked: this.state.check32, name: this.state.check32 ? 'nationalities' : '', value: "1", onChange: this.changeNineTitle, className: 'allCheckBoxes' })),
                         React.createElement("p", { className: 'each_title_nation', ref: this.tenTitle },
                             "2 ",
-                            React.createElement("input", { type: 'checkbox', checked: this.state.check33, value: "2", onChange: this.changeTenTitle, className: 'allCheckBoxes' })),
+                            React.createElement("input", { type: 'checkbox', checked: this.state.check33, name: this.state.check33 ? 'nationalities' : '', value: "2", onChange: this.changeTenTitle, className: 'allCheckBoxes' })),
                         React.createElement("p", { className: 'each_title_nation', ref: this.elevenTitle },
                             "3 ",
-                            React.createElement("input", { type: 'checkbox', checked: this.state.check34, value: "3", onChange: this.changeElevenTitle, className: 'allCheckBoxes' })),
+                            React.createElement("input", { type: 'checkbox', checked: this.state.check34, name: this.state.check34 ? 'nationalities' : '', value: "3", onChange: this.changeElevenTitle, className: 'allCheckBoxes' })),
                         React.createElement("p", { className: 'each_title_nation', ref: this.twelveTitle },
                             "4 ",
-                            React.createElement("input", { type: 'checkbox', checked: this.state.check35, value: "4", onChange: this.changeTwelveTitle, className: 'allCheckBoxes' })),
+                            React.createElement("input", { type: 'checkbox', checked: this.state.check35, name: this.state.check35 ? 'nationalities' : '', value: "4", onChange: this.changeTwelveTitle, className: 'allCheckBoxes' })),
                         React.createElement("p", { className: 'each_title_nation', ref: this.thirtheenTitle },
                             "5 ",
-                            React.createElement("input", { type: 'checkbox', checked: this.state.check36, value: "5", onChange: this.changeThirtheenTitle, className: 'allCheckBoxes' })))))));
+                            React.createElement("input", { type: 'checkbox', checked: this.state.check36, name: this.state.check36 ? 'nationalities' : '', value: "5", onChange: this.changeThirtheenTitle, className: 'allCheckBoxes' })))))));
     }
 }
 export default FirstPartForm;

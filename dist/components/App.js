@@ -13,6 +13,11 @@ import '../../public/styles/style9.css';
 import '../../public/styles/style10.css';
 import '../../public/styles/planchet1.css';
 import '../../public/styles/planchet2.css';
+import '../../public/styles/phone1.css';
+import '../../public/styles/phone2.css';
+import '../../public/styles/phone3.css';
+import '../../public/styles/phone4.css';
+import '../../public/styles/phone5.css';
 export class App extends Component {
     render() {
         return (React.createElement("div", { className: 'main_wrap' },

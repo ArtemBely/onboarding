@@ -224,11 +224,11 @@ render() {
               <p className='us_title' id='company_reg_txt'>Registered office address at the place of incorporation</p>
               <p className='title_salut'>Street, No.</p>
               <p className='title_salut'>City/State</p>
-              <input type='text' placeholder='Street, No.' className='alternative_inputs'/>
+              <input type='text' placeholder='Street, No.' id='alter4' className='alternative_inputs'/>
               <input type='text' placeholder='City/State' className='alternative_inputs'/>
               <p className='title_salut'>Mailbox</p>
               <p className='title_salut'>Country of residence</p>
-              <input type='text' placeholder='Mailbox' className='alternative_inputs'/>
+              <input type='text' placeholder='Mailbox' id='alter5' className='alternative_inputs'/>
               <input type='text' placeholder='Country of residence' className='alternative_inputs'/>
               <p className='title_salut' id='company_postal'>Postal code</p>
               <input type='text' placeholder='Postal code' className='alternative_inputs'/>
@@ -250,11 +250,11 @@ render() {
                  <p className='each_title_yours_currency' ref={this.fourthTitle}>SGD<input type='checkbox' checked={this.state.check11} value="SGD" onChange={this.changeFourthTitle} className='allCheckBoxes7'/></p>
               </div>
               <p className='title_salut title_fiat'>Amount of first transfer to account at PI Digital in CHF</p>
-              <input type='text' name='ammount' className='com_input' placeholder='Ammount'/>
+              <input type='text' name='ammount' className='com_input' id='alter6' placeholder='Ammount'/>
               <p className='title_salut title_fiat'>Bank and country of origin of the assets to be transferred to PI Digital</p>
               <input type='text' placeholder='Bank' id='' className='alternative_inputs long_input'/>
 
-              <div className='wrap_transfer'>
+              <div className='wrap_transfer' id='alter7'>
                   <p className='corr_text2'>No transfer</p>
                   <p className='wrap_main_checkbox2' ref={this.firstBlue2}>
                       <input type='checkbox' onChange={this.changeInputColor21} className='main_checkbox'/>
@@ -271,7 +271,7 @@ render() {
               <p className='title_salut ref_curr_title'>ETH wallet address used for the transfer</p>
               <input type='text' placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
 
-              <div className='wrap_transfer'>
+              <div className='wrap_transfer' id='alter8'>
                   <p className='corr_text2'>No transfer</p>
                   <p className='wrap_main_checkbox2' ref={this.secondBlue}>
                       <input type='checkbox' onChange={this.changeInputColor22} className='main_checkbox'/>
@@ -284,7 +284,7 @@ render() {
                By signing up, you agree to PI Digital using your personal data in accordance with our Privacy Policy. You can unsubscribe at any time by
                clicking on the «Unsubscribe» link at the bottom of your email. For further information please see our Privacy Policy.</p>
 
-              <div className='wrap_white_agree_block'>
+              <div className='wrap_white_agree_block' id='alter9'>
                  <div className='white_agree_block'>
                      <p className='each_agree_block blue_each_white_per'><input type='checkbox' checked={this.state.check12} onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email</p>
                      <p className='each_agree_block'><input type='checkbox' checked={this.state.check13} onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email</p>
