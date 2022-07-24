@@ -62,8 +62,9 @@ addParties = () => {
                           <p className='trash'><img src={trash} /></p>
                           <p className='title_salut'>Full name</p>
                           <p className='title_salut'>E-mail</p>
-                          <input type='text' ref={this.inp} name={`partyName` + (key + 1)} placeholder='Full name' id='alter10' className='alternative_inputs special_inputs'/>
-                          <input type='text' ref={this.inp2} name={`partyEmail` + (key + 1)} placeholder='E-mail' className='alternative_inputs special_inputs'/>
+                          <input type='hidden'  value='' name='parties' />
+                          <input type='text' form='companyParties' required ref={this.inp} onChange={(e:any) => (document.getElementById('partyNameHid') as HTMLInputElement).value = e.target.value} placeholder='Full name' id='alter10' className='alternative_inputs special_inputs'/>
+                          <input type='email' form='companyParties' required ref={this.inp2} onChange={(e:any) => (document.getElementById('partyEmailHid') as HTMLInputElement).value = e.target.value} placeholder='E-mail' className='alternative_inputs special_inputs'/>
                           <p className='each_blue_bottom'></p>
                       </div>
                     ))}
@@ -92,7 +93,7 @@ render() {
                      <div className='wrap_next_buttons6'>
                        <div className='first_next_buttons'>
                            <NavLink to='/company_personal' className='back_button'>Back</NavLink>
-                           <NavLink to='/company_documents' className='next_button'>Next</NavLink>
+                           <button type='submit' form='companyParties' className='next_button'>Next</button>
                        </div>
                      </div>
   					</div>

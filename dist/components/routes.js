@@ -10,11 +10,17 @@ import CompanyPersonal from './CompanyComponents/CompanyPersonal';
 import Parties from './CompanyComponents/Parties';
 import Profile from './ProfileComponents/Profile';
 import Admin from './AdminComponents/Admin';
+import Login from './Login';
 const routes = [
     {
         path: '/registration',
         exact: true,
         component: Main
+    },
+    {
+        path: '/signin',
+        exact: true,
+        component: Login
     },
     {
         path: '/create_account',

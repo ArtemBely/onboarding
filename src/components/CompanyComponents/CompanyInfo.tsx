@@ -41,6 +41,7 @@ changeOneTitle = () => {
   this.firstTitle?.current?.classList.add('choosen_type_blue');
   this.secondTitle?.current?.classList.remove('choosen_type_blue');
   this.uploadExtract?.current?.classList.add('dispNone');
+  (document.getElementById('stockExchangeHid') as HTMLInputElement).value = "Yes";
 }
 
 changeTwoTitle = () => {
@@ -48,6 +49,7 @@ changeTwoTitle = () => {
   this.secondTitle?.current?.classList.add('choosen_type_blue');
   this.firstTitle?.current?.classList.remove('choosen_type_blue');
   this.uploadExtract?.current?.classList.remove('dispNone');
+  (document.getElementById('stockExchangeHid') as HTMLInputElement).value = "No";
 }
 
 render() {
@@ -59,14 +61,14 @@ render() {
                   <div className='first_part_inside' id='company_txt'>
                       <p className='title_yours'>Is the company publicly listed on a stock exchange?</p>
                       <div className='wrap_title_yours_company'>
-                         <p className='each_title_yours choosen_type_blue' ref={this.firstTitle}>Yes <input type='checkbox' checked={this.state.check1} value="Yes" onChange={this.changeOneTitle} className='allCheckBoxes'/></p>
-                         <p className='each_title_yours' ref={this.secondTitle}>No<input type='checkbox' checked={this.state.check2} value="No" onChange={this.changeTwoTitle} className='allCheckBoxes'/></p>
+                         <p className='each_title_yours choosen_type_blue' ref={this.firstTitle}>Yes <input type='checkbox'  checked={this.state.check1}  onChange={this.changeOneTitle} className='allCheckBoxes'/></p>
+                         <p className='each_title_yours' ref={this.secondTitle}>No<input type='checkbox'  checked={this.state.check2}  onChange={this.changeTwoTitle} className='allCheckBoxes'/></p>
                       </div>
                   </div>
                   <div className='upload_extract dispNone' ref={this.uploadExtract}>
                       <p className='title_yours'>Please upload an extract from commercial register</p>
                       <div className='dashed_block'>
-                              <input type='file' id='download_extract'/>
+                              <input type='file' onChange={(e:any) => (document.getElementById('noExchangeFileHid') as HTMLInputElement).value = e.target.value} id='download_extract'/>
                               <p className='title_yours'>Company register or similar</p>
                               <p className='extract_inside' id='drop_txt'>Drop file here or click to select a file to upload (please note, only PDF, PNG and JPG documents are accepted)</p>
                               <p className='extract_inside'>Evidence of incorporation – certified copy of certificate of incorporation and constitutive documents, if applicable extract of commercial register, trade license</p>
@@ -76,20 +78,20 @@ render() {
                   </div>
                   <p className='title_salut'>Entity name</p>
                   <p className='title_salut'>Tax identification number</p>
-                  <input type='text' placeholder='Entity name' className='alternative_inputs' id='alter1'/>
-                  <input type='text' placeholder='Tax identification number' className='alternative_inputs'/>
+                  <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('entityNameHid') as HTMLInputElement).value = e.target.value} placeholder='Entity name' className='alternative_inputs' id='alter1'/>
+                  <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('taxOfIDHid') as HTMLInputElement).value = e.target.value} placeholder='Tax identification number' className='alternative_inputs'/>
                   <p className='title_salut'>Country of registration</p>
                   <p className='title_salut'>Entity type (beneficial ownership)</p>
-                  <input type='text' placeholder='Germany' id='alter2' className='alternative_inputs'/>
-                  <input type='text' placeholder='Foundation' className='alternative_inputs'/>
+                  <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('countryOfRegHid') as HTMLInputElement).value = e.target.value} placeholder='Germany' id='alter2' className='alternative_inputs'/>
+                  <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('entityTypeHid') as HTMLInputElement).value = e.target.value} placeholder='Foundation' className='alternative_inputs'/>
                   <p className='title_salut'>Date of incorporation</p>
                   <p className='title_salut'>Website</p>
-                  <input type='text' ref={this.dateInput} placeholder='DD/MM/YYYY' id='alter3' onFocus={() => {
+                  <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('dateOfIncorpHid') as HTMLInputElement).value = e.target.value} ref={this.dateInput} placeholder='DD/MM/YYYY' id='alter3' onFocus={() => {
                     if(this.dateInput.current != null) {
                       this.dateInput.current.type = "date";
                     }
                   }} className='com_input'/>
-                  <input type='text' placeholder='www.' className='alternative_inputs'/>
+                  <input type='text' form='companyForm' required name='websiteOfComp' placeholder='www.' className='alternative_inputs'/>
                </div>
   					</div>
 				</div>

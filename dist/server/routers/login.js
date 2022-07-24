@@ -1,21 +1,15 @@
 import React from 'react';
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import serialize from 'serialize-javascript';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
-import Create from '../../components/Create';
-
+import Login from '../../components/Login';
 const router = express.Router();
-
-router.get('/', (req: Request, res: Response) => {
-  let cond: boolean = req.isAuthenticated();
-  const congrats = renderToString(
-    <StaticRouter>
-       <Create />
-    </StaticRouter>
-  )
-  res.send(
-    `<!DOCTYPE html>
+router.get('/', (req, res) => {
+    let cond = req.isAuthenticated();
+    const congrats = renderToString(React.createElement(StaticRouter, null,
+        React.createElement(Login, null)));
+    res.send(`<!DOCTYPE html>
         <html>
             <head>
               <title>Проверка кода</title>
@@ -29,13 +23,6 @@ router.get('/', (req: Request, res: Response) => {
                  ${congrats}
               </div>
             </body>
-        </html>`
-    );
+        </html>`);
 });
-
-router.post('/', (req, res) => {
-  console.log(req.body);
-  res.redirect('/finish');
-});
-
 export default router;

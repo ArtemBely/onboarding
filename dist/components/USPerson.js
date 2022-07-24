@@ -20,6 +20,7 @@ class USPerson extends Component {
             (_d = (_c = this.secondCase) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.add('dispNone');
             (_f = (_e = this.thirdCase) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('dispNone');
             (_h = (_g = this.firstCase) === null || _g === void 0 ? void 0 : _g.current) === null || _h === void 0 ? void 0 : _h.classList.remove('dispNone');
+            document.getElementById('usPersonHid').value = "No US person";
         };
         this.changeTitle2 = () => {
             var _a, _b, _c, _d, _e, _f, _g, _h;
@@ -29,6 +30,7 @@ class USPerson extends Component {
             (_d = (_c = this.firstCase) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.add('dispNone');
             (_f = (_e = this.thirdCase) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('dispNone');
             (_h = (_g = this.secondCase) === null || _g === void 0 ? void 0 : _g.current) === null || _h === void 0 ? void 0 : _h.classList.remove('dispNone');
+            document.getElementById('usPersonHid').value = "Former US person";
         };
         this.changeTitle3 = () => {
             var _a, _b, _c, _d, _e, _f, _g, _h;
@@ -38,30 +40,35 @@ class USPerson extends Component {
             (_d = (_c = this.firstCase) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.add('dispNone');
             (_f = (_e = this.secondCase) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('dispNone');
             (_h = (_g = this.thirdCase) === null || _g === void 0 ? void 0 : _g.current) === null || _h === void 0 ? void 0 : _h.classList.remove('dispNone');
+            document.getElementById('usPersonHid').value = "US person";
         };
-        this.changeInputColor1 = () => {
+        this.changeInputColor1 = (e) => {
             var _a, _b, _c, _d, _e, _f;
             ((_b = (_a = this.firstBlue) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.contains('blueCheckBox')) ?
                 (_d = (_c = this.firstBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.remove('blueCheckBox') :
                 (_f = (_e = this.firstBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox');
+            document.getElementById('bornInUsHid').value = e.target.checked.toString();
         };
-        this.changeInputColor2 = () => {
+        this.changeInputColor2 = (e) => {
             var _a, _b, _c, _d, _e, _f;
             ((_b = (_a = this.secondBlue) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.contains('blueCheckBox')) ?
                 (_d = (_c = this.secondBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.remove('blueCheckBox') :
                 (_f = (_e = this.secondBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox');
+            document.getElementById('greenCardHid').value = e.target.checked.toString();
         };
-        this.changeInputColor3 = () => {
+        this.changeInputColor3 = (e) => {
             var _a, _b, _c, _d, _e, _f;
             ((_b = (_a = this.thirdBlue) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.contains('blueCheckBox')) ?
                 (_d = (_c = this.thirdBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.remove('blueCheckBox') :
                 (_f = (_e = this.thirdBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox');
+            document.getElementById('possessionGreenCardHid').value = e.target.checked.toString();
         };
-        this.changeInputColor4 = () => {
+        this.changeInputColor4 = (e) => {
             var _a, _b, _c, _d, _e, _f;
             ((_b = (_a = this.fourthBlue) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.contains('blueCheckBox')) ?
                 (_d = (_c = this.fourthBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.remove('blueCheckBox') :
                 (_f = (_e = this.fourthBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox');
+            document.getElementById('subPresTestHid').value = e.target.checked.toString();
         };
         this.state = {
             check1: true,
@@ -77,13 +84,13 @@ class USPerson extends Component {
                 React.createElement("div", { className: 'choose_us' },
                     React.createElement("p", { className: 'each_us choosen_type_blue', ref: this.us1 },
                         "No US person ",
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check1, value: "No US person", onChange: this.changeTitle1, className: 'allCheckBoxes3' })),
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check1, onChange: this.changeTitle1, className: 'allCheckBoxes3' })),
                     React.createElement("p", { className: 'each_us', ref: this.us2 },
                         "Former US person",
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check2, value: "Former US person", onChange: this.changeTitle2, className: 'allCheckBoxes3' })),
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check2, onChange: this.changeTitle2, className: 'allCheckBoxes3' })),
                     React.createElement("p", { className: 'each_us', ref: this.us3 },
                         "US person",
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check3, value: "US person", onChange: this.changeTitle3, className: 'allCheckBoxes3' }))),
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check3, onChange: this.changeTitle3, className: 'allCheckBoxes3' }))),
                 React.createElement("div", { className: 'case1', id: 'case11', ref: this.firstCase }, "I declare that I am no US citizen (regardless if I have any other citizenships), I do not reside in the US and have no \u00ABresident alien\u00BB status (e.g. due to long or frequent stays in the US during the last three years or due to the possession of a green card, no matter its validity), I have not been born in the USA and have no US tax obligations due to any other reasons. Further, I confirm that neither I nor any other person indicated as a beneficial owner of the account qualify as a US person."),
                 React.createElement("div", { className: 'wrap_usPerson dispNone', ref: this.secondCase },
                     React.createElement("p", { className: 'each_under_us' },

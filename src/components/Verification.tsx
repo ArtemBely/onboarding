@@ -60,18 +60,18 @@ render() {
                       <p className='corr_text3'>I/we declare that the information and/or documents provided during this KYC-AML process is
                        true and correct according to my/our best knowledge.</p>
                       <p className='wrap_main_checkbox4' ref={this.fourthBlue}>
-                          <input type='checkbox' onChange={this.changeInputColor24} className='main_checkbox'/>
+                          <input type='checkbox' form='registrationForm' onChange={this.changeInputColor24} className='main_checkbox'/>
                       </p>
 
                       <p className='corr_text3'>I/we hereby fully understand that providing false information is treated as a criminal
                        offence (article 251 of the Swiss Penal Code, document forgery)</p>
                       <p className='wrap_main_checkbox4' ref={this.fithBlue}>
-                          <input type='checkbox' onChange={this.changeInputColor25} className='main_checkbox'/>
+                          <input type='checkbox' form='registrationForm' onChange={this.changeInputColor25} className='main_checkbox'/>
                       </p>
 
                       <p className='corr_text3'>I/we agree to start video identification procedure</p>
                       <p className='wrap_main_checkbox4' ref={this.sixthBlue} id='thirdCheckBox'>
-                          <input type='checkbox' onChange={this.changeInputColor26} className='main_checkbox'/>
+                          <input type='checkbox' form='registrationForm' onChange={this.changeInputColor26} className='main_checkbox'/>
                       </p>
                   </div>
 

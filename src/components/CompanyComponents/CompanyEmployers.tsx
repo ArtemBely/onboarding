@@ -68,6 +68,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     document.querySelectorAll('.each_empl31')[0].classList.add('choosen_type_blue');
+    (document.getElementById('emplOfCompanyHid') as HTMLInputElement).value = "1 - 25";
   }
 
   changeInputColor2 = () => {
@@ -76,6 +77,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     document.querySelectorAll('.each_empl31')[1].classList.add('choosen_type_blue');
+    (document.getElementById('emplOfCompanyHid') as HTMLInputElement).value = "25 - 100";
   }
 
   changeInputColor3 = () => {
@@ -84,6 +86,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     document.querySelectorAll('.each_empl31')[2].classList.add('choosen_type_blue');
+    (document.getElementById('emplOfCompanyHid') as HTMLInputElement).value = "> 100";
   }
 
   changeInputColor4 = () => {
@@ -92,6 +95,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     document.querySelectorAll('.each_empl4')[0].classList.add('choosen_type_blue');
+    (document.getElementById('turnoverCompanyHid') as HTMLInputElement).value = "< CHF 5 m";
   }
 
   changeInputColor5 = () => {
@@ -100,6 +104,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     document.querySelectorAll('.each_empl4')[1].classList.add('choosen_type_blue');
+    (document.getElementById('turnoverCompanyHid') as HTMLInputElement).value = "CHF 5 m - CHF 10 m";
   }
 
   changeInputColor6 = () => {
@@ -108,6 +113,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     document.querySelectorAll('.each_empl4')[2].classList.add('choosen_type_blue');
+    (document.getElementById('turnoverCompanyHid') as HTMLInputElement).value = "CHF 10 m - CHF 25 m";
   }
 
   changeInputColor7 = () => {
@@ -116,18 +122,25 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     document.querySelectorAll('.each_empl4')[3].classList.add('choosen_type_blue');
+    (document.getElementById('turnoverCompanyHid') as HTMLInputElement).value = "> CHF 25 m";
   }
 
-  changeInputColor8 = () => {
-    this.thirdBlue?.current?.classList.contains('blueCheckBox') ?
-    this.thirdBlue?.current?.classList.remove('blueCheckBox') :
-    this.thirdBlue?.current?.classList.add('blueCheckBox');
+  changeInputColor8 = (e:any) => {
+    if(this.thirdBlue?.current?.classList.contains('blueCheckBox')) {
+      this.thirdBlue?.current?.classList.remove('blueCheckBox');
+      (document.getElementById('asAnAuthorHid') as HTMLInputElement).value = e.target.checked.toString();
+    }
+    else {
+      this.thirdBlue?.current?.classList.add('blueCheckBox');
+      (document.getElementById('asAnAuthorHid') as HTMLInputElement).value = e.target.checked.toString();
+    }
   }
 
-  changeInputColor9 = () => {
+  changeInputColor9 = (e:any) => {
     this.firstBlue?.current?.classList.contains('blueCheckBox') ?
     this.firstBlue?.current?.classList.remove('blueCheckBox') :
     this.firstBlue?.current?.classList.add('blueCheckBox');
+    (document.getElementById('sameCorrespondenceCompanyHid') as HTMLInputElement).value = e.target.checked.toString();
   }
 
   changeOneTitle = () => {
@@ -136,6 +149,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     this.firstTitle?.current?.classList.add('choosen_type_blue');
+    (document.getElementById('fiatCompanyCurrencyHid') as HTMLInputElement).value = "CHF";
   }
 
   changeTwoTitle = () => {
@@ -144,6 +158,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     this.secondTitle?.current?.classList.add('choosen_type_blue');
+    (document.getElementById('fiatCompanyCurrencyHid') as HTMLInputElement).value = "EUR";
   }
 
   changeThreeTitle = () => {
@@ -152,6 +167,7 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     this.thirdTitle?.current?.classList.add('choosen_type_blue');
+    (document.getElementById('fiatCompanyCurrencyHid') as HTMLInputElement).value = "USD";
   }
 
   changeFourthTitle = () => {
@@ -160,30 +176,35 @@ class CompanyEmployers extends Component<{}, iState>{
       item.classList.remove('choosen_type_blue')
     ));
     this.fourthTitle?.current?.classList.add('choosen_type_blue');
+    (document.getElementById('fiatCompanyCurrencyHid') as HTMLInputElement).value = "SGD";
   }
 
-  changeInputColor21 = () => {
+  changeInputColor21 = (e:any) => {
     this.firstBlue2?.current?.classList.contains('blueCheckBox') ?
     this.firstBlue2?.current?.classList.remove('blueCheckBox') :
     this.firstBlue2?.current?.classList.add('blueCheckBox');
+    (document.getElementById('noTransfer3Hid') as HTMLInputElement).value = e.target.checked.toString();
   }
 
-  changeInputColor22 = () => {
+  changeInputColor22 = (e:any) => {
     this.secondBlue?.current?.classList.contains('blueCheckBox') ?
     this.secondBlue?.current?.classList.remove('blueCheckBox') :
     this.secondBlue?.current?.classList.add('blueCheckBox');
+    (document.getElementById('noTransfer4Hid') as HTMLInputElement).value = e.target.checked.toString();
   }
 
   changeWhite1 = () => {
     this.setState({ check12: true, check13: false });
     document.querySelectorAll('.each_agree_block')[0].classList.add('blue_each_white_per');
     document.querySelectorAll('.each_agree_block')[1].classList.remove('blue_each_white_per');
+    (document.getElementById('agreeRecieveCompanyHid') as HTMLInputElement).value = "I agree to receive updates and news from PI Digital via email";
   }
 
   changeWhite2 = () => {
     this.setState({ check12: false, check13: true });
     document.querySelectorAll('.each_agree_block')[1].classList.add('blue_each_white_per');
     document.querySelectorAll('.each_agree_block')[0].classList.remove('blue_each_white_per');
+    (document.getElementById('agreeRecieveCompanyHid') as HTMLInputElement).value = "I do not agree to receive updates and news from PI Digital via email";
   }
 
 render() {
@@ -194,23 +215,23 @@ render() {
 
               <p className='title_salut'>Employees of the company</p>
               <div className='wrap_comp_status'>
-                  <p className='each_empl31 choosen_type_blue'>1 - 25 <input type='checkbox' checked={this.state.check1} onChange={this.changeInputColor1} value='1 - 25' className='allCheckBoxes6'/></p>
-                  <p className='each_empl31'>25 - 100 <input type='checkbox' checked={this.state.check2} onChange={this.changeInputColor2} value='25 - 100' className='allCheckBoxes6'/></p>
-                  <p className='each_empl31'> {`> 100`} <input type='checkbox' checked={this.state.check2} onChange={this.changeInputColor3} value='> 100' className='allCheckBoxes6'/></p>
+                  <p className='each_empl31 choosen_type_blue'>1 - 25 <input type='checkbox'  checked={this.state.check1} onChange={this.changeInputColor1}  className='allCheckBoxes6'/></p>
+                  <p className='each_empl31'>25 - 100 <input type='checkbox'  checked={this.state.check2} onChange={this.changeInputColor2}  className='allCheckBoxes6'/></p>
+                  <p className='each_empl31'> {`> 100`} <input type='checkbox'  checked={this.state.check3} onChange={this.changeInputColor3}  className='allCheckBoxes6'/></p>
               </div>
 
               <p className='title_salut' id='line2'>Line of business or industry (NOGA code)</p>
-              <select id='selectCode2' className='com_input'>
+              <select id='selectCode2' onChange={(e:any) => (document.getElementById('lineOfCompanyHid') as HTMLInputElement).value = e.target.value} className='com_input'>
                  <option value="" disabled selected>Code</option>
                  <option value="hurr">Durr</option>
               </select>
 
               <p className='title_salut' id='turnover2'>Company turnover</p>
               <div className='wrap_turn_status'>
-                  <p className='each_empl4'>{`< CHF 5 m`}<input type='checkbox' checked={this.state.check4} onChange={this.changeInputColor4} value='< CHF 5 m' className='allCheckBoxes8'/></p>
-                  <p className='each_empl4'>CHF 5 m - CHF 5 m <input type='checkbox' checked={this.state.check5} onChange={this.changeInputColor5} value='CHF 5 m - CHF 5 m' className='allCheckBoxes8'/></p>
-                  <p className='each_empl4 choosen_type_blue'>CHF 10 m - CHF 25 m <input type='checkbox' checked={this.state.check6} onChange={this.changeInputColor6} value='CHF 10 m - CHF 25 m' className='allCheckBoxes8'/></p>
-                  <p className='each_empl4'> {`> CHF 25 m`} <input type='checkbox' checked={this.state.check7} onChange={this.changeInputColor7} value='> CHF 25 m' className='allCheckBoxes8'/></p>
+                  <p className='each_empl4'>{`< CHF 5 m`}<input type='checkbox'  checked={this.state.check4} onChange={this.changeInputColor4}  className='allCheckBoxes8'/></p>
+                  <p className='each_empl4'>CHF 5 m - CHF 10 m <input type='checkbox'  checked={this.state.check5}  onChange={this.changeInputColor5}  className='allCheckBoxes8'/></p>
+                  <p className='each_empl4 choosen_type_blue'>CHF 10 m - CHF 25 m <input type='checkbox'  checked={this.state.check6}  onChange={this.changeInputColor6} className='allCheckBoxes8'/></p>
+                  <p className='each_empl4'> {`> CHF 25 m`} <input type='checkbox'  checked={this.state.check7} onChange={this.changeInputColor7}   className='allCheckBoxes8'/></p>
               </div>
 
               <div className='wrap_transfer3'>
@@ -224,14 +245,14 @@ render() {
               <p className='us_title' id='company_reg_txt'>Registered office address at the place of incorporation</p>
               <p className='title_salut'>Street, No.</p>
               <p className='title_salut'>City/State</p>
-              <input type='text' placeholder='Street, No.' id='alter4' className='alternative_inputs'/>
-              <input type='text' placeholder='City/State' className='alternative_inputs'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('companyRegAddressHid') as HTMLInputElement).value = e.target.value} placeholder='Street, No.' id='alter4' className='alternative_inputs'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('companyRegCityHid') as HTMLInputElement).value = e.target.value} placeholder='City/State' className='alternative_inputs'/>
               <p className='title_salut'>Mailbox</p>
               <p className='title_salut'>Country of residence</p>
-              <input type='text' placeholder='Mailbox' id='alter5' className='alternative_inputs'/>
-              <input type='text' placeholder='Country of residence' className='alternative_inputs'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('companyMailBoxHid') as HTMLInputElement).value = e.target.value} placeholder='Mailbox' id='alter5' className='alternative_inputs'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('countryOfCompany2Hid') as HTMLInputElement).value = e.target.value} placeholder='Country of residence' className='alternative_inputs'/>
               <p className='title_salut' id='company_postal'>Postal code</p>
-              <input type='text' placeholder='Postal code' className='alternative_inputs'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('postalCompanyCodeHid') as HTMLInputElement).value = e.target.value} placeholder='Postal code' className='alternative_inputs'/>
 
               <div className='wrap_office_address'>
                 <p className='us_title'>Correspondence address</p>
@@ -244,15 +265,15 @@ render() {
               <p className='us_title pi_title' id='company_fiat_txt'>Fiat accounts</p>
               <p className='title_salut ref_curr_title'>Reference currency</p>
               <div className='wrap_title_yours'>
-                 <p className='each_title_yours_currency' ref={this.firstTitle}>CHF <input type='checkbox' checked={this.state.check8} value="CHF" onChange={this.changeOneTitle} className='allCheckBoxes7'/></p>
-                 <p className='each_title_yours_currency' ref={this.secondTitle}>EUR <input type='checkbox' checked={this.state.check9} value="EUR" onChange={this.changeTwoTitle} className='allCheckBoxes7'/></p>
-                 <p className='each_title_yours_currency choosen_type_blue' ref={this.thirdTitle}>USD<input type='checkbox' checked={this.state.check10} value="USD" onChange={this.changeThreeTitle} className='allCheckBoxes7'/></p>
-                 <p className='each_title_yours_currency' ref={this.fourthTitle}>SGD<input type='checkbox' checked={this.state.check11} value="SGD" onChange={this.changeFourthTitle} className='allCheckBoxes7'/></p>
+                 <p className='each_title_yours_currency' ref={this.firstTitle}>CHF <input type='checkbox'  checked={this.state.check8}  onChange={this.changeOneTitle} className='allCheckBoxes7'/></p>
+                 <p className='each_title_yours_currency' ref={this.secondTitle}>EUR <input type='checkbox'  checked={this.state.check9}  onChange={this.changeTwoTitle} className='allCheckBoxes7'/></p>
+                 <p className='each_title_yours_currency choosen_type_blue' ref={this.thirdTitle}>USD<input type='checkbox'  checked={this.state.check10}  onChange={this.changeThreeTitle} className='allCheckBoxes7'/></p>
+                 <p className='each_title_yours_currency' ref={this.fourthTitle}>SGD<input type='checkbox'  checked={this.state.check11}  onChange={this.changeFourthTitle} className='allCheckBoxes7'/></p>
               </div>
               <p className='title_salut title_fiat'>Amount of first transfer to account at PI Digital in CHF</p>
-              <input type='text' name='ammount' className='com_input' id='alter6' placeholder='Ammount'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('ammountOfCompanyHid') as HTMLInputElement).value = e.target.value}  className='com_input' id='alter6' placeholder='Ammount'/>
               <p className='title_salut title_fiat'>Bank and country of origin of the assets to be transferred to PI Digital</p>
-              <input type='text' placeholder='Bank' id='' className='alternative_inputs long_input'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('bankOfCompanyHid') as HTMLInputElement).value = e.target.value}  placeholder='Bank' id='' className='alternative_inputs long_input'/>
 
               <div className='wrap_transfer' id='alter7'>
                   <p className='corr_text2'>No transfer</p>
@@ -263,13 +284,13 @@ render() {
 
               <p className='us_title pi_title'>PI Digital wallets</p>
               <p className='title_salut ref_curr_title'>Indicative initial BTC transfer to PI Digital wallet</p>
-              <input type='text' placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('btcCompany1Hid') as HTMLInputElement).value = e.target.value} placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
               <p className='title_salut ref_curr_title'>BTC wallet address used for the transfer</p>
-              <input type='text' placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('btcCompany2Hid') as HTMLInputElement).value = e.target.value} placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
               <p className='title_salut ref_curr_title'>Indicative initial ETH transfer to PI Digital wallet</p>
-              <input type='text' placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('ethCompany1Hid') as HTMLInputElement).value = e.target.value} placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
               <p className='title_salut ref_curr_title'>ETH wallet address used for the transfer</p>
-              <input type='text' placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('ethCompany2Hid') as HTMLInputElement).value = e.target.value} placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
 
               <div className='wrap_transfer' id='alter8'>
                   <p className='corr_text2'>No transfer</p>
@@ -286,8 +307,8 @@ render() {
 
               <div className='wrap_white_agree_block' id='alter9'>
                  <div className='white_agree_block'>
-                     <p className='each_agree_block blue_each_white_per'><input type='checkbox' checked={this.state.check12} onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email</p>
-                     <p className='each_agree_block'><input type='checkbox' checked={this.state.check13} onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email</p>
+                     <p className='each_agree_block blue_each_white_per'><input type='checkbox' checked={this.state.check12}  onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email</p>
+                     <p className='each_agree_block'><input type='checkbox' checked={this.state.check13}  onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email</p>
                  </div>
               </div>
 
@@ -304,7 +325,7 @@ render() {
               <div className='wrap_next_buttons5'>
                 <div className='first_next_buttons'>
                     <NavLink to='/' className='back_button'>Back</NavLink>
-                    <NavLink to='/company_personal' className='next_button'>Next</NavLink>
+                    <button type='submit' form='companyForm' className='next_button'>Next</button>
                 </div>
               </div>
   					</div>

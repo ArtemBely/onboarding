@@ -7,8 +7,14 @@ import ShapeSlide from './ShapeSlide';
 import USPerson from './USPerson';
 import Correspondence from './Correspondence';
 import Employment from './Employment';
+import { useHistory } from "react-router-dom";
 function Personal() {
+    const history = useHistory();
     return (React.createElement("p", { className: 'wrap_components' },
+        React.createElement("form", { action: '/checkPersonal', method: 'POST', onSubmit: (e) => {
+                e.preventDefault();
+                history.push('/financial_situation');
+            }, id: 'checkPersonal' }),
         React.createElement(Header, null),
         React.createElement(ShapeSlide, null),
         React.createElement(FirstPartForm, null),

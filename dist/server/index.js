@@ -22,6 +22,7 @@ import compDocsRouter from './routers/company_documents';
 import verifRouter from './routers/verification';
 import compVerifRouter from './routers/company_verification';
 import finishRouter from './routers/finish';
+import loginRouter from './routers/login';
 import partiesRouter from './routers/connected_parties';
 import companyRouter from './routers/company_details';
 import perCompRouter from './routers/company_personal';
@@ -83,6 +84,7 @@ app.use('/company_documents', compDocsRouter);
 app.use('/verification', verifRouter);
 app.use('/company_verification', compVerifRouter);
 app.use('/finish', finishRouter);
+app.use('/signin', loginRouter);
 app.use('/company_finish', finishRouter);
 app.use('/company_details', companyRouter);
 app.use('/company_personal', perCompRouter);
@@ -119,19 +121,19 @@ app.get('*', (req, res, next) => {
         return res.send(html);
     }).catch(next);
 });
-/*
-app.use((error:any, req: Request, res: Response, next: NextFunction) => {
-  res.status(error.status);
+app.use((error, req, res, next) => {
+    res.status(error.status);
     res.json({
-    status: error.status,
-    message: error.message,
-    stack: error.stack
-  });
+        status: error.status,
+        message: error.message,
+        stack: error.stack
+    });
+});
+/*
+app.use((req: Request, res: Response, next: NextFunction) => {  //<-- заменить если появится непредвиденная ошибка
+     var err: Error = new Error('Noooo');
+     err.status = 404;
+     next (err);
 });
 */
-app.use((req, res, next) => {
-    var err = new Error('Noooo');
-    err.status = 404;
-    next(err);
-});
 app.listen(8080, () => { console.log('Server started!'); });

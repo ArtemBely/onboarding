@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import axios from 'axios';
 class YourAccount extends Component {
     constructor(props, state) {
@@ -18,21 +18,30 @@ class YourAccount extends Component {
         this.chekBoxInside1 = React.createRef();
         this.chekBoxInside2 = React.createRef();
         this.wrapCompany = React.createRef();
-        this.changeInputColor = () => {
-            var _a, _b, _c, _d, _e, _f, _g, _h;
+        this.changeInputColor = (e) => {
+            var _a, _b, _c, _d, _e, _f, _g, _h, _j;
             this.setState({ check1: true, check2: false });
             (_b = (_a = this.checkBlue2) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.remove('blueCheckBox');
             ((_d = (_c = this.chekBoxInside1) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.checked) ?
                 (_f = (_e = this.checkBlue1) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox') : null;
             (_h = (_g = this.wrapCompany) === null || _g === void 0 ? void 0 : _g.current) === null || _h === void 0 ? void 0 : _h.classList.add('dispNone');
+            document.getElementById('indivHid').value = e.target.checked.toString();
+            document.getElementById('legalHid').value = (!e.target.checked).toString();
+            (_j = document.getElementById('navBtn')) === null || _j === void 0 ? void 0 : _j.classList.remove('unAccessBtnColor');
         };
-        this.changeInputColor2 = () => {
-            var _a, _b, _c, _d, _e, _f, _g, _h;
+        this.changeInputColor2 = (e) => {
+            var _a, _b, _c, _d, _e, _f, _g, _h, _j;
             this.setState({ check1: false, check2: true });
             (_b = (_a = this.checkBlue1) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.remove('blueCheckBox');
             ((_d = (_c = this.chekBoxInside2) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.checked) ?
                 (_f = (_e = this.checkBlue2) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox') : null;
             (_h = (_g = this.wrapCompany) === null || _g === void 0 ? void 0 : _g.current) === null || _h === void 0 ? void 0 : _h.classList.remove('dispNone');
+            document.getElementById('legalHid').value = e.target.checked.toString();
+            document.getElementById('indivHid').value = (!e.target.checked).toString();
+            if (document.getElementById('typeOfCompanyHid') && document.getElementById('typeOfCompanyHid').value.length == 0 ||
+                document.getElementById('countryOfCompanyHid') && document.getElementById('countryOfCompanyHid').value.length == 0) {
+                (_j = document.getElementById('navBtn')) === null || _j === void 0 ? void 0 : _j.classList.add('unAccessBtnColor');
+            }
         };
         let user;
         if (typeof window != "undefined") {
@@ -41,7 +50,8 @@ class YourAccount extends Component {
         this.state = {
             check1: false,
             check2: false,
-            allCountries: []
+            allCountries: [],
+            links: ''
         };
         this.checkBlue1 = React.createRef();
         this.checkBlue2 = React.createRef();
@@ -59,22 +69,37 @@ class YourAccount extends Component {
         start();
     }
     render() {
+        var _a;
         return (React.createElement("div", { className: 'wrap_first_acc_checkbox' },
             React.createElement("div", { className: 'first_acc_checkbox' },
                 React.createElement("p", { className: 'welcome_to_acc' }, "I would like to onboard as:"),
-                React.createElement("form", { id: 'main_form' },
-                    React.createElement("span", { className: 'wrap_main_checkbox', ref: this.checkBlue1 },
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check1, onChange: this.changeInputColor, className: 'main_checkbox', ref: this.chekBoxInside1, required: true })),
+                React.createElement("form", { action: '/create_account1', method: 'POST', id: 'registrationForm' },
+                    React.createElement("p", { className: 'wrap_main_checkbox', ref: this.checkBlue1 },
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check1, onChange: this.changeInputColor, className: 'main_checkbox', ref: this.chekBoxInside1 })),
                     React.createElement("span", { className: 'each_type' }, "An individual"),
-                    React.createElement("span", { className: 'wrap_main_checkbox', ref: this.checkBlue2 },
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check2, onChange: this.changeInputColor2, className: 'main_checkbox', ref: this.chekBoxInside2, required: true })),
+                    React.createElement("p", { className: 'wrap_main_checkbox', ref: this.checkBlue2 },
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check2, onChange: this.changeInputColor2, className: 'main_checkbox', ref: this.chekBoxInside2 })),
                     React.createElement("span", { className: 'each_type' }, "A legal entity")),
                 React.createElement("div", { className: 'wrap_company_type dispNone', ref: this.wrapCompany },
                     React.createElement("div", { className: 'company_type' },
                         React.createElement("p", { className: 'title_salut' }, "Country of registration"),
                         React.createElement("p", { className: 'title_salut' }, "Entity type (beneficial ownership)"),
-                        React.createElement("select", { id: 'selectLegalCountry', className: 'com_input' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name)))),
-                        React.createElement("select", { id: 'selectLegalType', className: 'com_input' },
+                        React.createElement("select", { id: 'selectLegalCountry', onChange: (e) => {
+                                var _a;
+                                document.getElementById('countryOfCompanyHid').value = e.target.value;
+                                if (document.getElementById('typeOfCompanyHid') && document.getElementById('typeOfCompanyHid').value.length > 0) {
+                                    (_a = document.getElementById('navBtn')) === null || _a === void 0 ? void 0 : _a.classList.remove('unAccessBtnColor');
+                                    this.setState({ links: '/company_details' });
+                                }
+                            }, className: 'com_input' }, this.state.allCountries.map((item, key) => (React.createElement("option", { value: key == 0 ? '' : item.name, disabled: key == 0 ? true : false, selected: key == 0 ? true : false }, item.name)))),
+                        React.createElement("select", { id: 'selectLegalType', onChange: (e) => {
+                                var _a;
+                                document.getElementById('typeOfCompanyHid').value = e.target.value;
+                                if (document.getElementById('countryOfCompanyHid') && document.getElementById('countryOfCompanyHid').value.length > 0) {
+                                    (_a = document.getElementById('navBtn')) === null || _a === void 0 ? void 0 : _a.classList.remove('unAccessBtnColor');
+                                    this.setState({ links: '/company_details' });
+                                }
+                            }, className: 'com_input' },
                             React.createElement("option", { value: "", disabled: true, selected: true }, "Type"),
                             React.createElement("option", { value: "Operative company" }, "Operative company"),
                             React.createElement("option", { value: "Domiciliary company" }, "Domiciliary company"),
@@ -87,8 +112,9 @@ class YourAccount extends Component {
                     React.createElement("p", { className: 'case1' }, "Yours sincerely, PI Digital")),
                 React.createElement("div", { className: 'wrap_next_buttons0' },
                     React.createElement("div", { className: 'first_next_buttons' },
-                        React.createElement(NavLink, { to: '#', className: 'back_button' }, "Back"),
-                        React.createElement(NavLink, { to: this.state.check2 ? '/company_details' : '/personal_details', className: 'next_button' }, "Next"))))));
+                        React.createElement(NavLink, { to: '/registration', className: 'back_button' }, "Back"),
+                        React.createElement(Link, { to: this.state.check2 && (!((_a = document.getElementById('navBtn')) === null || _a === void 0 ? void 0 : _a.classList.contains('unAccessBtnColor'))) ?
+                                this.state.links : this.state.check1 ? '/personal_details' : '#', id: 'navBtn', className: 'next_button unAccessBtnColor' }, "Next"))))));
     }
 }
 export default YourAccount;

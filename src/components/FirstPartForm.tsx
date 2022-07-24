@@ -98,12 +98,13 @@ class FirstPartForm extends Component<{}, iState>{
     start();
   }
 
-changeOneTitle = () => {
+changeOneTitle = (e:any) => {
   this.setState({ check1: true, check2: false, check3: false, check4: false });
   document.querySelectorAll('.each_title_yours').forEach(item => (
     item.classList.remove('choosen_type_blue')
   ));
   this.firstTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('titleHid') as HTMLInputElement).value = "None.";
 }
 
 changeTwoTitle = () => {
@@ -112,6 +113,7 @@ changeTwoTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.secondTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('titleHid') as HTMLInputElement).value = "Prof.";
 }
 
 changeThreeTitle = () => {
@@ -120,6 +122,7 @@ changeThreeTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.thirdTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('titleHid') as HTMLInputElement).value = "Dr.";
 }
 
 changeFourthTitle = () => {
@@ -128,6 +131,7 @@ changeFourthTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.fourthTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('titleHid') as HTMLInputElement).value = "PhD.";
 }
 
 changeFiveTitle = () => {
@@ -136,6 +140,7 @@ changeFiveTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.fiveTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('salutationHid') as HTMLInputElement).value = "Mr";
 }
 
 changeSixTitle = () => {
@@ -144,6 +149,7 @@ changeSixTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.sixTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('salutationHid') as HTMLInputElement).value = "Mrs";
 }
 
 changeSevenTitle = () => {
@@ -152,6 +158,7 @@ changeSevenTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.sevenTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('salutationHid') as HTMLInputElement).value = "Ms";
 }
 
 changeEightTitle = () => {
@@ -160,6 +167,7 @@ changeEightTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.eightTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('nationalitiesHid') as HTMLInputElement).value = "0";
 }
 
 changeNineTitle = () => {
@@ -168,6 +176,7 @@ changeNineTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.nineTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('nationalitiesHid') as HTMLInputElement).value = "1";
 }
 
 changeTenTitle = () => {
@@ -176,6 +185,7 @@ changeTenTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.tenTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('nationalitiesHid') as HTMLInputElement).value = "2";
 }
 
 changeElevenTitle = () => {
@@ -184,6 +194,7 @@ changeElevenTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.elevenTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('nationalitiesHid') as HTMLInputElement).value = "3";
 }
 
 changeTwelveTitle = () => {
@@ -192,6 +203,7 @@ changeTwelveTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.twelveTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('nationalitiesHid') as HTMLInputElement).value = "4";
 }
 
 changeThirtheenTitle = () => {
@@ -200,6 +212,7 @@ changeThirtheenTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.thirtheenTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('nationalitiesHid') as HTMLInputElement).value = "5";
 }
 
 render() {
@@ -210,31 +223,31 @@ render() {
               <div className='first_part_inside'>
                   <p className='title_yours'>Title</p>
                   <div className='wrap_title_yours'>
-                     <p className='each_title_yours choosen_type_blue' ref={this.firstTitle}>None <input type='checkbox' checked={this.state.check1} value="None" onChange={this.changeOneTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_yours' ref={this.secondTitle}>Prof. <input type='checkbox' checked={this.state.check2} value="Prof." onChange={this.changeTwoTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_yours' ref={this.thirdTitle}>Dr. <input type='checkbox' checked={this.state.check3} value="Dr." onChange={this.changeThreeTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_yours' ref={this.fourthTitle}>PhD <input type='checkbox' checked={this.state.check4} value="PhD" onChange={this.changeFourthTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_yours choosen_type_blue' ref={this.firstTitle}>None <input type='checkbox'  checked={this.state.check1} onChange={this.changeOneTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_yours' ref={this.secondTitle}>Prof. <input type='checkbox'  checked={this.state.check2} onChange={this.changeTwoTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_yours' ref={this.thirdTitle}>Dr. <input type='checkbox'  checked={this.state.check3} onChange={this.changeThreeTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_yours' ref={this.fourthTitle}>PhD <input type='checkbox'  checked={this.state.check4} onChange={this.changeFourthTitle} className='allCheckBoxes'/></p>
                   </div>
               </div>
               <div className='second_part_inside'>
                   <p className='title_salut'>Salutation</p>
                   <div className='wrap_title_salut'>
-                     <p className='each_title_salut choosen_type_blue' ref={this.fiveTitle}>Mr<input type='checkbox' checked={this.state.check21} value="Mr" onChange={this.changeFiveTitle} className='allCheckBoxes2'/></p>
-                     <p className='each_title_salut' ref={this.sixTitle}>Mrs<input type='checkbox' checked={this.state.check22} value="Mrs" onChange={this.changeSixTitle} className='allCheckBoxes2'/></p>
-                     <p className='each_title_salut' ref={this.sevenTitle}>Ms<input type='checkbox' checked={this.state.check23} value="Ms" onChange={this.changeSevenTitle} className='allCheckBoxes2'/></p>
+                     <p className='each_title_salut choosen_type_blue' ref={this.fiveTitle}>Mr<input type='checkbox' checked={this.state.check21} onChange={this.changeFiveTitle} className='allCheckBoxes2'/></p>
+                     <p className='each_title_salut' ref={this.sixTitle}>Mrs<input type='checkbox' checked={this.state.check22} onChange={this.changeSixTitle} className='allCheckBoxes2'/></p>
+                     <p className='each_title_salut' ref={this.sevenTitle}>Ms<input type='checkbox' checked={this.state.check23} onChange={this.changeSevenTitle} className='allCheckBoxes2'/></p>
                   </div>
               </div>
               <div className='name_part_inside'>
                   <p className='title_salut'>Given names as per passport/ identification document</p>
-                  <input type='text' name='name' className='com_input' placeholder='Name'/>
+                  <input type='text' form='checkPersonal' required onChange={(e:any) => (document.getElementById('nameHid') as HTMLInputElement).value = e.target.value} className='com_input' placeholder='Name'/>
               </div>
               <div className='surname_part_inside'>
                   <p className='title_salut'>Last name</p>
-                  <input type='text' name='lastname' className='com_input' placeholder='Last name'/>
+                  <input type='text' form='checkPersonal' required onChange={(e:any) => (document.getElementById('lastnameHid') as HTMLInputElement).value = e.target.value} className='com_input' placeholder='Last name'/>
               </div>
               <div className='third_part_inside'>
                   <p className='title_salut'>Date of birth</p>
-                  <input type='text' ref={this.dateInput} placeholder='DD/MM/YYYY' onFocus={() => {
+                  <input type='text' form='checkPersonal' required onChange={(e:any) => (document.getElementById('dateHid') as HTMLInputElement).value = e.target.value} ref={this.dateInput} placeholder='DD/MM/YYYY' onFocus={() => {
                     if(this.dateInput.current != null) {
                       this.dateInput.current.type = "date";
                     }
@@ -242,7 +255,7 @@ render() {
               </div>
               <div className='country_part_inside'>
                   <p className='title_salut'>Country of origin (Nationality)</p>
-                  <select id='selectCountry' className='com_input'>
+                  <select id='selectCountry' onChange={(e:any) => (document.getElementById('countryHid') as HTMLInputElement).value = e.target.value} className='com_input'>
                       {this.state.allCountries.map((item:any, key) => (
                             <option value={key==0 ? '' : item.name}
                               disabled={key==0 ? true : false}
@@ -254,12 +267,12 @@ render() {
               <div className='five_part_inside'>
                   <p className='title_yours'>Please enter how many other nationalities you have</p>
                   <div className='wrap_title_nation'>
-                     <p className='each_title_nation choosen_type_blue' ref={this.eightTitle}>0 <input type='checkbox' checked={this.state.check31} name={this.state.check31 ? 'nationalities' : ''} value="0" onChange={this.changeEightTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.nineTitle}>1 <input type='checkbox' checked={this.state.check32} name={this.state.check32 ? 'nationalities' : ''} value="1" onChange={this.changeNineTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.tenTitle}>2 <input type='checkbox' checked={this.state.check33} name={this.state.check33 ? 'nationalities' : ''} value="2" onChange={this.changeTenTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.elevenTitle}>3 <input type='checkbox' checked={this.state.check34} name={this.state.check34 ? 'nationalities' : ''} value="3" onChange={this.changeElevenTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.twelveTitle}>4 <input type='checkbox' checked={this.state.check35} name={this.state.check35 ? 'nationalities' : ''} value="4" onChange={this.changeTwelveTitle} className='allCheckBoxes'/></p>
-                     <p className='each_title_nation' ref={this.thirtheenTitle}>5 <input type='checkbox' checked={this.state.check36} name={this.state.check36 ? 'nationalities' : ''} value="5" onChange={this.changeThirtheenTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation choosen_type_blue' ref={this.eightTitle}>0 <input type='checkbox' checked={this.state.check31} onChange={this.changeEightTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.nineTitle}>1 <input type='checkbox'  checked={this.state.check32} onChange={this.changeNineTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.tenTitle}>2 <input type='checkbox' checked={this.state.check33} onChange={this.changeTenTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.elevenTitle}>3 <input type='checkbox'  checked={this.state.check34} onChange={this.changeElevenTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.twelveTitle}>4 <input type='checkbox'  checked={this.state.check35} onChange={this.changeTwelveTitle} className='allCheckBoxes'/></p>
+                     <p className='each_title_nation' ref={this.thirtheenTitle}>5 <input type='checkbox'  checked={this.state.check36} onChange={this.changeThirtheenTitle} className='allCheckBoxes'/></p>
                   </div>
               </div>
 					</div>

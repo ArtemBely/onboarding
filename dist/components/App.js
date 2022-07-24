@@ -18,9 +18,11 @@ import '../../public/styles/phone2.css';
 import '../../public/styles/phone3.css';
 import '../../public/styles/phone4.css';
 import '../../public/styles/phone5.css';
+import { MainHiddenInputsForRegistration } from './MainHiddenInputsForRegistration';
 export class App extends Component {
     render() {
         return (React.createElement("div", { className: 'main_wrap' },
+            React.createElement(MainHiddenInputsForRegistration, null),
             React.createElement(Switch, null, routes.map((route, i) => (React.createElement(Route, { key: i, path: route.path, exact: route.exact, component: route.component }))))));
     }
 }

@@ -52,6 +52,7 @@ changeOneTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.firstTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('currencyHid') as HTMLInputElement).value = "CHF";
 }
 
 changeTwoTitle = () => {
@@ -60,6 +61,7 @@ changeTwoTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.secondTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('currencyHid') as HTMLInputElement).value = "EUR";
 }
 
 changeThreeTitle = () => {
@@ -68,6 +70,7 @@ changeThreeTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.thirdTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('currencyHid') as HTMLInputElement).value = "USD";
 }
 
 changeFourthTitle = () => {
@@ -76,36 +79,46 @@ changeFourthTitle = () => {
     item.classList.remove('choosen_type_blue')
   ));
   this.fourthTitle?.current?.classList.add('choosen_type_blue');
+  (document.getElementById('currencyHid') as HTMLInputElement).value = "SGD";
 }
 
-changeInputColor21 = () => {
+changeInputColor21 = (e:any) => {
   this.firstBlue?.current?.classList.contains('blueCheckBox') ?
   this.firstBlue?.current?.classList.remove('blueCheckBox') :
   this.firstBlue?.current?.classList.add('blueCheckBox');
+  (document.getElementById('noTransferHid') as HTMLInputElement).value = e.target.checked.toString();
 }
 
-changeInputColor22 = () => {
+changeInputColor22 = (e:any) => {
   this.secondBlue?.current?.classList.contains('blueCheckBox') ?
   this.secondBlue?.current?.classList.remove('blueCheckBox') :
   this.secondBlue?.current?.classList.add('blueCheckBox');
+  (document.getElementById('noTransfer2Hid') as HTMLInputElement).value = e.target.checked.toString();
 }
 
 changeInputColor23 = () => {
-  this.thirdBlue?.current?.classList.contains('blueCheckBox') ?
-  this.thirdBlue?.current?.classList.remove('blueCheckBox') :
-  this.thirdBlue?.current?.classList.add('blueCheckBox');
+  if(this.thirdBlue?.current?.classList.contains('blueCheckBox')) {
+    this.thirdBlue?.current?.classList.remove('blueCheckBox');
+    (document.getElementById('declareBeneficialHid') as HTMLInputElement).value = '';
+  }
+  else {
+    this.thirdBlue?.current?.classList.add('blueCheckBox');
+    (document.getElementById('declareBeneficialHid') as HTMLInputElement).value = "I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.";
+  }
 }
 
 changeWhite1 = () => {
   this.setState({ check5: true, check6: false });
   document.querySelectorAll('.each_agree_block')[0].classList.add('blue_each_white_per');
   document.querySelectorAll('.each_agree_block')[1].classList.remove('blue_each_white_per');
+  (document.getElementById('recieveUpdatesHid') as HTMLInputElement).value = "I agree to receive updates and news from PI Digital via email";
 }
 
 changeWhite2 = () => {
   this.setState({ check5: false, check6: true });
   document.querySelectorAll('.each_agree_block')[1].classList.add('blue_each_white_per');
   document.querySelectorAll('.each_agree_block')[0].classList.remove('blue_each_white_per');
+  (document.getElementById('recieveUpdatesHid') as HTMLInputElement).value = "I do not agree to receive updates and news from PI Digital via email";
 }
 
 render() {
@@ -116,37 +129,37 @@ render() {
                 <p className='us_title pi_title'>Fiat accounts</p>
                 <p className='title_salut ref_curr_title'>Reference currency</p>
                 <div className='wrap_title_yours'>
-                   <p className='each_title_yours_currency' ref={this.firstTitle}>CHF <input type='checkbox' checked={this.state.check1} value="CHF" onChange={this.changeOneTitle} className='allCheckBoxes7'/></p>
-                   <p className='each_title_yours_currency' ref={this.secondTitle}>EUR <input type='checkbox' checked={this.state.check2} value="EUR" onChange={this.changeTwoTitle} className='allCheckBoxes7'/></p>
-                   <p className='each_title_yours_currency choosen_type_blue' ref={this.thirdTitle}>USD<input type='checkbox' checked={this.state.check3} value="USD" onChange={this.changeThreeTitle} className='allCheckBoxes7'/></p>
-                   <p className='each_title_yours_currency' ref={this.fourthTitle}>SGD<input type='checkbox' checked={this.state.check4} value="SGD" onChange={this.changeFourthTitle} className='allCheckBoxes7'/></p>
+                   <p className='each_title_yours_currency' ref={this.firstTitle}>CHF <input type='checkbox'  checked={this.state.check1} onChange={this.changeOneTitle} className='allCheckBoxes7'/></p>
+                   <p className='each_title_yours_currency' ref={this.secondTitle}>EUR <input type='checkbox'  checked={this.state.check2} onChange={this.changeTwoTitle} className='allCheckBoxes7'/></p>
+                   <p className='each_title_yours_currency choosen_type_blue' ref={this.thirdTitle}>USD<input type='checkbox'  checked={this.state.check3} onChange={this.changeThreeTitle} className='allCheckBoxes7'/></p>
+                   <p className='each_title_yours_currency' ref={this.fourthTitle}>SGD<input type='checkbox'  checked={this.state.check4} onChange={this.changeFourthTitle} className='allCheckBoxes7'/></p>
                 </div>
                 <p className='title_salut title_fiat'>Amount of first transfer to account at PI Digital in CHF</p>
-                <input type='text' name='ammount' className='com_input' placeholder='Ammount'/>
+                <input type='text' form='checkFinancial' required  onChange={(e:any) => (document.getElementById('ammountHid') as HTMLInputElement).value = e.target.value} className='com_input' placeholder='Ammount'/>
                 <p className='title_salut title_fiat'>Bank and country of origin of the assets to be transferred to PI Digital</p>
-                <input type='text' name='bankAndCountry' placeholder='Profession' id='' className='alternative_inputs long_input'/>
+                <input type='text' form='checkFinancial' required  onChange={(e:any) => (document.getElementById('bankAndCountryHid') as HTMLInputElement).value = e.target.value} placeholder='Bank' id='' className='alternative_inputs long_input'/>
 
                 <div className='wrap_transfer'>
                     <p className='corr_text2'>No transfer</p>
                     <p className='wrap_main_checkbox2' ref={this.firstBlue}>
-                        <input type='checkbox' name='noTransfer' onChange={this.changeInputColor21} className='main_checkbox'/>
+                        <input type='checkbox'  onChange={this.changeInputColor21} className='main_checkbox'/>
                     </p>
                 </div>
 
                 <p className='us_title pi_title'>PI Digital wallets</p>
                 <p className='title_salut ref_curr_title'>Indicative initial BTC transfer to PI Digital wallet</p>
-                <input type='text' name='btc1' placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+                <input type='text' form='checkFinancial' required  onChange={(e:any) => (document.getElementById('btc1Hid') as HTMLInputElement).value = e.target.value} placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
                 <p className='title_salut ref_curr_title'>BTC wallet address used for the transfer</p>
-                <input type='text' name='btc2' placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+                <input type='text' form='checkFinancial' required  onChange={(e:any) => (document.getElementById('btc2Hid') as HTMLInputElement).value = e.target.value} placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
                 <p className='title_salut ref_curr_title'>Indicative initial ETH transfer to PI Digital wallet</p>
-                <input type='text' name='eth1' placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+                <input type='text' form='checkFinancial' required  onChange={(e:any) => (document.getElementById('eth1Hid') as HTMLInputElement).value = e.target.value} placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
                 <p className='title_salut ref_curr_title'>ETH wallet address used for the transfer</p>
-                <input type='text' name='eth2' placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+                <input type='text' form='checkFinancial' required  onChange={(e:any) => (document.getElementById('eth2Hid') as HTMLInputElement).value = e.target.value} placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
 
                 <div className='wrap_transfer'>
                     <p className='corr_text2'>No transfer</p>
                     <p className='wrap_main_checkbox2' ref={this.secondBlue}>
-                        <input type='checkbox' name='noTransfer2' onChange={this.changeInputColor22} className='main_checkbox'/>
+                        <input type='checkbox' onChange={this.changeInputColor22} className='main_checkbox'/>
                     </p>
                 </div>
 
@@ -154,7 +167,7 @@ render() {
                 <div className='wrap_transfer2'>
                     <p className='corr_text2'>I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.</p>
                     <p className='wrap_main_checkbox2' ref={this.thirdBlue} id='tablet_cb'>
-                        <input type='checkbox' name='declareBeneficial' onChange={this.changeInputColor23} className='main_checkbox'/>
+                        <input type='checkbox'  onChange={this.changeInputColor23} className='main_checkbox'/>
                     </p>
                 </div>
                 <p className='case2'>If you intend to transfer Bitcoin (BTC) or Ether (ETH) to your PI Digital wallet from a private wallet,
@@ -167,8 +180,8 @@ render() {
 
                  <div className='wrap_white_agree_block'>
                     <div className='white_agree_block'>
-                        <p className='each_agree_block blue_each_white_per'><input type='checkbox' checked={this.state.check5} name={this.state.check5 ? 'recieveUpdates' : ''} value='I agree to receive updates and news from PI Digital via email' onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email</p>
-                        <p className='each_agree_block'><input type='checkbox' checked={this.state.check6} name={this.state.check6 ? 'recieveUpdates' : ''} value='I do not agree to receive updates and news from PI Digital via email' onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email</p>
+                        <p className='each_agree_block blue_each_white_per'><input type='checkbox'  checked={this.state.check5}  onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email</p>
+                        <p className='each_agree_block'><input type='checkbox'  checked={this.state.check6} onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email</p>
                     </div>
                  </div>
 
@@ -185,7 +198,7 @@ render() {
                   <div className='wrap_next_buttons03'>
                     <div className='first_next_buttons'>
                         <NavLink to='/personal_details' className='back_button'>Back</NavLink>
-                        <NavLink to='/documents' className='next_button'>Next</NavLink>
+                        <button type='submit' form='checkFinancial' className='next_button'>Next</button>
                     </div>
                   </div>
 

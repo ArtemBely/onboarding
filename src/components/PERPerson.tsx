@@ -38,6 +38,8 @@ changeFirstWhite = () => {
     item.classList.remove('dispNone')
   ));
   this.extra_name_input?.current?.classList.remove('dispNone');
+  (document.getElementById('pepStatusHid') as HTMLInputElement).value =
+  "I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP";
 }
 
 changeSecondWhite = () => {
@@ -50,6 +52,8 @@ changeSecondWhite = () => {
     item.classList.add('dispNone')
   ));
   this.extra_name_input?.current?.classList.add('dispNone');
+  (document.getElementById('pepStatusHid') as HTMLInputElement).value =
+  "I declare that I am a politically exposed person or a family member or close associate of a politically exposed person: indicate the executed function or the name/function of the affiliated person.";
 }
 
 render() {
@@ -81,9 +85,7 @@ render() {
                     </p>
 
                     <p className='extra_name dispNone'>Name/Function</p>
-                    <input type='hidden' name='pepStatus' value={(this.extra_name_input?.current as HTMLInputElement).value == '' ? "I declare that I am a politically exposed person or a family member or close associate of a politically exposed person: indicate the executed function or the name / function of the affiliated person." :
-                    "I declare that I am a politically exposed person or a family member or close associate of a politically exposed person: indicate the executed function or the name/function of the affiliated person."}/>
-                    <input type='text' placeholder='Name/Function' ref={this.extra_name_input} name='pepNameFunc' className='extra_name_input dispNone' required={this.secondWhite?.current?.classList.contains('blue_each_white_per') ? true : false}/>
+                    <input type='text' form='checkPersonal'  placeholder='Name/Function' ref={this.extra_name_input} onChange={(e:any) => (document.getElementById('pepNameFuncHid') as HTMLInputElement).value = e.target.value} name='pepNameFunc' className='extra_name_input dispNone' required={this.secondWhite?.current?.classList.contains('blue_each_white_per') ? true : false}/>
                 </div>
               </div>
 				</div>

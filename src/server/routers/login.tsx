@@ -3,7 +3,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import serialize from 'serialize-javascript';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
-import Create from '../../components/Create';
+import Login from '../../components/Login';
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.get('/', (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
   const congrats = renderToString(
     <StaticRouter>
-       <Create />
+       <Login />
     </StaticRouter>
   )
   res.send(
@@ -31,11 +31,6 @@ router.get('/', (req: Request, res: Response) => {
             </body>
         </html>`
     );
-});
-
-router.post('/', (req, res) => {
-  console.log(req.body);
-  res.redirect('/finish');
 });
 
 export default router;

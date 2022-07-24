@@ -1,7 +1,9 @@
-import { model, Schema, Document } from 'mongoose';
+import mongoose, { model, Schema, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 interface IUser extends Document {
+  email: string,
+  password: string,
   individual: boolean;
   title: string;
   salutation: string;
@@ -40,6 +42,7 @@ interface IUser extends Document {
   companyEmplWebsite: string;
   companyEmplCode: string;
   companyEmplProfession: string;
+  companyLastEmplProfession: string;
   functionEmpl: string;
   functionLastEmpl: string;
   companyEmpl: string;
@@ -63,6 +66,7 @@ interface IUser extends Document {
   yearlyIncome2: string;
   netWealth1: string;
   netWealth2: string;
+  currency: string;
   ammount: string;
   bankAndCountry: string;
   noTransfer: boolean;
@@ -74,18 +78,53 @@ interface IUser extends Document {
   declareBeneficial: boolean;
   recieveUpdates: boolean;
 
+  legalEntity: boolean;
+  countryOfCompany: string;
+  typeOfCompany: string;
+  stockExchange: string;
+  noExchangeFile: string;
+  entityName: string;
+  taxOfID: string;
+  countryOfReg: string;
+  entityType: string;
+  dateOfIncorp: string;
+  websiteOfComp: string;
+  emplOfCompany: string;
+  lineOfCompany: string;
+  turnoverCompany: string;
+  asAnAuthor: boolean;
+  companyRegAddress: string;
+  companyRegCity: string;
+  companyMailBox: string;
+  countryOfCompany2: string;
+  postalCompanyCode: string;
+  sameCorrespondenceCompany: boolean;
+  fiatCompanyCurrency: string;
+  ammountOfCompany: string;
+  bankOfCompany: string;
+  noTransfer3: boolean;
+  btcCompany1: string;
+  btcCompany2: string;
+  ethCompany1: string;
+  ethCompany2: string;
+  noTransfer4: boolean;
+  agreeRecieveCompany: string;
+  parties: Array<object>;
+  partyName: string;
+  partyEmail: string;
+
   tax: string;
-  email: string;
   telephone: string;
-  password: string;
   code: string;
 }
 
 const userSchema = new Schema <IUser>({
+   email: {type: String, required: true},
+   password: {type: String, required: true},
    individual:{type: Boolean},
    title:{type: String},
    salutation:{type: String},
-   name:{type: String, required: true},
+   name:{type: String},
    lastname:{type: String},
    date:{type: Date},
    country:{type: String},
@@ -120,6 +159,7 @@ const userSchema = new Schema <IUser>({
    companyEmplWebsite: {type: String},
    companyEmplCode: {type: String},
    companyEmplProfession: {type: String},
+   companyLastEmplProfession: {type: String},
    functionEmpl: {type: String},
    functionLastEmpl: {type: String},
    companyEmpl: {type: String},
@@ -143,6 +183,7 @@ const userSchema = new Schema <IUser>({
    yearlyIncome2: {type: String},
    netWealth1: {type: String},
    netWealth2: {type: String},
+   currency: {type: String},
    ammount: {type: String},
    bankAndCountry: {type: String},
    noTransfer: {type: Boolean},
@@ -154,15 +195,47 @@ const userSchema = new Schema <IUser>({
    declareBeneficial: {type: Boolean},
    recieveUpdates: {type: Boolean},
 
-   tax:{type: String},
-   email:{type: String, required: true},
-   telephone:{type: String, required: true},
-   password: {type: String, required: true},
-   code: {type: String, required: true}
-});
+   legalEntity:{type: Boolean},
+   countryOfCompany: {type: String},
+   typeOfCompany: {type: String},
+   stockExchange: {type: String},
+   entityName: {type: String},
+   taxOfID: {type: String},
+   countryOfReg: {type: String},
+   entityType: {type: String},
+   dateOfIncorp: {type: String},
+   websiteOfComp: {type: String},
+   emplOfCompany: {type: String},
+   lineOfCompany: {type: String},
+   turnoverCompany: {type: String},
+   asAnAuthor: {type: Boolean},
+   companyRegAddress: {type: String},
+   companyRegCity: {type: String},
+   companyMailBox: {type: String},
+   countryOfCompany2: {type: String},
+   postalCompanyCode: {type: String},
+   sameCorrespondenceCompany: {type: Boolean},
+   fiatCompanyCurrency: {type: String},
+   ammountOfCompany: {type: String},
+   bankOfCompany: {type: String},
+   noTransfer3: {type: Boolean},
+   btcCompany1: {type: String},
+   btcCompany2: {type: String},
+   ethCompany1: {type: String},
+   ethCompany2: {type: String},
+   noTransfer4: {type: Boolean},
+   agreeRecieveCompany: {type: String},
+   parties: {type: Array},
+   partyName: {type: String},
+   partyEmail: {type: String},
 
-module.exports = model('User', userSchema);
-module.exports.createUser = function(newUser: any, callback: any) {
+   tax:{type: String},
+   telephone:{type: String},
+   code: {type: String}
+});
+export const User = mongoose.model<IUser>("User", userSchema); // --> TS format
+//module.exports = mongoose.model('User', userSchema);
+export const createUser = function(newUser: any, callback: any) {
 bcrypt.genSalt(10, function(err: Error, salt: any) {
     bcrypt.hash(newUser.password, salt, function(err: Error, hash: any) {
         newUser.password = hash;
@@ -171,7 +244,7 @@ bcrypt.genSalt(10, function(err: Error, salt: any) {
   });
 }
 
-module.exports.comparePassword = function(candidatePassword: any, hash: any, callback: any) {
+export const comparePassword = function(candidatePassword: any, hash: any, callback: any) {
   bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
     if (err) throw err;
     callback(null, isMatch);

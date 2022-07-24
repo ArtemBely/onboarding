@@ -39,14 +39,14 @@ render() {
                 <div className='each_wrap_slider'>
                       <p className='title_salut income'>Yearly income (in CHF)</p>
                       <div className='common_slider'></div>
-                      <input type='text' name='yearlyIncome1' className='number_qty' />
-                      <input type='text' name='yearlyIncome2' className='number_qty2' />
+                      <input type='text' form='checkFinancial' required onChange={(e:any) => {(document.getElementById('yearlyIncome1Hid') as HTMLInputElement).value = e.target.value}} className='number_qty' />
+                      <input type='text' form='checkFinancial' required  onChange={(e:any) => {(document.getElementById('yearlyIncome2Hid') as HTMLInputElement).value = e.target.value}} className='number_qty2' />
                 </div>
                 <div className='each_wrap_slider'>
                       <p className='title_salut income'>Net wealth (in CHF)</p>
                       <div className='common_slider'></div>
-                      <input type='text' name='netWealth1' className='number_qty' />
-                      <input type='text' name='netWealth2' className='number_qty2' />
+                      <input type='text' form='checkFinancial' required  onChange={(e:any) => {(document.getElementById('netWealth1Hid') as HTMLInputElement).value = e.target.value}} className='number_qty' />
+                      <input type='text' form='checkFinancial' required  onChange={(e:any) => {(document.getElementById('netWealth2Hid') as HTMLInputElement).value = e.target.value}} className='number_qty2' />
                 </div>
   					</div>
 				</div>

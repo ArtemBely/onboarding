@@ -119,6 +119,10 @@ body {
 	color: #627078;
 	grid-column: 2 / 3;
 }
+#registrationForm {
+	display: grid;
+	grid-template-columns: 35px 179px 35px 159px;
+}
 .pass_condition {
 	color: #627078;
 	font-weight: 400;
@@ -163,7 +167,6 @@ body {
 	color: #FFFFFF;
 	font-family: 'Inter-Bold';
 	border: none;
-    cursor: pointer;
 }
 .blue_resend {
 	font-weight: 700;
@@ -221,6 +224,10 @@ body {
 	display: flex;
 	justify-content: center;
 	margin: 113px 0px 0px;
+}
+.unAccessBtnColor {
+	opacity: 0.6;
+	cursor: auto !important;
 }
 
 .wrap_header {
@@ -407,6 +414,7 @@ body {
   cursor: pointer;
   font-family: 'Inter-Bold';
   text-decoration: none;
+  border: none;
 }
 .back_button {
   background: #B9C5CB;
@@ -436,6 +444,10 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 50px;
   margin-bottom: 80px;
+}
+.activeRegButton {
+  background: #4FA0FF !important;
+  cursor: pointer !important;
 }
 
 .grey_shape_border {
@@ -1252,6 +1264,7 @@ body {
   align-items: center;
   font-family: 'Inter-Bold';
   text-decoration: none;
+  border: none;
 }
 .wrap_nav_complete {
   display: flex;
@@ -2411,6 +2424,9 @@ body {
 @media (min-width: 320px) and (max-width: 576px) {
   .wrap_header {
         height: 47px;
+  }
+  #registrationForm {
+    grid-template-columns: 39px 106px 39px 81px;
   }
   .header {
     width: 320px;

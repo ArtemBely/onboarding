@@ -135,6 +135,7 @@
   align-items: center;
   font-family: 'Inter-Bold';
   text-decoration: none;
+  border: none;
 }
 .wrap_nav_complete {
   display: flex;

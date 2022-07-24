@@ -25,4 +25,8 @@ router.get('/', (req, res) => {
             </body>
         </html>`);
 });
+router.post('/', (req, res) => {
+    console.log(req.body);
+    res.redirect('/finish');
+});
 export default router;

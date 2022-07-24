@@ -9,6 +9,9 @@
   .wrap_header {
         height: 47px;
   }
+  #registrationForm {
+    grid-template-columns: 39px 106px 39px 81px;
+  }
   .header {
     width: 320px;
     height: 47px;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import  { Switch, Route } from 'react-router-dom';
 import routes from './routes';
 import '../../public/styles/style1.css';
@@ -18,11 +18,14 @@ import '../../public/styles/phone2.css';
 import '../../public/styles/phone3.css';
 import '../../public/styles/phone4.css';
 import '../../public/styles/phone5.css';
+import { MainHiddenInputsForRegistration } from './MainHiddenInputsForRegistration';
 
 export class App extends Component<any> {
+
   render() {
     return (
       <div className='main_wrap'>
+          <MainHiddenInputsForRegistration />
           <Switch>
             {routes.map((route:any, i:number) => (
               <Route

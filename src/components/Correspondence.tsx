@@ -28,16 +28,18 @@ class Correspondence extends Component{
 
   }
 
-changeInputColor11 = () => {
+changeInputColor11 = (e:any) => {
   this.firstBlue?.current?.classList.contains('blueCheckBox') ?
   this.firstBlue?.current?.classList.remove('blueCheckBox') :
   this.firstBlue?.current?.classList.add('blueCheckBox');
+  (document.getElementById('corrAddressAsDomHid') as HTMLInputElement).value = e.target.checked.toString();
 }
 
-changeInputColor22 = () => {
+changeInputColor22 = (e:any) => {
   this.secondBlue?.current?.classList.contains('blueCheckBox') ?
   this.secondBlue?.current?.classList.remove('blueCheckBox') :
   this.secondBlue?.current?.classList.add('blueCheckBox');
+  (document.getElementById('dataProcessedHid') as HTMLInputElement).value = e.target.checked.toString();
 }
 
 render() {
@@ -47,11 +49,11 @@ render() {
               <div className='correspondence'>
                       <p className='us_title' id='corr_txt2'>Correspondence address</p>
                       <p className='wrap_main_checkbox2' ref={this.firstBlue}>
-                          <input type='checkbox' name='corrAddressAsDom' onChange={this.changeInputColor11} className='main_checkbox'/>
+                          <input type='checkbox' onChange={this.changeInputColor11} className='main_checkbox'/>
                       </p>
                       <p className='corr_text'>Same as domicile address</p>
                       <p className='wrap_main_checkbox2' ref={this.secondBlue}>
-                          <input type='checkbox' name='dataProcessed' onChange={this.changeInputColor22} className='main_checkbox'/>
+                          <input type='checkbox' onChange={this.changeInputColor22} className='main_checkbox'/>
                       </p>
                       <p className='corr_text'>I agree that my data will be processed</p>
               </div>

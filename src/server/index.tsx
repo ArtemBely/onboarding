@@ -24,6 +24,7 @@ import compDocsRouter from './routers/company_documents';
 import verifRouter from './routers/verification';
 import compVerifRouter from './routers/company_verification';
 import finishRouter from './routers/finish';
+import loginRouter from './routers/login';
 import compFinishRouter from './routers/company_finish';
 import partiesRouter from './routers/connected_parties';
 import companyRouter from './routers/company_details';
@@ -98,6 +99,7 @@ app.use('/company_documents', compDocsRouter);
 app.use('/verification', verifRouter);
 app.use('/company_verification', compVerifRouter);
 app.use('/finish', finishRouter);
+app.use('/signin', loginRouter);
 app.use('/company_finish', finishRouter);
 app.use('/company_details', companyRouter);
 app.use('/company_personal', perCompRouter);
@@ -141,7 +143,7 @@ app.get('*', (req: Request, res: Response, next: NextFunction) => {
         return res.send(html);
   }).catch(next)
 });
-/*
+
 app.use((error:any, req: Request, res: Response, next: NextFunction) => {
   res.status(error.status);
     res.json({
@@ -150,13 +152,13 @@ app.use((error:any, req: Request, res: Response, next: NextFunction) => {
     stack: error.stack
   });
 });
-*/
 
+/*
 app.use((req: Request, res: Response, next: NextFunction) => {  //<-- заменить если появится непредвиденная ошибка
      var err: Error = new Error('Noooo');
      err.status = 404;
      next (err);
 });
-
+*/
 
 app.listen(8080, () => {console.log('Server started!')});

@@ -12,6 +12,8 @@ class PERPerson extends Component {
             document.querySelectorAll('.green_text').forEach(item => (item.classList.add('dispNone')));
             document.querySelectorAll('.extra_name').forEach(item => (item.classList.remove('dispNone')));
             (_f = (_e = this.extra_name_input) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.remove('dispNone');
+            document.getElementById('pepStatusHid').value =
+                "I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP";
         };
         this.changeSecondWhite = () => {
             var _a, _b, _c, _d, _e, _f;
@@ -20,6 +22,8 @@ class PERPerson extends Component {
             document.querySelectorAll('.green_text').forEach(item => (item.classList.remove('dispNone')));
             document.querySelectorAll('.extra_name').forEach(item => (item.classList.add('dispNone')));
             (_f = (_e = this.extra_name_input) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('dispNone');
+            document.getElementById('pepStatusHid').value =
+                "I declare that I am a politically exposed person or a family member or close associate of a politically exposed person: indicate the executed function or the name/function of the affiliated person.";
         };
         let user;
         if (typeof window != "undefined") {
@@ -30,6 +34,7 @@ class PERPerson extends Component {
         };
     }
     render() {
+        var _a, _b;
         return (React.createElement("div", { className: 'wrap_PerPerson' },
             React.createElement("div", { className: 'perPerson' },
                 React.createElement("p", { className: 'us_title' }, "PEP person"),
@@ -40,7 +45,7 @@ class PERPerson extends Component {
                     React.createElement("p", { className: 'green_text' }, "International sports associations are the International Olympic Committee and the non-governmental organizations it recognizes that regulate one or more official sports at global level."),
                     React.createElement("p", { className: 'green_text' }, "The family members and close associates of PEP are individuals who are closely connected to persons who qualify as PEP, either through their family or for social or professional reasons."),
                     React.createElement("p", { className: 'extra_name dispNone' }, "Name/Function"),
-                    React.createElement("input", { type: 'text', placeholder: 'Name/Function', ref: this.extra_name_input, className: 'extra_name_input dispNone' })))));
+                    React.createElement("input", { type: 'text', form: 'checkPersonal', placeholder: 'Name/Function', ref: this.extra_name_input, onChange: (e) => document.getElementById('pepNameFuncHid').value = e.target.value, name: 'pepNameFunc', className: 'extra_name_input dispNone', required: ((_b = (_a = this.secondWhite) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.contains('blue_each_white_per')) ? true : false })))));
     }
 }
 export default PERPerson;

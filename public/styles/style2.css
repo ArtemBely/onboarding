@@ -182,6 +182,7 @@
   cursor: pointer;
   font-family: 'Inter-Bold';
   text-decoration: none;
+  border: none;
 }
 .back_button {
   background: #B9C5CB;
@@ -211,4 +212,8 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 50px;
   margin-bottom: 80px;
+}
+.activeRegButton {
+  background: #4FA0FF !important;
+  cursor: pointer !important;
 }
