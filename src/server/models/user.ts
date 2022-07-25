@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 interface IUser extends Document {
   email: string,
   password: string,
-  individual: boolean;
+  individual: string;
   title: string;
   salutation: string;
   name: string;
@@ -13,10 +13,10 @@ interface IUser extends Document {
   country: string;
   nationalities: string;
   usPerson: string;
-  bornInUs: boolean;
-  greenCard: boolean;
-  possessionGreenCard: boolean;
-  subPresTest: boolean;
+  bornInUs: string;
+  greenCard: string;
+  possessionGreenCard: string;
+  subPresTest: string;
   pepStatus: string;
   pepNameFunc: string;
   alterEmail: string;
@@ -27,8 +27,8 @@ interface IUser extends Document {
   resedenceCountry: string;
   postalCode: string;
   domAddress: string;
-  corrAddressAsDom: boolean;
-  dataProcessed: boolean;
+  corrAddressAsDom: string;
+  dataProcessed: string;
   employmentStatus: string;
   university: string;
   faculty: string;
@@ -78,7 +78,7 @@ interface IUser extends Document {
   declareBeneficial: boolean;
   recieveUpdates: boolean;
 
-  legalEntity: boolean;
+  legalEntity: string;
   countryOfCompany: string;
   typeOfCompany: string;
   stockExchange: string;
@@ -121,7 +121,7 @@ interface IUser extends Document {
 const userSchema = new Schema <IUser>({
    email: {type: String, required: true},
    password: {type: String, required: true},
-   individual:{type: Boolean},
+   individual:{type: String},
    title:{type: String},
    salutation:{type: String},
    name:{type: String},
@@ -130,10 +130,10 @@ const userSchema = new Schema <IUser>({
    country:{type: String},
    nationalities:{type: String},
    usPerson:{type: String},
-   bornInUs:{type: Boolean},
-   greenCard:{type: Boolean},
-   possessionGreenCard:{type: Boolean},
-   subPresTest:{type: Boolean},
+   bornInUs:{type: String},
+   greenCard:{type: String},
+   possessionGreenCard:{type: String},
+   subPresTest:{type: String},
    pepStatus:{type: String},
    pepNameFunc:{type: String},
    alterEmail:{type: String},
@@ -144,8 +144,8 @@ const userSchema = new Schema <IUser>({
    resedenceCountry:{type: String},
    postalCode: {type: String},
    domAddress: {type: String},
-   corrAddressAsDom: {type: Boolean},
-   dataProcessed: {type: Boolean},
+   corrAddressAsDom: {type: String},
+   dataProcessed: {type: String},
    employmentStatus: {type: String},
    university: {type: String},
    faculty: {type: String},
@@ -195,7 +195,7 @@ const userSchema = new Schema <IUser>({
    declareBeneficial: {type: Boolean},
    recieveUpdates: {type: Boolean},
 
-   legalEntity:{type: Boolean},
+   legalEntity:{type: String},
    countryOfCompany: {type: String},
    typeOfCompany: {type: String},
    stockExchange: {type: String},

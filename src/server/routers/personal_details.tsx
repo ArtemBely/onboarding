@@ -7,7 +7,7 @@ import Personal from '../../components/Personal';
 
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', isLogin, (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
   const congrats = renderToString(
     <StaticRouter>
@@ -32,5 +32,29 @@ router.get('/', (req: Request, res: Response) => {
         </html>`
     );
 });
+
+router.post('/firstForm', async(req, res) => {
+    var user:any = req.user;
+      try {
+        var i:number;
+        for(i=0; i<Object.keys(req.body).length; i++) {
+          user[Object.keys(req.body)[i]] = Object.values(req.body)[i];
+        }
+        user = await user.save();
+        console.log(user);
+        res.redirect('/personal_details');
+      }
+      catch(err) {
+            if (err) throw err;
+            console.log(err);
+      }
+});
+
+function isLogin(req:Request, res:Response, next:NextFunction) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/signin');
+}
 
 export default router;

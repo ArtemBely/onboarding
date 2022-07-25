@@ -23,7 +23,7 @@ passport.deserializeUser(function(id, done) {
 
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', notLoggedIn, (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
   const congrats = renderToString(
     <StaticRouter>
@@ -146,8 +146,9 @@ router.post('/', (req: Request, res: Response, done) => {
         </html>`
     );
   });
+});
 
-  passport.use('local.signin', new LocalStrategy ({
+passport.use('local.signin', new LocalStrategy ({
      usernameField: 'email',
      passwordField: 'password',
      passReqToCallback: true
@@ -188,7 +189,6 @@ router.post('/', (req: Request, res: Response, done) => {
 );
 
 
-});
 
 function notLoggedIn(req: Request, res: Response, next: NextFunction) {
   if(!req.isAuthenticated()) {

@@ -7,7 +7,7 @@ import CompanyPersonal from '../../components/CompanyComponents/CompanyPersonal'
 
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', isLogin, (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
   const congrats = renderToString(
     <StaticRouter>
@@ -32,5 +32,14 @@ router.get('/', (req: Request, res: Response) => {
         </html>`
     );
 });
+
+function isLogin(req:Request, res:Response, next:NextFunction) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/signin');
+}
+
+
 
 export default router;

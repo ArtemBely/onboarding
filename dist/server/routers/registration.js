@@ -26,7 +26,7 @@ passport.deserializeUser(function (id, done) {
     });
 });
 const router = express.Router();
-router.get('/', (req, res) => {
+router.get('/', notLoggedIn, (req, res) => {
     let cond = req.isAuthenticated();
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(Main, null)));
@@ -131,43 +131,43 @@ router.post('/', (req, res, done) => {
             </body>
         </html>`);
     });
-    passport.use('local.signin', new LocalStrategy({
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true
-    }, function (req, email, password, done) {
-        User.findOne({ email: email }, function (err, user) {
-            return __awaiter(this, void 0, void 0, function* () {
-                if (err) {
-                    console.log(err);
-                    return done(err);
+});
+passport.use('local.signin', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+}, function (req, email, password, done) {
+    User.findOne({ email: email }, function (err, user) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (err) {
+                console.log(err);
+                return done(err);
+            }
+            if (!user) {
+                req.flash('errors', 'Не найдено пользователей');
+                console.log('Не найдено пользователей. Ошибка в почте');
+                return done(null, false);
+            }
+            comparePassword(password, user.password, function (err, isMatch) {
+                if (err)
+                    throw err;
+                if (isMatch) {
+                    return done(null, user);
                 }
-                if (!user) {
-                    req.flash('errors', 'Не найдено пользователей');
-                    console.log('Не найдено пользователей. Ошибка в почте');
+                else {
+                    req.flash('errors', 'неверный пароль');
+                    console.log('Неверный пароль');
                     return done(null, false);
                 }
-                comparePassword(password, user.password, function (err, isMatch) {
-                    if (err)
-                        throw err;
-                    if (isMatch) {
-                        return done(null, user);
-                    }
-                    else {
-                        req.flash('errors', 'неверный пароль');
-                        console.log('Неверный пароль');
-                        return done(null, false);
-                    }
-                });
             });
         });
-    }));
-    router.post('/login', passport.authenticate('local.signin', {
-        successRedirect: '/create_account',
-        failureRedirect: '/signin',
-        passReqToCallback: true
-    }));
-});
+    });
+}));
+router.post('/signin', passport.authenticate('local.signin', {
+    successRedirect: '/create_account',
+    failureRedirect: '/signin',
+    passReqToCallback: true
+}));
 function notLoggedIn(req, res, next) {
     if (!req.isAuthenticated()) {
         return next();

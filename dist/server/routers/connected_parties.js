@@ -5,7 +5,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import ChangeParties from '../../components/ProfileComponents/ChangeParties';
 const router = express.Router();
-router.get('/', (req, res) => {
+router.get('/', isLogin, (req, res) => {
     let cond = req.isAuthenticated();
     let user = { status: "admin" };
     const congrats = renderToString(React.createElement(StaticRouter, null,
@@ -17,7 +17,8 @@ router.get('/', (req, res) => {
                    <link rel="stylesheet" type="text/css" href="main.css">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
                        <script src='bundles//bundle.js' defer></script>
-                       <script>window.__INITIAL_STATE__ = ${serialize(user)}</script>
+                       <script>window.__INITIAL_DATA__ = ${serialize(user)}</script>
+                       <script>window.__INITIAL_STATE__ = ${serialize(cond)}</script>
                        </head>
                      <body>
                    <div id="app">
@@ -26,4 +27,10 @@ router.get('/', (req, res) => {
             </body>
         </html>`);
 });
+function isLogin(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/signin');
+}
 export default router;

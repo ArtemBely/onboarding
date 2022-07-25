@@ -60,7 +60,8 @@ class Header extends Component {
                 React.createElement("p", { className: 'wrap_login' },
                     React.createElement("img", { src: iconUser, id: 'iconUser' }),
                     React.createElement("span", { className: 'userName' }, "user 12345"),
-                    React.createElement("img", { src: loginImg, id: 'loginImg' })))));
+                    React.createElement("a", { href: '/logout' },
+                        React.createElement("img", { src: loginImg, id: 'loginImg' }))))));
     }
 }
 export default Header;

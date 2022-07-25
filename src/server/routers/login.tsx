@@ -7,7 +7,7 @@ import Login from '../../components/Login';
 
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', notLogin, (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
   const congrats = renderToString(
     <StaticRouter>
@@ -32,5 +32,12 @@ router.get('/', (req: Request, res: Response) => {
         </html>`
     );
 });
+
+function notLogin(req:Request, res:Response, next:NextFunction) {
+  if(!req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/profile');
+}
 
 export default router;

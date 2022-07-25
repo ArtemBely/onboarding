@@ -13,6 +13,7 @@ interface iState {
   check2: boolean,
   allCountries: Array<object>,
   links: string
+  nextButton: boolean
 }
 
 class YourAccount extends Component<{}, iState>{
@@ -37,7 +38,8 @@ class YourAccount extends Component<{}, iState>{
         check1: false,
         check2: false,
         allCountries: [],
-        links: ''
+        links: '',
+        nextButton: true
     }
 
     this.checkBlue1 = React.createRef();
@@ -60,7 +62,7 @@ class YourAccount extends Component<{}, iState>{
   }
 
   changeInputColor = (e:any) => {
-    this.setState({ check1: true, check2: false });
+    this.setState({ check1: true, check2: false, nextButton: false });
     this.checkBlue2?.current?.classList.remove('blueCheckBox');
     this.chekBoxInside1?.current?.checked ?
     this.checkBlue1?.current?.classList.add('blueCheckBox') : null;
@@ -81,6 +83,7 @@ class YourAccount extends Component<{}, iState>{
     if((document.getElementById('typeOfCompanyHid') as HTMLInputElement) && (document.getElementById('typeOfCompanyHid') as HTMLInputElement).value.length == 0 ||
        (document.getElementById('countryOfCompanyHid') as HTMLInputElement) && (document.getElementById('countryOfCompanyHid') as HTMLInputElement).value.length == 0) {
          document.getElementById('navBtn')?.classList.add('unAccessBtnColor');
+         this.setState({ nextButton: true  });
        }
   }
 
@@ -90,13 +93,13 @@ render() {
 				<div className='wrap_first_acc_checkbox'>
   					<div className='first_acc_checkbox'>
               <p className='welcome_to_acc'>I would like to onboard as:</p>
-              <form action='/create_account1' method='POST' id='registrationForm'>
+              <form action='/create_account/firstForm' method='POST' id='registrationForm'>
                 <p className='wrap_main_checkbox' ref={this.checkBlue1}>
-                    <input type='checkbox' checked={this.state.check1} onChange={this.changeInputColor} className='main_checkbox' ref={this.chekBoxInside1} />
+                    <input type='checkbox' checked={this.state.check1} name='individual' form='registrationForm' onChange={this.changeInputColor} className='main_checkbox' ref={this.chekBoxInside1} />
                 </p>
                 <span className='each_type'>An individual</span>
                 <p className='wrap_main_checkbox' ref={this.checkBlue2}>
-                    <input type='checkbox' checked={this.state.check2} onChange={this.changeInputColor2} className='main_checkbox' ref={this.chekBoxInside2} />
+                    <input type='checkbox' checked={this.state.check2} name='legalEntity' form='registrationForm' onChange={this.changeInputColor2} className='main_checkbox' ref={this.chekBoxInside2} />
                 </p>
                 <span className='each_type'>A legal entity</span>
               </form>
@@ -105,11 +108,11 @@ render() {
                 <div className='company_type'>
                   <p className='title_salut'>Country of registration</p>
                   <p className='title_salut'>Entity type (beneficial ownership)</p>
-                  <select id='selectLegalCountry' onChange={(e:any) => {
+                  <select id='selectLegalCountry' name='countryOfCompany' form='registrationForm' onChange={(e:any) => {
                     (document.getElementById('countryOfCompanyHid') as HTMLInputElement).value = e.target.value;
                     if((document.getElementById('typeOfCompanyHid') as HTMLInputElement) && (document.getElementById('typeOfCompanyHid') as HTMLInputElement).value.length > 0) {
                       document.getElementById('navBtn')?.classList.remove('unAccessBtnColor');
-                      this.setState({ links: '/company_details' });
+                      this.setState({ links: '/company_details', nextButton: false });
                     }
                   }} className='com_input'>
                       {this.state.allCountries.map((item:any, key) => (
@@ -119,11 +122,11 @@ render() {
                             {item.name}</option>
                       ))}
                   </select>
-                  <select id='selectLegalType' onChange={(e:any) => {
+                  <select id='selectLegalType' name='typeOfCompany' form='registrationForm' onChange={(e:any) => {
                     (document.getElementById('typeOfCompanyHid') as HTMLInputElement).value = e.target.value;
                     if((document.getElementById('countryOfCompanyHid') as HTMLInputElement) && (document.getElementById('countryOfCompanyHid') as HTMLInputElement).value.length > 0) {
                       document.getElementById('navBtn')?.classList.remove('unAccessBtnColor');
-                      this.setState({ links: '/company_details' });
+                      this.setState({ links: '/company_details', nextButton: false });
                     }
                   }} className='com_input'>
                      <option value="" disabled selected>Type</option>
@@ -144,8 +147,7 @@ render() {
               <div className='wrap_next_buttons0'>
                 <div className='first_next_buttons'>
                     <NavLink to='/registration' className='back_button'>Back</NavLink>
-                    <Link to={this.state.check2 && (!document.getElementById('navBtn')?.classList.contains('unAccessBtnColor')) ?
-                     this.state.links : this.state.check1 ? '/personal_details' : '#'} id='navBtn' className='next_button unAccessBtnColor'>Next</Link>
+                     <button type='submit' id='navBtn' className='next_button unAccessBtnColor' disabled={this.state.nextButton} form='registrationForm'>Next</button>
                 </div>
               </div>
   					</div>

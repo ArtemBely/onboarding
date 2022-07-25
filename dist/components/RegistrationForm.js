@@ -78,7 +78,7 @@ class RegistrationForm extends Component {
                 React.createElement("p", { className: 'wrap_logo_form' },
                     React.createElement("img", { src: logo, id: 'logo' })),
                 React.createElement("p", { className: 'reg_title' }, typeof window != "undefined" && window.location.pathname == '/registration' ? "Registration" : "Log In"),
-                React.createElement("form", { action: typeof window != "undefined" && window.location.pathname == '/registration' ? '/registration' : '/registration/login', method: 'POST', className: 'main_form' },
+                React.createElement("form", { action: typeof window != "undefined" && window.location.pathname == '/registration' ? '/registration' : '/registration/signin', method: 'POST', className: 'main_form' },
                     React.createElement("p", { className: 'wrap_each_main_input' },
                         React.createElement("input", { type: 'email', name: 'email', className: 'each_main_input', ref: this.emailCorrect, placeholder: 'E-mail', onChange: this.checkCorrectData, required: true })),
                     React.createElement("p", { className: 'wrap_each_main_input' },

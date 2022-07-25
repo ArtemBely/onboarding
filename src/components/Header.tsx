@@ -97,7 +97,7 @@ render() {
               <p className='wrap_login'>
                  <img src={iconUser} id='iconUser'/>
                  <span className='userName'>user 12345</span>
-                 <img src={loginImg} id='loginImg'/>
+                 <a href='/logout'><img src={loginImg} id='loginImg'/></a>
               </p>
 					</div>
 				</div>

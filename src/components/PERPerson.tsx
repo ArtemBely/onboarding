@@ -6,15 +6,21 @@ declare global {
     }
 }
 
-class PERPerson extends Component{
+interface iState {
+    user: any,
+    functionRequired: boolean
+}
+
+class PERPerson extends Component<{}, iState>{
 
   private firstWhite = React.createRef<HTMLDivElement>();
   private secondWhite = React.createRef<HTMLDivElement>();
   private extra_name_input = React.createRef<HTMLInputElement>();
+  private extra_name_input2 = React.createRef<HTMLInputElement>();
 
-  constructor(props: any) {
+  constructor(props: any, state: iState) {
 
-    super(props)
+    super(props, state)
 
     let user;
 
@@ -23,12 +29,14 @@ class PERPerson extends Component{
     }
 
     this.state = {
-        user
+        user,
+        functionRequired: false
     }
 
   }
 
 changeFirstWhite = () => {
+  this.setState({ functionRequired: true });
   this.firstWhite?.current?.classList.remove('blue_each_white_per');
   this.secondWhite?.current?.classList.add('blue_each_white_per');
   document.querySelectorAll('.green_text').forEach(item => (
@@ -43,6 +51,7 @@ changeFirstWhite = () => {
 }
 
 changeSecondWhite = () => {
+  this.setState({ functionRequired: false });
   this.secondWhite?.current?.classList.remove('blue_each_white_per');
   this.firstWhite?.current?.classList.add('blue_each_white_per');
   document.querySelectorAll('.green_text').forEach(item => (
@@ -85,7 +94,15 @@ render() {
                     </p>
 
                     <p className='extra_name dispNone'>Name/Function</p>
-                    <input type='text' form='checkPersonal'  placeholder='Name/Function' ref={this.extra_name_input} onChange={(e:any) => (document.getElementById('pepNameFuncHid') as HTMLInputElement).value = e.target.value} name='pepNameFunc' className='extra_name_input dispNone' required={this.secondWhite?.current?.classList.contains('blue_each_white_per') ? true : false}/>
+                    <input type='text' form='checkPersonal1'  placeholder='Name/Function' ref={this.extra_name_input} onChange={(e:any) => {
+                      if(this.extra_name_input?.current && this.extra_name_input?.current?.value.length > 0) {
+                        (this.extra_name_input2?.current as HTMLInputElement).value = 'I declare that I am a politically exposed person or a family member or close associate of a politically exposed person: indicate the executed function or the name/function of the affiliated person.'
+                      }
+                      else {
+                        (this.extra_name_input2?.current as HTMLInputElement).value = 'I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP'
+                      }
+                    }} name='pepNameFunc' className='extra_name_input dispNone' required={this.state.functionRequired}/>
+                    <input type='hidden' name='pepStatus' ref={this.extra_name_input2} form='checkPersonal1' value='I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP' />
                 </div>
               </div>
 				</div>

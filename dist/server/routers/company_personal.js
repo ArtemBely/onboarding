@@ -5,7 +5,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import CompanyPersonal from '../../components/CompanyComponents/CompanyPersonal';
 const router = express.Router();
-router.get('/', (req, res) => {
+router.get('/', isLogin, (req, res) => {
     let cond = req.isAuthenticated();
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(CompanyPersonal, null)));
@@ -25,4 +25,10 @@ router.get('/', (req, res) => {
             </body>
         </html>`);
 });
+function isLogin(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/signin');
+}
 export default router;

@@ -7,17 +7,16 @@ import ShapeSlide from './ShapeSlide';
 import USPerson from './USPerson';
 import Correspondence from './Correspondence';
 import Employment from './Employment';
-import { useHistory } from "react-router-dom";
 
 function Personal(){
 
-  const history = useHistory();
     return(
       <p className='wrap_components'>
-      <form action='/checkPersonal' method='POST' onSubmit={(e:any) => {
+      {/*<form action='/checkPersonal' method='POST' onSubmit={(e:any) => {
         e.preventDefault();
         history.push('/financial_situation');
-      }} id='checkPersonal'></form>
+      }} id='checkPersonal'></form>*/}
+      <form action='/personal_details/firstForm' method='POST' id='checkPersonal1'></form>
           <Header />
           <ShapeSlide />
           <FirstPartForm />

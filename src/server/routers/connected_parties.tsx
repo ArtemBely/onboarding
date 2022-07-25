@@ -7,7 +7,7 @@ import ChangeParties from '../../components/ProfileComponents/ChangeParties';
 
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', isLogin, (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
   let user: object = {status: "admin"};
   const congrats = renderToString(
@@ -23,7 +23,8 @@ router.get('/', (req: Request, res: Response) => {
                    <link rel="stylesheet" type="text/css" href="main.css">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
                        <script src='bundles//bundle.js' defer></script>
-                       <script>window.__INITIAL_STATE__ = ${serialize(user)}</script>
+                       <script>window.__INITIAL_DATA__ = ${serialize(user)}</script>
+                       <script>window.__INITIAL_STATE__ = ${serialize(cond)}</script>
                        </head>
                      <body>
                    <div id="app">
@@ -33,5 +34,13 @@ router.get('/', (req: Request, res: Response) => {
         </html>`
     );
 });
+
+function isLogin(req:Request, res:Response, next:NextFunction) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/signin');
+}
+
 
 export default router;

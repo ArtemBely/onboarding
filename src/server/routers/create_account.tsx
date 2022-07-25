@@ -7,7 +7,7 @@ import Create from '../../components/Create';
 
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', isLogin, (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
   const congrats = renderToString(
     <StaticRouter>
@@ -33,9 +33,45 @@ router.get('/', (req: Request, res: Response) => {
     );
 });
 
-router.post('/', (req, res) => {
-  console.log(req.body);
-  res.redirect('/finish');
+router.post('/firstForm', async(req, res) => {
+  var user:any = req.user;
+  var { individual, legalEntity, countryOfCompany, typeOfCompany } = req.body;
+  if(individual == 'on') {
+    try {
+      user.individual = individual;
+      user.legalEntity = 'off';
+      user = await user.save();
+      console.log(req.body, user);
+      res.redirect('/personal_details');
+    }
+    catch(err) {
+          if (err) throw err;
+          console.log(err);
+    }
+  }
+  else if(legalEntity == 'on') {
+    try {
+      user.legalEntity = legalEntity;
+      user.individual = 'off';
+      user.countryOfCompany = countryOfCompany;
+      user.typeOfCompany = typeOfCompany;
+      user = await user.save();
+      console.log(req.body, user);
+      res.redirect('/company_details');
+    }
+    catch(err) {
+          if (err) throw err;
+          console.log(err);
+    }
+  }
+
 });
+
+function isLogin(req:Request, res:Response, next:NextFunction) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/signin');
+}
 
 export default router;

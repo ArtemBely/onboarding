@@ -324,35 +324,41 @@ render() {
                       <p className='title_salut' id='business_title'>Business activity</p>
                       <div className='wrap_empl_status'>
                           <p className='each_empl choosen_type_blue'>Employed <input type='checkbox'  checked={this.state.check1}  onChange={this.changeInputColor} className='allCheckBoxes4'/></p>
+                          <input type='hidden' name={this.state.check1 ? 'employmentStatus' : ''} form='checkPersonal1' value='Employed' />
                           <p className='each_empl'>Self-Employed <input type='checkbox'  checked={this.state.check2}  onChange={this.changeInputColor2}  className='allCheckBoxes4'/></p>
+                          <input type='hidden' name={this.state.check2 ? 'employmentStatus' : ''} form='checkPersonal1' value='Self-Employed' />
                           <p className='each_empl'>Retired (Pensioner) <input type='checkbox'  checked={this.state.check3}  onChange={this.changeInputColor3}  className='allCheckBoxes4'/></p>
+                          <input type='hidden' name={this.state.check3 ? 'employmentStatus' : ''} form='checkPersonal1' value='Retired (Pensioner)' />
                           <p className='each_empl'>Unemployed <input type='checkbox'  checked={this.state.check4}  onChange={this.changeInputColor4}  className='allCheckBoxes4'/></p>
+                          <input type='hidden' name={this.state.check4 ? 'employmentStatus' : ''} form='checkPersonal1' value='Unemployed' />
                           <p className='each_empl'>Student <input type='checkbox'  checked={this.state.check5} onChange={this.changeInputColor5}  className='allCheckBoxes4'/></p>
+                          <input type='hidden' name={this.state.check5 ? 'employmentStatus' : ''} form='checkPersonal1' value='Student' />
                           <p className='each_empl'>Not Working <input type='checkbox'  checked={this.state.check6}  onChange={this.changeInputColor6}  className='allCheckBoxes4'/></p>
+                          <input type='hidden' name={this.state.check6 ? 'employmentStatus' : ''} form='checkPersonal1' value='Not Working' />
                       </div>
                    </div>
 
                    <div className='for_student dispNone'>
                        <p className='title_salut' id='student_title'>University</p>
-                       <input type='text' form='checkPersonal' required={this.state.check5 ? true : false} placeholder='University' onChange={(e:any) => (document.getElementById('universityHid') as HTMLInputElement).value = e.target.value} className='alternative_inputs long_input'/>
+                       <input type='text' form='checkPersonal1' name='university' required={this.state.check5} placeholder='University' onChange={(e:any) => (document.getElementById('universityHid') as HTMLInputElement).value = e.target.value} className='alternative_inputs long_input'/>
 
                        <p className='title_salut'>Faculty/course</p>
-                       <input type='text' form='checkPersonal' required={this.state.check5 ? true : false} placeholder='Faculty/course' onChange={(e:any) => (document.getElementById('facultyHid') as HTMLInputElement).value = e.target.value} className='alternative_inputs long_input'/>
+                       <input type='text' form='checkPersonal1' name='faculty' required={this.state.check5} placeholder='Faculty/course' onChange={(e:any) => (document.getElementById('facultyHid') as HTMLInputElement).value = e.target.value} className='alternative_inputs long_input'/>
                    </div>
 
                    <div className='main_info'>
                           <p className='title_salut'>Company name</p>
                           <p className='title_salut'>Company address</p>
-                          <input type='text' form='checkPersonal' required placeholder='Company name' onChange={(e:any) => (document.getElementById('companyEmplNameHid') as HTMLInputElement).value = e.target.value} id='spec_inp5' className='alternative_inputs'/>
-                          <input type='text' form='checkPersonal' required placeholder='Company address' onChange={(e:any) => (document.getElementById('companyEmplAddressHid') as HTMLInputElement).value = e.target.value} className='alternative_inputs'/>
+                          <input type='text' name='companyEmplName' form='checkPersonal1' required={this.state.check1 || this.state.check2 || this.state.check3 || this.state.check4} placeholder='Company name' onChange={(e:any) => (document.getElementById('companyEmplNameHid') as HTMLInputElement).value = e.target.value} id='spec_inp5' className='alternative_inputs'/>
+                          <input type='text' name='companyEmplAddress' form='checkPersonal1' required={this.state.check1 || this.state.check2 || this.state.check3 || this.state.check4} placeholder='Company address' onChange={(e:any) => (document.getElementById('companyEmplAddressHid') as HTMLInputElement).value = e.target.value} className='alternative_inputs'/>
                           <p className='title_salut'>Since</p>
                           <p className='title_salut' id='spec_inp7'>Country of (main) business activity</p>
-                          <input type='text' form='checkPersonal' required ref={this.dateInput} onChange={(e:any) => (document.getElementById('companyEmplDateHid') as HTMLInputElement).value = e.target.value} placeholder='DD/MM/YYYY' id='spec_inp6' onFocus={() => {
+                          <input type='text' name='companyEmplDate' form='checkPersonal1' required={this.state.check1 || this.state.check2 || this.state.check3 || this.state.check4} ref={this.dateInput} onChange={(e:any) => (document.getElementById('companyEmplDateHid') as HTMLInputElement).value = e.target.value} placeholder='DD/MM/YYYY' id='spec_inp6' onFocus={() => {
                             if(this.dateInput.current != null) {
                               this.dateInput.current.type = "date";
                             }
                           }} className='com_input'/>
-                          <select id='selectCountrLow'  onChange={(e:any) => (document.getElementById('companyEmplCountryHid') as HTMLInputElement).value = e.target.value} className='com_input'>
+                          <select id='selectCountrLow' required={this.state.check1 || this.state.check2 || this.state.check3 || this.state.check4} name='companyEmplCountry' form='checkPersonal1' onChange={(e:any) => (document.getElementById('companyEmplCountryHid') as HTMLInputElement).value = e.target.value} className='com_input'>
                               {this.state.allCountries.map((item:any, key) => (
                                     <option value={key==0 ? '' : item.name}
                                       disabled={key==0 ? true : false}
@@ -361,40 +367,54 @@ render() {
                               ))}
                           </select>
                           <p className='title_salut' id='tit_website'>Website</p>
-                          <input type='text' form='checkPersonal' required placeholder='Website' onChange={(e:any) => (document.getElementById('companyEmplWebsiteHid') as HTMLInputElement).value = e.target.value} className='alternative_inputs' id='website'/>
+                          <input type='text' name='companyEmplWebsite' form='checkPersonal1' required={this.state.check1 || this.state.check2 || this.state.check3 || this.state.check4} placeholder='Website' onChange={(e:any) => (document.getElementById('companyEmplWebsiteHid') as HTMLInputElement).value = e.target.value} className='alternative_inputs' id='website'/>
                           <p className='title_salut'>Line of business or industry (NOGA code)</p>
-                          <select id='selectCode'  onChange={(e:any) => (document.getElementById('companyEmplCodeHid') as HTMLInputElement).value = e.target.value} className='com_input'>
+                          <select id='selectCode' name='companyEmplCode' form='checkPersonal1' onChange={(e:any) => (document.getElementById('companyEmplCodeHid') as HTMLInputElement).value = e.target.value} className='com_input'>
                              <option value="" disabled selected>Code</option>
                              <option value="hurr">Durr</option>
                           </select>
 
                           <p className='title_salut' id='profession_title' ref={this.prof1}>Profession</p>
-                          <input type='text' form='checkPersonal' required placeholder={this.state.profession} onChange={(e:any) => (document.getElementById('companyEmplProfessionHid') as HTMLInputElement).value = e.target.value} id='profession_title_input' className='alternative_inputs long_input'/>
+                          <input type='text' name='companyEmplProfession' form='checkPersonal1' required={this.state.check1 || this.state.check2 || this.state.check3 || this.state.check4}
+                           placeholder={this.state.profession} onChange={(e:any) => (document.getElementById('companyEmplProfessionHid') as HTMLInputElement).value = e.target.value} id='profession_title_input' className='alternative_inputs long_input'/>
 
                           <p className='title_salut' id='last_func' ref={this.prof2}>Function/position</p>
                           <div className='wrap_prof_status'>
                               <p className='each_empl2 choosen_type_blue'>Staff <input type='checkbox'  checked={this.state.check7}  onChange={this.changeInputColor7}  className='allCheckBoxes5'/></p>
+                                <input type='hidden' name={this.state.check7 ? 'functionEmpl' : ''} form='checkPersonal1' value='Staff' />
                               <p className='each_empl2'>Lower Management <input type='checkbox'  checked={this.state.check8}  onChange={this.changeInputColor8}  className='allCheckBoxes5'/></p>
+                                <input type='hidden' name={this.state.check8 ? 'functionEmpl' : ''} form='checkPersonal1' value='Lower Management' />
                               <p className='each_empl2'>Middle Management <input type='checkbox'  checked={this.state.check9}  onChange={this.changeInputColor9}  className='allCheckBoxes5'/></p>
+                                <input type='hidden' name={this.state.check9 ? 'functionEmpl' : ''} form='checkPersonal1' value='Middle Management' />
                               <p className='each_empl2'>Upper Management <input type='checkbox'  checked={this.state.check10} onChange={this.changeInputColor10} className='allCheckBoxes5'/></p>
+                                <input type='hidden' name={this.state.check10 ? 'functionEmpl' : ''} form='checkPersonal1' value='Upper Management' />
                               <p className='each_empl2'>Board <input type='checkbox'  checked={this.state.check11}  onChange={this.changeInputColor11}  className='allCheckBoxes5'/></p>
+                                <input type='hidden' name={this.state.check11 ? 'functionEmpl' : ''} form='checkPersonal1' value='Board' />
                               <p className='each_empl2'>Executive Board <input type='checkbox'  checked={this.state.check12} onChange={this.changeInputColor12}  className='allCheckBoxes5'/></p>
+                                <input type='hidden' name={this.state.check12 ? 'functionEmpl' : ''} form='checkPersonal1' value='Executive Board ' />
                           </div>
 
                           <div className='extraInfo dispNone'>
                               <p className='title_salut' id='employ_title'>Employees of the company</p>
                               <div className='wrap_comp_status'>
                                   <p className='each_empl3 choosen_type_blue'>1 - 25 <input type='checkbox'  checked={this.state.check13}  onChange={this.changeInputColor13}  className='allCheckBoxes6'/></p>
+                                    <input type='hidden' name={this.state.check13 ? 'companyEmpl' : ''} form='checkPersonal1' value='1 - 25' />
                                   <p className='each_empl3'>25 - 100 <input type='checkbox'  checked={this.state.check14}  onChange={this.changeInputColor14}  className='allCheckBoxes6'/></p>
+                                    <input type='hidden' name={this.state.check14 ? 'companyEmpl' : ''} form='checkPersonal1' value='25 - 100' />
                                   <p className='each_empl3'> {`> 100`} <input type='checkbox'  checked={this.state.check15}  onChange={this.changeInputColor15}  className='allCheckBoxes6'/></p>
+                                    <input type='hidden' name={this.state.check15 ? 'companyEmpl' : ''} form='checkPersonal1' value='> 100' />
                               </div>
 
                               <p className='title_salut' id='turnover'>Company turnover</p>
                               <div className='wrap_turn_status'>
                                   <p className='each_empl4'>{`< CHF 5 m`}<input type='checkbox'  checked={this.state.check16}  onChange={this.changeInputColor16}  className='allCheckBoxes7'/></p>
-                                  <p className='each_empl4'>CHF 5 m - CHF 5 m <input type='checkbox'  checked={this.state.check17}  onChange={this.changeInputColor17}  className='allCheckBoxes7'/></p>
+                                    <input type='hidden' name={this.state.check16 ? 'companyEmplTurnover' : ''} form='checkPersonal1' value='< CHF 5 m' />
+                                  <p className='each_empl4'>CHF 5 m - CHF 10 m <input type='checkbox'  checked={this.state.check17}  onChange={this.changeInputColor17}  className='allCheckBoxes7'/></p>
+                                    <input type='hidden' name={this.state.check17 ? 'companyEmplTurnover' : ''} form='checkPersonal1' value='CHF 5 m - CHF 10 m' />
                                   <p className='each_empl4 choosen_type_blue'>CHF 10 m - CHF 25 m <input type='checkbox'  checked={this.state.check18}  onChange={this.changeInputColor18}  className='allCheckBoxes7'/></p>
+                                    <input type='hidden' name={this.state.check18 ? 'companyEmplTurnover' : ''} form='checkPersonal1' value='CHF 10 m - CHF 25 m ' />
                                   <p className='each_empl4'> {`> CHF 25 m`} <input type='checkbox'  checked={this.state.check19}  onChange={this.changeInputColor19}  className='allCheckBoxes7'/></p>
+                                    <input type='hidden' name={this.state.check19 ? 'companyEmplTurnover' : ''} form='checkPersonal1' value='> CHF 25 m' />
                               </div>
                           </div>
                    </div>
@@ -402,7 +422,7 @@ render() {
                    <div className='wrap_next_buttons2'>
                      <div className='first_next_buttons'>
                          <NavLink to='/create_account' className='back_button'>Back</NavLink>
-                         <button type='submit' form='checkPersonal' className='next_button'>Next</button>
+                         <button type='submit' form='checkPersonal1' className='next_button'>Next</button>
                      </div>
                    </div>
               </div>

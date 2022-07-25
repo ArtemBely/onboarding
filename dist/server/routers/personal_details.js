@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import React from 'react';
 import express from 'express';
 import serialize from 'serialize-javascript';
@@ -5,7 +14,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import Personal from '../../components/Personal';
 const router = express.Router();
-router.get('/', (req, res) => {
+router.get('/', isLogin, (req, res) => {
     let cond = req.isAuthenticated();
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(Personal, null)));
@@ -25,4 +34,27 @@ router.get('/', (req, res) => {
             </body>
         </html>`);
 });
+router.post('/firstForm', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var user = req.user;
+    try {
+        var i;
+        for (i = 0; i < Object.keys(req.body).length; i++) {
+            user[Object.keys(req.body)[i]] = Object.values(req.body)[i];
+        }
+        user = yield user.save();
+        console.log(user);
+        res.redirect('/personal_details');
+    }
+    catch (err) {
+        if (err)
+            throw err;
+        console.log(err);
+    }
+}));
+function isLogin(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/signin');
+}
 export default router;
