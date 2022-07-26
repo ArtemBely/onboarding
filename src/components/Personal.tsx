@@ -12,10 +12,6 @@ function Personal(){
 
     return(
       <p className='wrap_components'>
-      {/*<form action='/checkPersonal' method='POST' onSubmit={(e:any) => {
-        e.preventDefault();
-        history.push('/financial_situation');
-      }} id='checkPersonal'></form>*/}
       <form action='/personal_details/firstForm' method='POST' id='checkPersonal1'></form>
           <Header />
           <ShapeSlide />

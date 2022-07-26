@@ -7,9 +7,11 @@ import Documents from '../../components/Documents';
 const router = express.Router();
 router.get('/', isLogin, (req, res) => {
     let cond = req.isAuthenticated();
+    var user = req.user;
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(Documents, null)));
-    res.send(`<!DOCTYPE html>
+    if (user.individual == 'on')
+        res.send(`<!DOCTYPE html>
         <html>
             <head>
               <title>Проверка кода</title>
@@ -24,6 +26,9 @@ router.get('/', isLogin, (req, res) => {
               </div>
             </body>
         </html>`);
+    else {
+        res.redirect('/company_documents');
+    }
 });
 function isLogin(req, res, next) {
     if (req.isAuthenticated()) {

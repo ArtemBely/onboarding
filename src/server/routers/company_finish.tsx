@@ -9,11 +9,13 @@ const router = express.Router();
 
 router.get('/', isLogin, (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
+  var user:any = req.user;
   const congrats = renderToString(
     <StaticRouter>
        <Finish />
     </StaticRouter>
   )
+  if(user.legalEntity == 'on')
   res.send(
     `<!DOCTYPE html>
         <html>
@@ -31,6 +33,7 @@ router.get('/', isLogin, (req: Request, res: Response) => {
             </body>
         </html>`
     );
+    else {res.redirect('/finish');}
 });
 
 function isLogin(req:Request, res:Response, next:NextFunction) {

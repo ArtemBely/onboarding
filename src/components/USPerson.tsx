@@ -127,11 +127,11 @@ render() {
           <p className='title_salut'>I declare that I am</p>
           <div className='choose_us'>
               <p className='each_us choosen_type_blue' ref={this.us1}>No US person <input type='checkbox' checked={this.state.check1} onChange={this.changeTitle1} className='allCheckBoxes3'/></p>
-                  <input type='hidden' name={this.state.check1 ? 'usPerson' : ''} form='checkPersonal1' value='No US person' />
+                  <input type='hidden' name={this.state.check1 ? 'usPerson' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='No US person' />
               <p className='each_us' ref={this.us2}>Former US person<input type='checkbox' checked={this.state.check2}  onChange={this.changeTitle2} className='allCheckBoxes3'/></p>
-                  <input type='hidden' name={this.state.check2 ? 'usPerson' : ''} form='checkPersonal1' value='Former US person' />
+                  <input type='hidden' name={this.state.check2 ? 'usPerson' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='Former US person' />
               <p className='each_us' ref={this.us3}>US person<input type='checkbox' checked={this.state.check3}  onChange={this.changeTitle3} className='allCheckBoxes3'/></p>
-                  <input type='hidden' name={this.state.check3 ? 'usPerson' : ''} form='checkPersonal1' value='US person' />
+                  <input type='hidden' name={this.state.check3 ? 'usPerson' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='US person' />
           </div>
 
             <div className='case1' id='case11' ref={this.firstCase}>I declare that I am no US citizen (regardless if I have any other citizenships), I do not reside in the US and have no «resident alien» status (e.g. due to long or frequent stays in the US during the last
@@ -142,14 +142,14 @@ render() {
             <div className='wrap_usPerson dispNone' ref={this.secondCase}>
                <p className='each_under_us'>
                     <p className='wrap_main_checkbox2' ref={this.firstBlue}>
-                        <input type='checkbox' form='checkPersonal1' onChange={this.changeInputColor1} ref={this.main_checkbox} className='main_checkbox'/>
-                        <input type='hidden' name='bornInUs' form='checkPersonal1' ref={this.main_checkbox7} value='I was not born in the U.S.' />
+                        <input type='checkbox' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} onChange={this.changeInputColor1} ref={this.main_checkbox} className='main_checkbox'/>
+                        <input type='hidden' name='bornInUs' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} ref={this.main_checkbox7} value='I was not born in the U.S.' />
                     </p>
 
                     <p className='us_born'>I declare that I was born in the U.S. (or U.S. territory) and am in possession of a Certificate of Loss of Nationality of the United States (CLN)</p></p>
                     <p className='each_under_us'><p className='wrap_main_checkbox2' ref={this.secondBlue}>
-                    <input type='checkbox' form='checkPersonal1' onChange={this.changeInputColor2} ref={this.main_checkbox2} className='main_checkbox'/></p>
-                    <input type='hidden' name='greenCard' form='checkPersonal1' ref={this.main_checkbox8} value='I am not a holder of either a returned or administratively or judicially revoked U.S. Green Card (irrespective expiry date)' />
+                    <input type='checkbox' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} onChange={this.changeInputColor2} ref={this.main_checkbox2} className='main_checkbox'/></p>
+                    <input type='hidden' name='greenCard' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} ref={this.main_checkbox8} value='I am not a holder of either a returned or administratively or judicially revoked U.S. Green Card (irrespective expiry date)' />
                <p>I am a holder of either a returned or administratively or judicially revoked U.S. Green Card (irrespective expiry date)</p></p>
             </div>
 
@@ -159,11 +159,11 @@ render() {
                <p className='each_under_us'>
                     <p className='wrap_main_checkbox2' ref={this.thirdBlue}>
                     <input type='checkbox' onChange={this.changeInputColor3} ref={this.main_checkbox3} className='main_checkbox'/></p>
-                    <input type='hidden' name='possessionGreenCard' ref={this.main_checkbox5} form='checkPersonal1' value='You are not in possession of a U.S. Green Card (irrespective expiry date)' />
+                    <input type='hidden' name='possessionGreenCard' ref={this.main_checkbox5} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='You are not in possession of a U.S. Green Card (irrespective expiry date)' />
                     <p className='greenCard'>You are in possession of a U.S. Green Card (irrespective expiry date)</p></p>
                     <p className='each_under_us'><p className='wrap_main_checkbox2' ref={this.fourthBlue}>
-                    <input type='checkbox' form='checkPersonal1' onChange={this.changeInputColor4} ref={this.main_checkbox4} className='main_checkbox'/></p>
-                    <input type='hidden' name='subPresTest' form='checkPersonal1' ref={this.main_checkbox6} value='You do not meet the Substantial Presence Test' />
+                    <input type='checkbox' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} onChange={this.changeInputColor4} ref={this.main_checkbox4} className='main_checkbox'/></p>
+                    <input type='hidden' name='subPresTest' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} ref={this.main_checkbox6} value='You do not meet the Substantial Presence Test' />
                <p className='greenCard'>You meet the Substantial Presence Test</p></p>
                <p className='case1 digital2'>To meet the Substantial Presence Test, you must be physically present in the United States (U.S.) on at least: 31 days during the current year, and 183 days during the 3-year period
                that includes the current year and the 2 years immediately before that. Find more details under: https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test</p>

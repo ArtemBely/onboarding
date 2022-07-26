@@ -7,9 +7,11 @@ import AccountVerification from '../../components/AccountVerification';
 const router = express.Router();
 router.get('/', isLogin, (req, res) => {
     let cond = req.isAuthenticated();
+    var user = req.user;
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(AccountVerification, null)));
-    res.send(`<!DOCTYPE html>
+    if (user.individual == 'on')
+        res.send(`<!DOCTYPE html>
         <html>
             <head>
               <title>Проверка кода</title>
@@ -24,6 +26,12 @@ router.get('/', isLogin, (req, res) => {
               </div>
             </body>
         </html>`);
+    else {
+        res.redirect('/company_verification');
+    }
+});
+router.post('/finish', (req, res) => {
+    res.redirect('/finish');
 });
 function isLogin(req, res, next) {
     if (req.isAuthenticated()) {

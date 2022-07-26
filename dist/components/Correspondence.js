@@ -40,11 +40,11 @@ class Correspondence extends Component {
                 React.createElement("p", { className: 'us_title', id: 'corr_txt2' }, "Correspondence address"),
                 React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.firstBlue },
                     React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor11, ref: this.main_checkbox1, className: 'main_checkbox' }),
-                    React.createElement("input", { type: 'hidden', name: 'corrAddressAsDom', ref: this.main_checkbox3, form: 'checkPersonal1', value: 'Another address' })),
+                    React.createElement("input", { type: 'hidden', name: 'corrAddressAsDom', ref: this.main_checkbox3, form: typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4', value: 'Another address' })),
                 React.createElement("p", { className: 'corr_text' }, "Same as domicile address"),
                 React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.secondBlue },
                     React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor22, ref: this.main_checkbox2, className: 'main_checkbox' }),
-                    React.createElement("input", { type: 'hidden', name: 'dataProcessed', ref: this.main_checkbox4, form: 'checkPersonal1', required: true })),
+                    React.createElement("input", { type: 'hidden', name: 'dataProcessed', ref: this.main_checkbox4, form: typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4', required: true })),
                 React.createElement("p", { className: 'corr_text' }, "I agree that my data will be processed"))));
     }
 }

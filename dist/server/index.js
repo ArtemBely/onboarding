@@ -23,8 +23,10 @@ import verifRouter from './routers/verification';
 import compVerifRouter from './routers/company_verification';
 import finishRouter from './routers/finish';
 import loginRouter from './routers/login';
+import compFinishRouter from './routers/company_finish';
 import logoutRouter from './routers/logoutLogic';
 import partiesRouter from './routers/connected_parties';
+import parties2Router from './routers/parties';
 import companyRouter from './routers/company_details';
 import perCompRouter from './routers/company_personal';
 import accCompRouter from './routers/account_company_details';
@@ -86,9 +88,10 @@ app.use('/verification', verifRouter);
 app.use('/company_verification', compVerifRouter);
 app.use('/finish', finishRouter);
 app.use('/signin', loginRouter);
-app.use('/company_finish', finishRouter);
+app.use('/company_finish', compFinishRouter);
 app.use('/company_details', companyRouter);
 app.use('/company_personal', perCompRouter);
+app.use('/parties', parties2Router);
 app.use('/connected_parties', partiesRouter);
 app.use('/logout', logoutRouter);
 app.use('/account_company_details', accCompRouter);
@@ -101,7 +104,7 @@ app.get('*', (req, res, next) => {
         Promise.resolve();
     promise.then((data) => {
         const context = { data };
-        const user = { name: "Artem" };
+        const user = req.user;
         const markup = renderToString(React.createElement(StaticRouter, { location: req.url, context: context },
             React.createElement(App, { data: data })));
         const html = `<!DOCTYPE html>

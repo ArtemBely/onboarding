@@ -28,6 +28,7 @@ import loginRouter from './routers/login';
 import compFinishRouter from './routers/company_finish';
 import logoutRouter from './routers/logoutLogic';
 import partiesRouter from './routers/connected_parties';
+import parties2Router from './routers/parties';
 import companyRouter from './routers/company_details';
 import perCompRouter from './routers/company_personal';
 import accCompRouter from './routers/account_company_details';
@@ -101,9 +102,10 @@ app.use('/verification', verifRouter);
 app.use('/company_verification', compVerifRouter);
 app.use('/finish', finishRouter);
 app.use('/signin', loginRouter);
-app.use('/company_finish', finishRouter);
+app.use('/company_finish', compFinishRouter);
 app.use('/company_details', companyRouter);
 app.use('/company_personal', perCompRouter);
+app.use('/parties', parties2Router);
 app.use('/connected_parties', partiesRouter);
 app.use('/logout', logoutRouter);
 app.use('/account_company_details', accCompRouter);
@@ -117,7 +119,7 @@ app.get('*', (req: Request, res: Response, next: NextFunction) => {
                   Promise.resolve()
   promise.then((data: any) => {
     const context: object = { data };
-    const user:object = { name: "Artem" };
+    const user:any = req.user;
     const markup = renderToString(
         <StaticRouter location={req.url} context={context}>
            <App data={data}/>

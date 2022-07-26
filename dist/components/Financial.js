@@ -4,14 +4,9 @@ import ShapeSlide from './ShapeSlide';
 import Assets from './Assets';
 import IncomeSlider from './IncomeSlider';
 import Fiat from './Fiat';
-import { useHistory } from 'react-router-dom';
 function Financial() {
-    const history = useHistory();
     return (React.createElement("p", { className: 'wrap_components' },
-        React.createElement("form", { action: '/checkFinancial', method: 'POST', id: 'checkFinancial', onSubmit: (e) => {
-                e.preventDefault();
-                history.push('/documents');
-            } }),
+        React.createElement("form", { action: '/financial_situation/firstForm', method: 'POST', id: 'checkPersonal2' }),
         React.createElement(Header, null),
         React.createElement(ShapeSlide, null),
         React.createElement(Assets, { show: 'show' }),

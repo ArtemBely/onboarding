@@ -35,22 +35,23 @@ class Verification extends Component {
     render() {
         return (React.createElement("div", { className: 'wrap_verification' },
             React.createElement("div", { className: 'verification' },
+                React.createElement("form", { action: typeof window != "undefined" && window.location.pathname == '/company_verification' ? '/company_verification/finish' : '/verification/finish', method: 'POST', id: 'finishVerification' }),
                 React.createElement("p", { className: 'us_title' }, "Please have your ID card or passport ready and keep your mobile phone within reach. "),
                 React.createElement("p", { className: 'us_title' }, "Supported languages: German, English, French, Italian "),
                 React.createElement("div", { className: 'wrap_transfer3' },
                     React.createElement("p", { className: 'corr_text3' }, "I/we declare that the information and/or documents provided during this KYC-AML process is true and correct according to my/our best knowledge."),
                     React.createElement("p", { className: 'wrap_main_checkbox4', ref: this.fourthBlue },
-                        React.createElement("input", { type: 'checkbox', form: 'registrationForm', onChange: this.changeInputColor24, className: 'main_checkbox' })),
+                        React.createElement("input", { type: 'checkbox', required: true, form: 'finishVerification', onChange: this.changeInputColor24, className: 'main_checkbox' })),
                     React.createElement("p", { className: 'corr_text3' }, "I/we hereby fully understand that providing false information is treated as a criminal offence (article 251 of the Swiss Penal Code, document forgery)"),
                     React.createElement("p", { className: 'wrap_main_checkbox4', ref: this.fithBlue },
-                        React.createElement("input", { type: 'checkbox', form: 'registrationForm', onChange: this.changeInputColor25, className: 'main_checkbox' })),
+                        React.createElement("input", { type: 'checkbox', required: true, form: 'finishVerification', onChange: this.changeInputColor25, className: 'main_checkbox' })),
                     React.createElement("p", { className: 'corr_text3' }, "I/we agree to start video identification procedure"),
                     React.createElement("p", { className: 'wrap_main_checkbox4', ref: this.sixthBlue, id: 'thirdCheckBox' },
-                        React.createElement("input", { type: 'checkbox', form: 'registrationForm', onChange: this.changeInputColor26, className: 'main_checkbox' }))),
+                        React.createElement("input", { type: 'checkbox', required: true, form: 'finishVerification', onChange: this.changeInputColor26, className: 'main_checkbox' }))),
                 React.createElement("div", { className: 'wrap_next_buttons4' },
                     React.createElement("div", { className: 'first_next_buttons' },
                         React.createElement(NavLink, { to: typeof window != "undefined" && window.location.pathname == '/company_verification' ? '/company_documents' : '/documents', className: 'back_button' }, "Back"),
-                        React.createElement(NavLink, { to: typeof window != "undefined" && window.location.pathname == '/company_verification' ? '/company_finish' : '/finish', className: 'next_button' }, "Next"))))));
+                        React.createElement("button", { type: 'submit', form: 'finishVerification', className: 'next_button' }, "Next"))))));
     }
 }
 export default Verification;

@@ -33,6 +33,10 @@ class CompanyEmployers extends Component<{}, iState>{
   private firstBlue2 = React.createRef<HTMLParagraphElement>();
   private secondBlue = React.createRef<HTMLParagraphElement>();
   private thirdBlue = React.createRef<HTMLParagraphElement>();
+  private asAnAuthor = React.createRef<HTMLInputElement>();
+  private sameCorrespondenceCompany = React.createRef<HTMLInputElement>();
+  private noTransfer3 = React.createRef<HTMLInputElement>();
+  private noTransfer4 = React.createRef<HTMLInputElement>();
 
   constructor(props: any, state: iState) {
 
@@ -126,6 +130,9 @@ class CompanyEmployers extends Component<{}, iState>{
   }
 
   changeInputColor8 = (e:any) => {
+    e.target.checked ?
+    (this.asAnAuthor?.current as HTMLInputElement).value = 'As an authorized signatory of legal entity, I declare that funds that will be transferred to PI Digital are: (i) of legal origin and therefore not derived from any illicit activity and (ii) fully tax compliant according to the laws and regulations applicable in the country of incorporation/existence of the company.' :
+    (this.asAnAuthor?.current as HTMLInputElement).value = 'I do not declare';
     if(this.thirdBlue?.current?.classList.contains('blueCheckBox')) {
       this.thirdBlue?.current?.classList.remove('blueCheckBox');
       (document.getElementById('asAnAuthorHid') as HTMLInputElement).value = e.target.checked.toString();
@@ -140,7 +147,9 @@ class CompanyEmployers extends Component<{}, iState>{
     this.firstBlue?.current?.classList.contains('blueCheckBox') ?
     this.firstBlue?.current?.classList.remove('blueCheckBox') :
     this.firstBlue?.current?.classList.add('blueCheckBox');
-    (document.getElementById('sameCorrespondenceCompanyHid') as HTMLInputElement).value = e.target.checked.toString();
+    e.target.checked ?
+    (this.sameCorrespondenceCompany?.current as HTMLInputElement).value = 'Same as office address' :
+    (this.sameCorrespondenceCompany?.current as HTMLInputElement).value = 'Not the same address'
   }
 
   changeOneTitle = () => {
@@ -183,14 +192,18 @@ class CompanyEmployers extends Component<{}, iState>{
     this.firstBlue2?.current?.classList.contains('blueCheckBox') ?
     this.firstBlue2?.current?.classList.remove('blueCheckBox') :
     this.firstBlue2?.current?.classList.add('blueCheckBox');
-    (document.getElementById('noTransfer3Hid') as HTMLInputElement).value = e.target.checked.toString();
+    e.target.checked ?
+    (this.noTransfer3?.current as HTMLInputElement).value = 'No transfer' :
+    (this.noTransfer3?.current as HTMLInputElement).value = 'Transfer'
   }
 
   changeInputColor22 = (e:any) => {
     this.secondBlue?.current?.classList.contains('blueCheckBox') ?
     this.secondBlue?.current?.classList.remove('blueCheckBox') :
     this.secondBlue?.current?.classList.add('blueCheckBox');
-    (document.getElementById('noTransfer4Hid') as HTMLInputElement).value = e.target.checked.toString();
+    e.target.checked ?
+    (this.noTransfer4?.current as HTMLInputElement).value = 'No transfer' :
+    (this.noTransfer4?.current as HTMLInputElement).value = 'Transfer'
   }
 
   changeWhite1 = () => {
@@ -215,23 +228,44 @@ render() {
 
               <p className='title_salut'>Employees of the company</p>
               <div className='wrap_comp_status'>
-                  <p className='each_empl31 choosen_type_blue'>1 - 25 <input type='checkbox'  checked={this.state.check1} onChange={this.changeInputColor1}  className='allCheckBoxes6'/></p>
-                  <p className='each_empl31'>25 - 100 <input type='checkbox'  checked={this.state.check2} onChange={this.changeInputColor2}  className='allCheckBoxes6'/></p>
-                  <p className='each_empl31'> {`> 100`} <input type='checkbox'  checked={this.state.check3} onChange={this.changeInputColor3}  className='allCheckBoxes6'/></p>
+                  <p className='each_empl31 choosen_type_blue'>1 - 25
+                      <input type='checkbox'  checked={this.state.check1} onChange={this.changeInputColor1}  className='allCheckBoxes6'/>
+                      <input type='hidden'  name={this.state.check1 ? 'emplOfCompany' : ''} form='checkPersonal3' value='1 - 25'/>
+                  </p>
+                  <p className='each_empl31'>25 - 100
+                      <input type='checkbox'  checked={this.state.check2} onChange={this.changeInputColor2}  className='allCheckBoxes6'/>
+                      <input type='hidden'  name={this.state.check2 ? 'emplOfCompany' : ''} form='checkPersonal3' value='25 - 100 '/>
+                  </p>
+                  <p className='each_empl31'> {`> 100`}
+                      <input type='checkbox' checked={this.state.check3} onChange={this.changeInputColor3}  className='allCheckBoxes6'/>
+                      <input type='hidden' name={this.state.check3 ? 'emplOfCompany' : ''} form='checkPersonal3' value={`> 100`}/>
+                  </p>
               </div>
 
               <p className='title_salut' id='line2'>Line of business or industry (NOGA code)</p>
-              <select id='selectCode2' onChange={(e:any) => (document.getElementById('lineOfCompanyHid') as HTMLInputElement).value = e.target.value} className='com_input'>
+              <select id='selectCode2' name='lineOfCompanyHid' required form='checkPersonal3' className='com_input'>
                  <option value="" disabled selected>Code</option>
                  <option value="hurr">Durr</option>
               </select>
 
               <p className='title_salut' id='turnover2'>Company turnover</p>
               <div className='wrap_turn_status'>
-                  <p className='each_empl4'>{`< CHF 5 m`}<input type='checkbox'  checked={this.state.check4} onChange={this.changeInputColor4}  className='allCheckBoxes8'/></p>
-                  <p className='each_empl4'>CHF 5 m - CHF 10 m <input type='checkbox'  checked={this.state.check5}  onChange={this.changeInputColor5}  className='allCheckBoxes8'/></p>
-                  <p className='each_empl4 choosen_type_blue'>CHF 10 m - CHF 25 m <input type='checkbox'  checked={this.state.check6}  onChange={this.changeInputColor6} className='allCheckBoxes8'/></p>
-                  <p className='each_empl4'> {`> CHF 25 m`} <input type='checkbox'  checked={this.state.check7} onChange={this.changeInputColor7}   className='allCheckBoxes8'/></p>
+                  <p className='each_empl4'>{`< CHF 5 m`}
+                      <input type='checkbox'  checked={this.state.check4} onChange={this.changeInputColor4}  className='allCheckBoxes8'/>
+                      <input type='hidden' name={this.state.check4 ? 'turnoverCompany' : ''} form='checkPersonal3' value={`< CHF 5 m`}/>
+                  </p>
+                  <p className='each_empl4'>CHF 5 m - CHF 10 m
+                      <input type='checkbox'  checked={this.state.check5}  onChange={this.changeInputColor5}  className='allCheckBoxes8'/>
+                      <input type='hidden' name={this.state.check5 ? 'turnoverCompany' : ''} form='checkPersonal3' value='CHF 5 m - CHF 10 m'/>
+                  </p>
+                  <p className='each_empl4 choosen_type_blue'>CHF 10 m - CHF 25 m
+                      <input type='checkbox'  checked={this.state.check6}  onChange={this.changeInputColor6} className='allCheckBoxes8'/>
+                      <input type='hidden' name={this.state.check6 ? 'turnoverCompany' : ''} form='checkPersonal3' value='CHF 10 m - CHF 25 m '/>
+                  </p>
+                  <p className='each_empl4'> {`> CHF 25 m`}
+                      <input type='checkbox'  checked={this.state.check7} onChange={this.changeInputColor7}   className='allCheckBoxes8'/>
+                      <input type='hidden' name={this.state.check7 ? 'turnoverCompany' : ''} form='checkPersonal3' value={`> CHF 25 m`}/>
+                  </p>
               </div>
 
               <div className='wrap_transfer3'>
@@ -239,25 +273,27 @@ render() {
                    therefore not derived from any illicit activity <span className='width_font'>and (ii) fully tax compliant</span> according to the laws and regulations applicable in the country of incorporation/existence of the company.</p>
                   <p className='wrap_main_checkbox2' id='tablet_cb2' ref={this.thirdBlue}>
                       <input type='checkbox' onChange={this.changeInputColor8} className='main_checkbox'/>
+                      <input type='hidden' name='asAnAuthor' ref={this.asAnAuthor} form='checkPersonal3' value='I do not declare'/>
                   </p>
               </div>
 
               <p className='us_title' id='company_reg_txt'>Registered office address at the place of incorporation</p>
               <p className='title_salut'>Street, No.</p>
               <p className='title_salut'>City/State</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('companyRegAddressHid') as HTMLInputElement).value = e.target.value} placeholder='Street, No.' id='alter4' className='alternative_inputs'/>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('companyRegCityHid') as HTMLInputElement).value = e.target.value} placeholder='City/State' className='alternative_inputs'/>
+              <input type='text' form='checkPersonal3' name='companyRegAddress' required  placeholder='Street, No.' id='alter4' className='alternative_inputs'/>
+              <input type='text' form='checkPersonal3' name='companyRegCity' required  placeholder='City/State' className='alternative_inputs'/>
               <p className='title_salut'>Mailbox</p>
               <p className='title_salut'>Country of residence</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('companyMailBoxHid') as HTMLInputElement).value = e.target.value} placeholder='Mailbox' id='alter5' className='alternative_inputs'/>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('countryOfCompany2Hid') as HTMLInputElement).value = e.target.value} placeholder='Country of residence' className='alternative_inputs'/>
+              <input type='text' form='checkPersonal3' name='companyMailBox' required  placeholder='Mailbox' id='alter5' className='alternative_inputs'/>
+              <input type='text' form='checkPersonal3' name='countryOfCompany2' required  placeholder='Country of residence' className='alternative_inputs'/>
               <p className='title_salut' id='company_postal'>Postal code</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('postalCompanyCodeHid') as HTMLInputElement).value = e.target.value} placeholder='Postal code' className='alternative_inputs'/>
+              <input type='text' form='checkPersonal3' name='postalCompanyCode' required  placeholder='Postal code' className='alternative_inputs'/>
 
               <div className='wrap_office_address'>
                 <p className='us_title'>Correspondence address</p>
                 <p className='wrap_main_checkbox2' ref={this.firstBlue}>
                     <input type='checkbox' onChange={this.changeInputColor9} className='main_checkbox'/>
+                    <input type='hidden' name='sameCorrespondenceCompany' ref={this.sameCorrespondenceCompany} form='checkPersonal3' value='Not the same address'/>
                 </p>
                 <p className='corr_text'>Same as office address</p>
               </div>
@@ -265,37 +301,51 @@ render() {
               <p className='us_title pi_title' id='company_fiat_txt'>Fiat accounts</p>
               <p className='title_salut ref_curr_title'>Reference currency</p>
               <div className='wrap_title_yours'>
-                 <p className='each_title_yours_currency' ref={this.firstTitle}>CHF <input type='checkbox'  checked={this.state.check8}  onChange={this.changeOneTitle} className='allCheckBoxes7'/></p>
-                 <p className='each_title_yours_currency' ref={this.secondTitle}>EUR <input type='checkbox'  checked={this.state.check9}  onChange={this.changeTwoTitle} className='allCheckBoxes7'/></p>
-                 <p className='each_title_yours_currency choosen_type_blue' ref={this.thirdTitle}>USD<input type='checkbox'  checked={this.state.check10}  onChange={this.changeThreeTitle} className='allCheckBoxes7'/></p>
-                 <p className='each_title_yours_currency' ref={this.fourthTitle}>SGD<input type='checkbox'  checked={this.state.check11}  onChange={this.changeFourthTitle} className='allCheckBoxes7'/></p>
+                 <p className='each_title_yours_currency' ref={this.firstTitle}>CHF
+                      <input type='checkbox'  checked={this.state.check8}  onChange={this.changeOneTitle} className='allCheckBoxes7'/>
+                      <input type='hidden' name={this.state.check8 ? 'fiatCompanyCurrency' : ''} form='checkPersonal3' value='CHF'/>
+                 </p>
+                 <p className='each_title_yours_currency' ref={this.secondTitle}>EUR
+                      <input type='checkbox'  checked={this.state.check9}  onChange={this.changeTwoTitle} className='allCheckBoxes7'/>
+                      <input type='hidden' name={this.state.check9 ? 'fiatCompanyCurrency' : ''} form='checkPersonal3' value='EUR'/>
+                 </p>
+                 <p className='each_title_yours_currency choosen_type_blue' ref={this.thirdTitle}>USD
+                      <input type='checkbox'  checked={this.state.check10}  onChange={this.changeThreeTitle} className='allCheckBoxes7'/>
+                      <input type='hidden' name={this.state.check10 ? 'fiatCompanyCurrency' : ''} form='checkPersonal3' value='USD'/>
+                 </p>
+                 <p className='each_title_yours_currency' ref={this.fourthTitle}>SGD
+                      <input type='checkbox'  checked={this.state.check11}  onChange={this.changeFourthTitle} className='allCheckBoxes7'/>
+                      <input type='hidden' name={this.state.check11 ? 'fiatCompanyCurrency' : ''} form='checkPersonal3' value='SGD'/>
+                 </p>
               </div>
               <p className='title_salut title_fiat'>Amount of first transfer to account at PI Digital in CHF</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('ammountOfCompanyHid') as HTMLInputElement).value = e.target.value}  className='com_input' id='alter6' placeholder='Ammount'/>
+                  <input type='text' name='ammountOfCompany' form='checkPersonal3' required className='com_input' id='alter6' placeholder='Ammount'/>
               <p className='title_salut title_fiat'>Bank and country of origin of the assets to be transferred to PI Digital</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('bankOfCompanyHid') as HTMLInputElement).value = e.target.value}  placeholder='Bank' id='' className='alternative_inputs long_input'/>
+                  <input type='text' name='bankOfCompany' form='checkPersonal3' required placeholder='Bank' id='' className='alternative_inputs long_input'/>
 
               <div className='wrap_transfer' id='alter7'>
                   <p className='corr_text2'>No transfer</p>
                   <p className='wrap_main_checkbox2' ref={this.firstBlue2}>
                       <input type='checkbox' onChange={this.changeInputColor21} className='main_checkbox'/>
+                      <input type='hidden' name='noTransfer3' ref={this.noTransfer3} form='checkPersonal3' value='Transfer'/>
                   </p>
               </div>
 
               <p className='us_title pi_title'>PI Digital wallets</p>
               <p className='title_salut ref_curr_title'>Indicative initial BTC transfer to PI Digital wallet</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('btcCompany1Hid') as HTMLInputElement).value = e.target.value} placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+              <input type='text' name='btcCompany1' form='checkPersonal3' required placeholder='Indicative initial BTC transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
               <p className='title_salut ref_curr_title'>BTC wallet address used for the transfer</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('btcCompany2Hid') as HTMLInputElement).value = e.target.value} placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+              <input type='text' name='btcCompany2' form='checkPersonal3' required placeholder='BTC wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
               <p className='title_salut ref_curr_title'>Indicative initial ETH transfer to PI Digital wallet</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('ethCompany1Hid') as HTMLInputElement).value = e.target.value} placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
+              <input type='text' name='ethCompany1' form='checkPersonal3' required placeholder='Indicative initial ETH transfer to PI Digital wallet' id='' className='alternative_inputs long_input'/>
               <p className='title_salut ref_curr_title'>ETH wallet address used for the transfer</p>
-              <input type='text' form='companyForm' required onChange={(e:any) => (document.getElementById('ethCompany2Hid') as HTMLInputElement).value = e.target.value} placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
+              <input type='text' name='ethCompany2' form='checkPersonal3' required placeholder='ETH wallet address used for the transfer' id='' className='alternative_inputs long_input'/>
 
               <div className='wrap_transfer' id='alter8'>
                   <p className='corr_text2'>No transfer</p>
                   <p className='wrap_main_checkbox2' ref={this.secondBlue}>
                       <input type='checkbox' onChange={this.changeInputColor22} className='main_checkbox'/>
+                      <input type='hidden' name='noTransfer4' ref={this.noTransfer4} form='checkPersonal3' value='Transfer'/>
                   </p>
               </div>
 
@@ -307,8 +357,14 @@ render() {
 
               <div className='wrap_white_agree_block' id='alter9'>
                  <div className='white_agree_block'>
-                     <p className='each_agree_block blue_each_white_per'><input type='checkbox' checked={this.state.check12}  onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email</p>
-                     <p className='each_agree_block'><input type='checkbox' checked={this.state.check13}  onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email</p>
+                     <p className='each_agree_block blue_each_white_per'>
+                        <input type='checkbox' checked={this.state.check12} onChange={this.changeWhite1} className='allCheckBoxes8'/>I agree to receive updates and news from PI Digital via email
+                        <input type='hidden' name={this.state.check12 ? 'agreeRecieveCompany' : ''} form='checkPersonal3' value='I agree to receive updates and news from PI Digital via email'/>
+                    </p>
+                     <p className='each_agree_block'>
+                        <input type='checkbox' checked={this.state.check13}  onChange={this.changeWhite2} className='allCheckBoxes8'/>I do not agree to receive updates and news from PI Digital via email
+                        <input type='hidden' name={this.state.check13 ? 'agreeRecieveCompany' : ''} form='checkPersonal3' value='I do not agree to receive updates and news from PI Digital via email'/>
+                    </p>
                  </div>
               </div>
 
@@ -325,7 +381,7 @@ render() {
               <div className='wrap_next_buttons5'>
                 <div className='first_next_buttons'>
                     <NavLink to='/' className='back_button'>Back</NavLink>
-                    <button type='submit' form='companyForm' className='next_button'>Next</button>
+                    <button type='submit' form='checkPersonal3' className='next_button'>Next</button>
                 </div>
               </div>
   					</div>

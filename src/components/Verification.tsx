@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 declare global {
     interface Window {
@@ -48,11 +48,13 @@ class Verification extends Component{
     this.sixthBlue?.current?.classList.add('blueCheckBox');
   }
 
+
 render() {
 
 			return (
 				<div className='wrap_verification'>
   					<div className='verification'>
+            <form action={typeof window != "undefined" && window.location.pathname == '/company_verification' ? '/company_verification/finish' : '/verification/finish'} method='POST' id='finishVerification'></form>
                   <p className='us_title'>Please have your ID card or passport ready and keep your mobile phone within reach. </p>
                   <p className='us_title'>Supported languages: German, English, French, Italian </p>
 
@@ -60,25 +62,26 @@ render() {
                       <p className='corr_text3'>I/we declare that the information and/or documents provided during this KYC-AML process is
                        true and correct according to my/our best knowledge.</p>
                       <p className='wrap_main_checkbox4' ref={this.fourthBlue}>
-                          <input type='checkbox' form='registrationForm' onChange={this.changeInputColor24} className='main_checkbox'/>
+                          <input type='checkbox' required form='finishVerification' onChange={this.changeInputColor24} className='main_checkbox'/>
                       </p>
 
                       <p className='corr_text3'>I/we hereby fully understand that providing false information is treated as a criminal
                        offence (article 251 of the Swiss Penal Code, document forgery)</p>
                       <p className='wrap_main_checkbox4' ref={this.fithBlue}>
-                          <input type='checkbox' form='registrationForm' onChange={this.changeInputColor25} className='main_checkbox'/>
+                          <input type='checkbox' required form='finishVerification' onChange={this.changeInputColor25} className='main_checkbox'/>
                       </p>
 
                       <p className='corr_text3'>I/we agree to start video identification procedure</p>
                       <p className='wrap_main_checkbox4' ref={this.sixthBlue} id='thirdCheckBox'>
-                          <input type='checkbox' form='registrationForm' onChange={this.changeInputColor26} className='main_checkbox'/>
+                          <input type='checkbox' required form='finishVerification' onChange={this.changeInputColor26} className='main_checkbox'/>
                       </p>
                   </div>
 
                    <div className='wrap_next_buttons4'>
                      <div className='first_next_buttons'>
                          <NavLink to={typeof window != "undefined" && window.location.pathname == '/company_verification' ? '/company_documents' : '/documents'} className='back_button'>Back</NavLink>
-                         <NavLink to={typeof window != "undefined" && window.location.pathname == '/company_verification' ? '/company_finish' : '/finish'} className='next_button'>Next</NavLink>
+                         <button type='submit' form='finishVerification' className='next_button'>Next</button>
+                         {/*<NavLink to={typeof window != "undefined" && window.location.pathname == '/company_verification' ? '/company_finish' : '/finish'} className='next_button'>Next</NavLink>*/}
                      </div>
                    </div>
   					</div>

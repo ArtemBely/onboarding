@@ -27,9 +27,9 @@ class EachParty extends Component {
                         React.createElement("img", { src: trash })),
                     React.createElement("p", { className: 'title_salut' }, "Full name"),
                     React.createElement("p", { className: 'title_salut' }, "E-mail"),
-                    React.createElement("input", { type: 'hidden', value: '', name: 'parties' }),
-                    React.createElement("input", { type: 'text', form: 'companyParties', required: true, ref: this.inp, onChange: (e) => document.getElementById('partyNameHid').value = e.target.value, placeholder: 'Full name', id: 'alter10', className: 'alternative_inputs special_inputs' }),
-                    React.createElement("input", { type: 'email', form: 'companyParties', required: true, ref: this.inp2, onChange: (e) => document.getElementById('partyEmailHid').value = e.target.value, placeholder: 'E-mail', className: 'alternative_inputs special_inputs' }),
+                    React.createElement("input", { type: 'hidden', form: 'checkPersonal5', value: '', name: 'parties' }),
+                    React.createElement("input", { type: 'text', form: 'checkPersonal5', required: true, ref: this.inp, name: 'partyName', placeholder: 'Full name', id: 'alter10', className: 'alternative_inputs special_inputs' }),
+                    React.createElement("input", { type: 'email', form: 'checkPersonal5', required: true, ref: this.inp2, name: 'partyEmail', placeholder: 'E-mail', className: 'alternative_inputs special_inputs' }),
                     React.createElement("p", { className: 'each_blue_bottom' }))))));
             }
             return;
@@ -57,7 +57,7 @@ class EachParty extends Component {
                 React.createElement("div", { className: 'wrap_next_buttons6' },
                     React.createElement("div", { className: 'first_next_buttons' },
                         React.createElement(NavLink, { to: '/company_personal', className: 'back_button' }, "Back"),
-                        React.createElement("button", { type: 'submit', form: 'companyParties', className: 'next_button' }, "Next"))))));
+                        React.createElement("button", { type: 'submit', form: 'checkPersonal5', className: 'next_button' }, "Next"))))));
     }
 }
 export default EachParty;

@@ -10,56 +10,62 @@ class Fiat extends Component {
         this.firstBlue = React.createRef();
         this.secondBlue = React.createRef();
         this.thirdBlue = React.createRef();
+        this.noTransfer = React.createRef();
+        this.noTransfer2 = React.createRef();
+        this.declareBeneficial = React.createRef();
         this.changeOneTitle = () => {
             var _a, _b;
             this.setState({ check1: true, check2: false, check3: false, check4: false });
             document.querySelectorAll('.each_title_yours_currency').forEach(item => (item.classList.remove('choosen_type_blue')));
             (_b = (_a = this.firstTitle) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.add('choosen_type_blue');
-            document.getElementById('currencyHid').value = "CHF";
         };
         this.changeTwoTitle = () => {
             var _a, _b;
             this.setState({ check1: false, check2: true, check3: false, check4: false });
             document.querySelectorAll('.each_title_yours_currency').forEach(item => (item.classList.remove('choosen_type_blue')));
             (_b = (_a = this.secondTitle) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.add('choosen_type_blue');
-            document.getElementById('currencyHid').value = "EUR";
         };
         this.changeThreeTitle = () => {
             var _a, _b;
             this.setState({ check1: false, check2: false, check3: true, check4: false });
             document.querySelectorAll('.each_title_yours_currency').forEach(item => (item.classList.remove('choosen_type_blue')));
             (_b = (_a = this.thirdTitle) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.add('choosen_type_blue');
-            document.getElementById('currencyHid').value = "USD";
         };
         this.changeFourthTitle = () => {
             var _a, _b;
             this.setState({ check1: false, check2: false, check3: false, check4: true });
             document.querySelectorAll('.each_title_yours_currency').forEach(item => (item.classList.remove('choosen_type_blue')));
             (_b = (_a = this.fourthTitle) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.add('choosen_type_blue');
-            document.getElementById('currencyHid').value = "SGD";
         };
         this.changeInputColor21 = (e) => {
-            var _a, _b, _c, _d, _e, _f;
+            var _a, _b, _c, _d, _e, _f, _g, _h;
             ((_b = (_a = this.firstBlue) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.contains('blueCheckBox')) ?
                 (_d = (_c = this.firstBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.remove('blueCheckBox') :
                 (_f = (_e = this.firstBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox');
-            document.getElementById('noTransferHid').value = e.target.checked.toString();
+            e.target.checked ?
+                ((_g = this.noTransfer) === null || _g === void 0 ? void 0 : _g.current).value = 'No transfer' :
+                ((_h = this.noTransfer) === null || _h === void 0 ? void 0 : _h.current).value = 'Transfer';
         };
         this.changeInputColor22 = (e) => {
-            var _a, _b, _c, _d, _e, _f;
+            var _a, _b, _c, _d, _e, _f, _g, _h;
             ((_b = (_a = this.secondBlue) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.contains('blueCheckBox')) ?
                 (_d = (_c = this.secondBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.remove('blueCheckBox') :
                 (_f = (_e = this.secondBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox');
-            document.getElementById('noTransfer2Hid').value = e.target.checked.toString();
+            e.target.checked ?
+                ((_g = this.noTransfer2) === null || _g === void 0 ? void 0 : _g.current).value = 'No transfer' :
+                ((_h = this.noTransfer2) === null || _h === void 0 ? void 0 : _h.current).value = 'Transfer';
         };
-        this.changeInputColor23 = () => {
-            var _a, _b, _c, _d, _e, _f;
-            if ((_b = (_a = this.thirdBlue) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.classList.contains('blueCheckBox')) {
-                (_d = (_c = this.thirdBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.remove('blueCheckBox');
+        this.changeInputColor23 = (e) => {
+            var _a, _b, _c, _d, _e, _f, _g, _h;
+            e.target.checked ?
+                ((_a = this.declareBeneficial) === null || _a === void 0 ? void 0 : _a.current).value = 'I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.' :
+                ((_b = this.declareBeneficial) === null || _b === void 0 ? void 0 : _b.current).value = 'I do not declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.';
+            if ((_d = (_c = this.thirdBlue) === null || _c === void 0 ? void 0 : _c.current) === null || _d === void 0 ? void 0 : _d.classList.contains('blueCheckBox')) {
+                (_f = (_e = this.thirdBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.remove('blueCheckBox');
                 document.getElementById('declareBeneficialHid').value = '';
             }
             else {
-                (_f = (_e = this.thirdBlue) === null || _e === void 0 ? void 0 : _e.current) === null || _f === void 0 ? void 0 : _f.classList.add('blueCheckBox');
+                (_h = (_g = this.thirdBlue) === null || _g === void 0 ? void 0 : _g.current) === null || _h === void 0 ? void 0 : _h.classList.add('blueCheckBox');
                 document.getElementById('declareBeneficialHid').value = "I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.";
             }
         };
@@ -95,43 +101,50 @@ class Fiat extends Component {
                 React.createElement("p", { className: 'title_salut ref_curr_title' }, "Reference currency"),
                 React.createElement("div", { className: 'wrap_title_yours' },
                     React.createElement("p", { className: 'each_title_yours_currency', ref: this.firstTitle },
-                        "CHF ",
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check1, onChange: this.changeOneTitle, className: 'allCheckBoxes7' })),
+                        "CHF",
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check1, onChange: this.changeOneTitle, className: 'allCheckBoxes7' }),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', name: this.state.check1 ? 'currency' : '', value: 'CHF' })),
                     React.createElement("p", { className: 'each_title_yours_currency', ref: this.secondTitle },
-                        "EUR ",
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check2, onChange: this.changeTwoTitle, className: 'allCheckBoxes7' })),
+                        "EUR",
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check2, onChange: this.changeTwoTitle, className: 'allCheckBoxes7' }),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', name: this.state.check2 ? 'currency' : '', value: 'EUR' })),
                     React.createElement("p", { className: 'each_title_yours_currency choosen_type_blue', ref: this.thirdTitle },
                         "USD",
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check3, onChange: this.changeThreeTitle, className: 'allCheckBoxes7' })),
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check3, onChange: this.changeThreeTitle, className: 'allCheckBoxes7' }),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', name: this.state.check3 ? 'currency' : '', value: 'USD' })),
                     React.createElement("p", { className: 'each_title_yours_currency', ref: this.fourthTitle },
                         "SGD",
-                        React.createElement("input", { type: 'checkbox', checked: this.state.check4, onChange: this.changeFourthTitle, className: 'allCheckBoxes7' }))),
+                        React.createElement("input", { type: 'checkbox', checked: this.state.check4, onChange: this.changeFourthTitle, className: 'allCheckBoxes7' }),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', name: this.state.check4 ? 'currency' : '', value: 'SGD' }))),
                 React.createElement("p", { className: 'title_salut title_fiat' }, "Amount of first transfer to account at PI Digital in CHF"),
-                React.createElement("input", { type: 'text', form: 'checkFinancial', required: true, onChange: (e) => document.getElementById('ammountHid').value = e.target.value, className: 'com_input', placeholder: 'Ammount' }),
+                React.createElement("input", { type: 'text', form: 'checkPersonal2', name: 'ammount', required: true, className: 'com_input', placeholder: 'Ammount' }),
                 React.createElement("p", { className: 'title_salut title_fiat' }, "Bank and country of origin of the assets to be transferred to PI Digital"),
-                React.createElement("input", { type: 'text', form: 'checkFinancial', required: true, onChange: (e) => document.getElementById('bankAndCountryHid').value = e.target.value, placeholder: 'Bank', id: '', className: 'alternative_inputs long_input' }),
+                React.createElement("input", { type: 'text', form: 'checkPersonal2', name: 'bankAndCountry', required: true, placeholder: 'Bank', id: '', className: 'alternative_inputs long_input' }),
                 React.createElement("div", { className: 'wrap_transfer' },
                     React.createElement("p", { className: 'corr_text2' }, "No transfer"),
                     React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.firstBlue },
-                        React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor21, className: 'main_checkbox' }))),
+                        React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor21, className: 'main_checkbox' }),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', ref: this.noTransfer, name: 'noTransfer', value: 'Transfer' }))),
                 React.createElement("p", { className: 'us_title pi_title' }, "PI Digital wallets"),
                 React.createElement("p", { className: 'title_salut ref_curr_title' }, "Indicative initial BTC transfer to PI Digital wallet"),
-                React.createElement("input", { type: 'text', form: 'checkFinancial', required: true, onChange: (e) => document.getElementById('btc1Hid').value = e.target.value, placeholder: 'Indicative initial BTC transfer to PI Digital wallet', id: '', className: 'alternative_inputs long_input' }),
+                React.createElement("input", { type: 'text', form: 'checkPersonal2', name: 'btc1', required: true, placeholder: 'Indicative initial BTC transfer to PI Digital wallet', id: '', className: 'alternative_inputs long_input' }),
                 React.createElement("p", { className: 'title_salut ref_curr_title' }, "BTC wallet address used for the transfer"),
-                React.createElement("input", { type: 'text', form: 'checkFinancial', required: true, onChange: (e) => document.getElementById('btc2Hid').value = e.target.value, placeholder: 'BTC wallet address used for the transfer', id: '', className: 'alternative_inputs long_input' }),
+                React.createElement("input", { type: 'text', form: 'checkPersonal2', name: 'btc2', required: true, placeholder: 'BTC wallet address used for the transfer', id: '', className: 'alternative_inputs long_input' }),
                 React.createElement("p", { className: 'title_salut ref_curr_title' }, "Indicative initial ETH transfer to PI Digital wallet"),
-                React.createElement("input", { type: 'text', form: 'checkFinancial', required: true, onChange: (e) => document.getElementById('eth1Hid').value = e.target.value, placeholder: 'Indicative initial ETH transfer to PI Digital wallet', id: '', className: 'alternative_inputs long_input' }),
+                React.createElement("input", { type: 'text', form: 'checkPersonal2', name: 'eth1', required: true, placeholder: 'Indicative initial ETH transfer to PI Digital wallet', id: '', className: 'alternative_inputs long_input' }),
                 React.createElement("p", { className: 'title_salut ref_curr_title' }, "ETH wallet address used for the transfer"),
-                React.createElement("input", { type: 'text', form: 'checkFinancial', required: true, onChange: (e) => document.getElementById('eth2Hid').value = e.target.value, placeholder: 'ETH wallet address used for the transfer', id: '', className: 'alternative_inputs long_input' }),
+                React.createElement("input", { type: 'text', form: 'checkPersonal2', name: 'eth2', required: true, placeholder: 'ETH wallet address used for the transfer', id: '', className: 'alternative_inputs long_input' }),
                 React.createElement("div", { className: 'wrap_transfer' },
                     React.createElement("p", { className: 'corr_text2' }, "No transfer"),
                     React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.secondBlue },
-                        React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor22, className: 'main_checkbox' }))),
+                        React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor22, className: 'main_checkbox' }),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', ref: this.noTransfer2, name: 'noTransfer2', value: 'Transfer' }))),
                 React.createElement("p", { className: 'us_title pi_title' }, "Declaration of beneficial ownership"),
                 React.createElement("div", { className: 'wrap_transfer2' },
                     React.createElement("p", { className: 'corr_text2' }, "I declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship."),
                     React.createElement("p", { className: 'wrap_main_checkbox2', ref: this.thirdBlue, id: 'tablet_cb' },
-                        React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor23, className: 'main_checkbox' }))),
+                        React.createElement("input", { type: 'checkbox', onChange: this.changeInputColor23, className: 'main_checkbox' }),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', ref: this.declareBeneficial, name: 'declareBeneficial', value: 'I do not declare that I am the beneficial owner of all the fiat as well as digital assets involved in the business relationship.' }))),
                 React.createElement("p", { className: 'case2' }, "If you intend to transfer Bitcoin (BTC) or Ether (ETH) to your PI Digital wallet from a private wallet, you will be asked to confirm your beneficial ownership by demonstrating access and control of your digital assets"),
                 React.createElement("p", { className: 'us_title pi_title' }, "Declarations / Disclaimers"),
                 React.createElement("p", { className: 'case2 case2_id' }, "PI Digital would like to send you updates and news regarding its services and PI Digital itself by email. By signing up, you agree to PI Digital using your personal data in accordance with our Privacy Policy. You can unsubscribe at any time by clicking on the \u00ABUnsubscribe\u00BB link at the bottom of your email. For further information please see our Privacy Policy."),
@@ -140,9 +153,11 @@ class Fiat extends Component {
                         React.createElement("p", { className: 'each_agree_block blue_each_white_per' },
                             React.createElement("input", { type: 'checkbox', checked: this.state.check5, onChange: this.changeWhite1, className: 'allCheckBoxes8' }),
                             "I agree to receive updates and news from PI Digital via email"),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', name: this.state.check5 ? 'recieveUpdates' : '', value: 'I agree to receive updates and news from PI Digital via email' }),
                         React.createElement("p", { className: 'each_agree_block' },
                             React.createElement("input", { type: 'checkbox', checked: this.state.check6, onChange: this.changeWhite2, className: 'allCheckBoxes8' }),
-                            "I do not agree to receive updates and news from PI Digital via email"))),
+                            "I do not agree to receive updates and news from PI Digital via email"),
+                        React.createElement("input", { type: 'hidden', form: 'checkPersonal2', name: this.state.check6 ? 'recieveUpdates' : '', value: 'I do not agree to receive updates and news from PI Digital via email' }))),
                 React.createElement("div", { className: 'wrap_case2_id' },
                     React.createElement("p", { className: 'case2 case2_id' }, "Through the completion of this questionnaire no contract or legal binding relationship between you and PI Digital will be concluded. Furthermore, the completion of the questionnaire is no contract request and is no guarantee that a contractual relationship between you and PI Digital will ever be concluded."),
                     React.createElement("p", { className: 'case2 case2_id' }, "Any dispute, controversy or claim arising out of or relating to the completion, interpretation, performance or invalidity of this questionnaire shall be decided by the competent courts in the Canton of Zug, Switzerland."),
@@ -151,7 +166,7 @@ class Fiat extends Component {
                 React.createElement("div", { className: 'wrap_next_buttons03' },
                     React.createElement("div", { className: 'first_next_buttons' },
                         React.createElement(NavLink, { to: '/personal_details', className: 'back_button' }, "Back"),
-                        React.createElement("button", { type: 'submit', form: 'checkFinancial', className: 'next_button' }, "Next"))))));
+                        React.createElement("button", { type: 'submit', form: 'checkPersonal2', className: 'next_button' }, "Next"))))));
     }
 }
 export default Fiat;

@@ -224,37 +224,37 @@ render() {
                   <p className='title_yours'>Title</p>
                   <div className='wrap_title_yours'>
                      <p className='each_title_yours choosen_type_blue' ref={this.firstTitle}>None <input type='checkbox'  checked={this.state.check1} onChange={this.changeOneTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check1 ? 'title' : ''} form='checkPersonal1' value='None'/>
+                        <input type='hidden' name={this.state.check1 ? 'title' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='None'/>
                      <p className='each_title_yours' ref={this.secondTitle}>Prof. <input type='checkbox'  checked={this.state.check2} onChange={this.changeTwoTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check2 ? 'title' : ''} form='checkPersonal1' value='Prof.'/>
+                        <input type='hidden' name={this.state.check2 ? 'title' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='Prof.'/>
                      <p className='each_title_yours' ref={this.thirdTitle}>Dr. <input type='checkbox'  checked={this.state.check3} onChange={this.changeThreeTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check3 ? 'title' : ''} form='checkPersonal1' value='Dr.'/>
+                        <input type='hidden' name={this.state.check3 ? 'title' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='Dr.'/>
                      <p className='each_title_yours' ref={this.fourthTitle}>PhD <input type='checkbox'  checked={this.state.check4} onChange={this.changeFourthTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check4 ? 'title' : ''} form='checkPersonal1' value='PhD'/>
+                        <input type='hidden' name={this.state.check4 ? 'title' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='PhD'/>
                   </div>
               </div>
               <div className='second_part_inside'>
                   <p className='title_salut'>Salutation</p>
                   <div className='wrap_title_salut'>
                      <p className='each_title_salut choosen_type_blue' ref={this.fiveTitle}>Mr<input type='checkbox' checked={this.state.check21} onChange={this.changeFiveTitle} className='allCheckBoxes2'/></p>
-                        <input type='hidden' name={this.state.check21 ? 'salutation' : ''} form='checkPersonal1' value='Mr'/>
+                        <input type='hidden' name={this.state.check21 ? 'salutation' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='Mr'/>
                      <p className='each_title_salut' ref={this.sixTitle}>Mrs<input type='checkbox' checked={this.state.check22} onChange={this.changeSixTitle} className='allCheckBoxes2'/></p>
-                        <input type='hidden' name={this.state.check22 ? 'salutation' : ''} form='checkPersonal1' value='Mrs'/>
+                        <input type='hidden' name={this.state.check22 ? 'salutation' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='Mrs'/>
                      <p className='each_title_salut' ref={this.sevenTitle}>Ms<input type='checkbox' checked={this.state.check23} onChange={this.changeSevenTitle} className='allCheckBoxes2'/></p>
-                        <input type='hidden' name={this.state.check23 ? 'salutation' : ''} form='checkPersonal1' value='Ms'/>
+                        <input type='hidden' name={this.state.check23 ? 'salutation' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='Ms'/>
                   </div>
               </div>
               <div className='name_part_inside'>
                   <p className='title_salut'>Given names as per passport/ identification document</p>
-                  <input type='text' form='checkPersonal1' name='name' required onChange={(e:any) => (document.getElementById('nameHid') as HTMLInputElement).value = e.target.value} className='com_input' placeholder='Name'/>
+                  <input type='text' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} name='name' required onChange={(e:any) => (document.getElementById('nameHid') as HTMLInputElement).value = e.target.value} className='com_input' placeholder='Name'/>
               </div>
               <div className='surname_part_inside'>
                   <p className='title_salut'>Last name</p>
-                  <input type='text' form='checkPersonal1' name='lastname' required onChange={(e:any) => (document.getElementById('lastnameHid') as HTMLInputElement).value = e.target.value} className='com_input' placeholder='Last name'/>
+                  <input type='text' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} name='lastname' required onChange={(e:any) => (document.getElementById('lastnameHid') as HTMLInputElement).value = e.target.value} className='com_input' placeholder='Last name'/>
               </div>
               <div className='third_part_inside'>
                   <p className='title_salut'>Date of birth</p>
-                  <input type='text' form='checkPersonal1' name='date' required onChange={(e:any) => (document.getElementById('dateHid') as HTMLInputElement).value = e.target.value} ref={this.dateInput} placeholder='DD/MM/YYYY' onFocus={() => {
+                  <input type='text' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} name='date' required onChange={(e:any) => (document.getElementById('dateHid') as HTMLInputElement).value = e.target.value} ref={this.dateInput} placeholder='DD/MM/YYYY' onFocus={() => {
                     if(this.dateInput.current != null) {
                       this.dateInput.current.type = "date";
                     }
@@ -262,7 +262,7 @@ render() {
               </div>
               <div className='country_part_inside'>
                   <p className='title_salut'>Country of origin (Nationality)</p>
-                  <select id='selectCountry' form='checkPersonal1' name='country' required onChange={(e:any) => (document.getElementById('countryHid') as HTMLInputElement).value = e.target.value} className='com_input'>
+                  <select id='selectCountry' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} name='country' required onChange={(e:any) => (document.getElementById('countryHid') as HTMLInputElement).value = e.target.value} className='com_input'>
                       {this.state.allCountries.map((item:any, key) => (
                             <option value={key==0 ? '' : item.name}
                               disabled={key==0 ? true : false}
@@ -275,17 +275,17 @@ render() {
                   <p className='title_yours'>Please enter how many other nationalities you have</p>
                   <div className='wrap_title_nation'>
                      <p className='each_title_nation choosen_type_blue' ref={this.eightTitle}>0 <input type='checkbox' checked={this.state.check31} onChange={this.changeEightTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check31 ? 'nationalities' : ''} form='checkPersonal1' value='0'/>
+                        <input type='hidden' name={this.state.check31 ? 'nationalities' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='0'/>
                      <p className='each_title_nation' ref={this.nineTitle}>1 <input type='checkbox'  checked={this.state.check32} onChange={this.changeNineTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check32 ? 'nationalities' : ''} form='checkPersonal1' value='1'/>
+                        <input type='hidden' name={this.state.check32 ? 'nationalities' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='1'/>
                      <p className='each_title_nation' ref={this.tenTitle}>2 <input type='checkbox' checked={this.state.check33} onChange={this.changeTenTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check33 ? 'nationalities' : ''} form='checkPersonal1' value='2'/>
+                        <input type='hidden' name={this.state.check33 ? 'nationalities' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='2'/>
                      <p className='each_title_nation' ref={this.elevenTitle}>3 <input type='checkbox'  checked={this.state.check34} onChange={this.changeElevenTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check34 ? 'nationalities' : ''} form='checkPersonal1' value='3'/>
+                        <input type='hidden' name={this.state.check34 ? 'nationalities' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='3'/>
                      <p className='each_title_nation' ref={this.twelveTitle}>4 <input type='checkbox'  checked={this.state.check35} onChange={this.changeTwelveTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check35 ? 'nationalities' : ''} form='checkPersonal1' value='4'/>
+                        <input type='hidden' name={this.state.check35 ? 'nationalities' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='4'/>
                      <p className='each_title_nation' ref={this.thirtheenTitle}>5 <input type='checkbox'  checked={this.state.check36} onChange={this.changeThirtheenTitle} className='allCheckBoxes'/></p>
-                        <input type='hidden' name={this.state.check36 ? 'nationalities' : ''} form='checkPersonal1' value='5'/>
+                        <input type='hidden' name={this.state.check36 ? 'nationalities' : ''} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='5'/>
                   </div>
               </div>
 					</div>

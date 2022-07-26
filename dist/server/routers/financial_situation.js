@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import React from 'react';
 import express from 'express';
 import serialize from 'serialize-javascript';
@@ -7,9 +16,11 @@ import Financial from '../../components/Financial';
 const router = express.Router();
 router.get('/', isLogin, (req, res) => {
     let cond = req.isAuthenticated();
+    var user = req.user;
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(Financial, null)));
-    res.send(`<!DOCTYPE html>
+    if (user.individual == 'on')
+        res.send(`<!DOCTYPE html>
         <html>
             <head>
               <title>Проверка кода</title>
@@ -24,7 +35,27 @@ router.get('/', isLogin, (req, res) => {
               </div>
             </body>
         </html>`);
+    else {
+        res.redirect('/parties');
+    }
 });
+router.post('/firstForm', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var user = req.user;
+    try {
+        var i;
+        for (i = 0; i < Object.keys(req.body).length; i++) {
+            user[Object.keys(req.body)[i]] = Object.values(req.body)[i];
+        }
+        user = yield user.save();
+        console.log(user);
+        res.redirect('/documents');
+    }
+    catch (err) {
+        if (err)
+            throw err;
+        console.log(err);
+    }
+}));
 function isLogin(req, res, next) {
     if (req.isAuthenticated()) {
         return next();

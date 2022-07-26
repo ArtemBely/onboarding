@@ -7,14 +7,9 @@ import Header from '../Header';
 import PERPerson from '../PERPerson';
 import USPerson from '../USPerson';
 import CompanySlide from './CompanySlide';
-import { useHistory } from "react-router-dom";
 function CompanyPersonal() {
-    const history = useHistory();
     return (React.createElement("p", { className: 'wrap_components' },
-        React.createElement("form", { action: '/checkPersonal', method: 'POST', onSubmit: (e) => {
-                e.preventDefault();
-                history.push('/parties');
-            }, id: 'checkPersonal' }),
+        React.createElement("form", { action: '/company_personal/firstForm', method: 'POST', id: 'checkPersonal4' }),
         React.createElement(Header, null),
         React.createElement(CompanySlide, null),
         React.createElement(FirstPartForm, null),
@@ -25,6 +20,6 @@ function CompanyPersonal() {
         React.createElement("div", { className: 'wrap_next_buttons5' },
             React.createElement("div", { className: 'first_next_buttons' },
                 React.createElement(NavLink, { to: '/company_details', className: 'back_button' }, "Back"),
-                React.createElement("button", { type: 'submit', form: 'checkPersonal', className: 'next_button' }, "Next")))));
+                React.createElement("button", { type: 'submit', form: 'checkPersonal4', className: 'next_button' }, "Next")))));
 }
 export default CompanyPersonal;

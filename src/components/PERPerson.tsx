@@ -94,7 +94,7 @@ render() {
                     </p>
 
                     <p className='extra_name dispNone'>Name/Function</p>
-                    <input type='text' form='checkPersonal1'  placeholder='Name/Function' ref={this.extra_name_input} onChange={(e:any) => {
+                    <input type='text' form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'}  placeholder='Name/Function' ref={this.extra_name_input} onChange={(e:any) => {
                       if(this.extra_name_input?.current && this.extra_name_input?.current?.value.length > 0) {
                         (this.extra_name_input2?.current as HTMLInputElement).value = 'I declare that I am a politically exposed person or a family member or close associate of a politically exposed person: indicate the executed function or the name/function of the affiliated person.'
                       }
@@ -102,7 +102,7 @@ render() {
                         (this.extra_name_input2?.current as HTMLInputElement).value = 'I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP'
                       }
                     }} name='pepNameFunc' className='extra_name_input dispNone' required={this.state.functionRequired}/>
-                    <input type='hidden' name='pepStatus' ref={this.extra_name_input2} form='checkPersonal1' value='I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP' />
+                    <input type='hidden' name='pepStatus' ref={this.extra_name_input2} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='I declare that I am not and I was never qualified as a politically exposed person (PEP), or a family member or close associate of a PEP' />
                 </div>
               </div>
 				</div>

@@ -47,21 +47,21 @@ interface IUser extends Document {
   functionLastEmpl: string;
   companyEmpl: string;
   companyEmplTurnover: string;
-  selfEmpl: boolean;
-  investEarn: boolean;
-  saleOfComp: boolean;
-  payOff: boolean;
-  lotte: boolean;
-  finProd: boolean;
-  initOffer: boolean;
-  gift: boolean;
-  rentalProceeds: boolean;
-  pensionFunds: boolean;
-  salaryIncome: boolean;
-  airdrops: boolean;
-  saleOfEstate: boolean;
-  saleOfValuables: boolean;
-  saleOfOther: boolean;
+  selfEmpl: string;
+  investEarn: string;
+  saleOfComp: string;
+  payOff: string;
+  lotte: string;
+  finProd: string;
+  initOffer: string;
+  gift: string;
+  rentalProceeds: string;
+  pensionFunds: string;
+  salaryIncome: string;
+  airdrops: string;
+  saleOfEstate: string;
+  saleOfValuables: string;
+  saleOfOther: string;
   yearlyIncome1: string;
   yearlyIncome2: string;
   netWealth1: string;
@@ -69,14 +69,14 @@ interface IUser extends Document {
   currency: string;
   ammount: string;
   bankAndCountry: string;
-  noTransfer: boolean;
+  noTransfer: string;
   btc1: string;
   btc2: string;
   eth1: string;
   eth2: string;
-  noTransfer2: boolean;
-  declareBeneficial: boolean;
-  recieveUpdates: boolean;
+  noTransfer2: string;
+  declareBeneficial: string;
+  recieveUpdates: string;
 
   legalEntity: string;
   countryOfCompany: string;
@@ -87,27 +87,27 @@ interface IUser extends Document {
   taxOfID: string;
   countryOfReg: string;
   entityType: string;
-  dateOfIncorp: string;
+  dateOfIncorp: Date;
   websiteOfComp: string;
   emplOfCompany: string;
   lineOfCompany: string;
   turnoverCompany: string;
-  asAnAuthor: boolean;
+  asAnAuthor: string;
   companyRegAddress: string;
   companyRegCity: string;
   companyMailBox: string;
   countryOfCompany2: string;
   postalCompanyCode: string;
-  sameCorrespondenceCompany: boolean;
+  sameCorrespondenceCompany: string;
   fiatCompanyCurrency: string;
   ammountOfCompany: string;
   bankOfCompany: string;
-  noTransfer3: boolean;
+  noTransfer3: string;
   btcCompany1: string;
   btcCompany2: string;
   ethCompany1: string;
   ethCompany2: string;
-  noTransfer4: boolean;
+  noTransfer4: String;
   agreeRecieveCompany: string;
   parties: Array<object>;
   partyName: string;
@@ -164,21 +164,21 @@ const userSchema = new Schema <IUser>({
    functionLastEmpl: {type: String},
    companyEmpl: {type: String},
    companyEmplTurnover: {type: String},
-   selfEmpl: {type: Boolean},
-   investEarn: {type: Boolean},
-   saleOfComp: {type: Boolean},
-   payOff: {type: Boolean},
-   lotte: {type: Boolean},
-   finProd: {type: Boolean},
-   initOffer: {type: Boolean},
-   gift: {type: Boolean},
-   rentalProceeds: {type: Boolean},
-   pensionFunds: {type: Boolean},
-   salaryIncome: {type: Boolean},
-   airdrops: {type: Boolean},
-   saleOfEstate: {type: Boolean},
-   saleOfValuables: {type: Boolean},
-   saleOfOther: {type: Boolean},
+   selfEmpl: {type: String},
+   investEarn: {type: String},
+   saleOfComp: {type: String},
+   payOff: {type: String},
+   lotte: {type: String},
+   finProd: {type: String},
+   initOffer: {type: String},
+   gift: {type: String},
+   rentalProceeds: {type: String},
+   pensionFunds: {type: String},
+   salaryIncome: {type: String},
+   airdrops: {type: String},
+   saleOfEstate: {type: String},
+   saleOfValuables: {type: String},
+   saleOfOther: {type: String},
    yearlyIncome1: {type: String},
    yearlyIncome2: {type: String},
    netWealth1: {type: String},
@@ -186,14 +186,14 @@ const userSchema = new Schema <IUser>({
    currency: {type: String},
    ammount: {type: String},
    bankAndCountry: {type: String},
-   noTransfer: {type: Boolean},
+   noTransfer: {type: String},
    btc1: {type: String},
    btc2: {type: String},
    eth1: {type: String},
    eth2: {type: String},
-   noTransfer2: {type: Boolean},
-   declareBeneficial: {type: Boolean},
-   recieveUpdates: {type: Boolean},
+   noTransfer2: {type: String},
+   declareBeneficial: {type: String},
+   recieveUpdates: {type: String},
 
    legalEntity:{type: String},
    countryOfCompany: {type: String},
@@ -203,27 +203,27 @@ const userSchema = new Schema <IUser>({
    taxOfID: {type: String},
    countryOfReg: {type: String},
    entityType: {type: String},
-   dateOfIncorp: {type: String},
+   dateOfIncorp: {type: Date},
    websiteOfComp: {type: String},
    emplOfCompany: {type: String},
    lineOfCompany: {type: String},
    turnoverCompany: {type: String},
-   asAnAuthor: {type: Boolean},
+   asAnAuthor: {type: String},
    companyRegAddress: {type: String},
    companyRegCity: {type: String},
    companyMailBox: {type: String},
    countryOfCompany2: {type: String},
    postalCompanyCode: {type: String},
-   sameCorrespondenceCompany: {type: Boolean},
+   sameCorrespondenceCompany: {type: String},
    fiatCompanyCurrency: {type: String},
    ammountOfCompany: {type: String},
    bankOfCompany: {type: String},
-   noTransfer3: {type: Boolean},
+   noTransfer3: {type: String},
    btcCompany1: {type: String},
    btcCompany2: {type: String},
    ethCompany1: {type: String},
    ethCompany2: {type: String},
-   noTransfer4: {type: Boolean},
+   noTransfer4: {type: String},
    agreeRecieveCompany: {type: String},
    parties: {type: Array},
    partyName: {type: String},

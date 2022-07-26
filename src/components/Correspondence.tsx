@@ -57,12 +57,12 @@ render() {
                       <p className='us_title' id='corr_txt2'>Correspondence address</p>
                       <p className='wrap_main_checkbox2' ref={this.firstBlue}>
                           <input type='checkbox' onChange={this.changeInputColor11} ref={this.main_checkbox1} className='main_checkbox'/>
-                          <input type='hidden' name='corrAddressAsDom' ref={this.main_checkbox3} form='checkPersonal1' value='Another address' />
+                          <input type='hidden' name='corrAddressAsDom' ref={this.main_checkbox3} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} value='Another address' />
                       </p>
                       <p className='corr_text'>Same as domicile address</p>
                       <p className='wrap_main_checkbox2' ref={this.secondBlue}>
                           <input type='checkbox' onChange={this.changeInputColor22} ref={this.main_checkbox2} className='main_checkbox'/>
-                          <input type='hidden' name='dataProcessed' ref={this.main_checkbox4} form='checkPersonal1' required />
+                          <input type='hidden' name='dataProcessed' ref={this.main_checkbox4} form={typeof window != "undefined" && window.location.pathname == '/personal_details' ? 'checkPersonal1' : 'checkPersonal4'} required />
                       </p>
                       <p className='corr_text'>I agree that my data will be processed</p>
               </div>

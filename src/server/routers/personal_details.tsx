@@ -9,11 +9,13 @@ const router = express.Router();
 
 router.get('/', isLogin, (req: Request, res: Response) => {
   let cond: boolean = req.isAuthenticated();
+  var user:any = req.user;
   const congrats = renderToString(
     <StaticRouter>
        <Personal />
     </StaticRouter>
   )
+  if(user.individual == 'on')
   res.send(
     `<!DOCTYPE html>
         <html>
@@ -31,6 +33,7 @@ router.get('/', isLogin, (req: Request, res: Response) => {
             </body>
         </html>`
     );
+    else {res.redirect('/company_details');}
 });
 
 router.post('/firstForm', async(req, res) => {
